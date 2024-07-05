@@ -2,66 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>localhost/posts/creating-a-new-theme/</loc>
+    <loc>//localhost:1313/posts/creating-a-new-theme/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/posts/migrate-from-jekyll/</loc>
+    <loc>//localhost:1313/posts/migrate-from-jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/posts/creation-dun-nouveau-theme/</loc>
+    <loc>//localhost:1313/posts/creation-dun-nouveau-theme/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/</loc>
+    <loc>//localhost:1313/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/series/hugo-101/</loc>
+    <loc>//localhost:1313/series/hugo-101/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/posts/</loc>
+    <loc>//localhost:1313/posts/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/series/</loc>
+    <loc>//localhost:1313/series/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/about/</loc>
+    <loc>//localhost:1313/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/posts/goisforlovers/</loc>
+    <loc>//localhost:1313/posts/goisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/posts/debuter-avec-hugo/</loc>
+    <loc>//localhost:1313/posts/debuter-avec-hugo/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/tags/development/</loc>
+    <loc>//localhost:1313/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/posts/hugoisforlovers/</loc>
+    <loc>//localhost:1313/posts/hugoisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/tags/go/</loc>
+    <loc>//localhost:1313/tags/go/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/tags/golang/</loc>
+    <loc>//localhost:1313/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/tags/hugo/</loc>
+    <loc>//localhost:1313/tags/hugo/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/posts/introduction-aux-modeles-hugo/</loc>
+    <loc>//localhost:1313/posts/introduction-aux-modeles-hugo/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/tags/</loc>
+    <loc>//localhost:1313/tags/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/tags/templates/</loc>
+    <loc>//localhost:1313/tags/templates/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/tags/themes/</loc>
+    <loc>//localhost:1313/tags/themes/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/posts/migrer-vers-hugo-depuis-jekyll/</loc>
+    <loc>//localhost:1313/posts/migrer-vers-hugo-depuis-jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>localhost/blog/</loc>
+    <loc>//localhost:1313/blog/</loc>
   </url>
 </urlset>
