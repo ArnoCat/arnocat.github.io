@@ -22,7 +22,7 @@ paginate     = 10
   # Metadata mostly used in document's head
   description = "My new homepage or blog"
   keywords = "homepage, blog"
-  images = [""]
+  images = ["/images/background.webp"]
 
 [taxonomies]
     category = "blog"
