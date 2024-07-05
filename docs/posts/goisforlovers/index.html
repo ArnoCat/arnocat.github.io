@@ -7,7 +7,7 @@
 <meta name="author" content="">
 <meta name="description" content="Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
 This document is a brief primer on using Go templates." />
-<meta name="keywords" content=", go, golang, templates, themes, development" />
+<meta name="keywords" content="homepage, blog, go, golang, templates, themes, development" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://arnocat.github.io/posts/goisforlovers/" />
@@ -32,6 +32,12 @@ This document is a brief primer on using Go templates." />
 
 
 
+
+<script src="https://kit.fontawesome.com/0ed5cec925.js" crossorigin="anonymous"></script>
+
+
+
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -48,11 +54,11 @@ This document is a brief primer on using Go templates.">
   <meta itemprop="datePublished" content="2014-04-02T00:00:00+00:00">
   <meta itemprop="dateModified" content="2014-04-02T00:00:00+00:00">
   <meta itemprop="wordCount" content="1487">
-  <meta itemprop="image" content="https://arnocat.github.io/images/background.webp">
+  <meta itemprop="image" content="https://arnocat.github.io/background.webp">
   <meta itemprop="keywords" content="Go,Golang,Templates,Themes,Development">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://arnocat.github.io/images/background.webp">
+  <meta name="twitter:image" content="https://arnocat.github.io/background.webp">
   <meta name="twitter:title" content="(Hu)go Template Primer">
   <meta name="twitter:description" content="Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
 This document is a brief primer on using Go templates.">
@@ -74,7 +80,7 @@ This document is a brief primer on using Go templates.">
     <meta property="article:tag" content="Templates">
     <meta property="article:tag" content="Themes">
     <meta property="article:tag" content="Development">
-    <meta property="og:image" content="https://arnocat.github.io/images/background.webp">
+    <meta property="og:image" content="https://arnocat.github.io/background.webp">
       <meta property="og:see_also" content="https://arnocat.github.io/posts/creating-a-new-theme/">
       <meta property="og:see_also" content="https://arnocat.github.io/posts/migrate-from-jekyll/">
       <meta property="og:see_also" content="https://arnocat.github.io/posts/hugoisforlovers/">
@@ -115,7 +121,7 @@ This document is a brief primer on using Go templates.">
             <span class="logo__text">hello friend ng</span>
             <span class="logo__cursor" style=
                   "
-                   
+                   background-color:#ffffff;
                    ">
             </span>
         
@@ -131,10 +137,58 @@ This document is a brief primer on using Go templates.">
             <div class="submenu">
                 <li class="dropdown">
                     <a href="/posts">
-                        Blog
+                        Posts
                     </a>
                 </li>
             </div>
+            
+        
+            
+            <div class="submenu">
+                <li class="dropdown">
+                    <a href="/#">
+                        About
+                    </a>
+                </li>
+            </div>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/projects">
+                            Projects
+                        </a>
+                        <div class="dropdown-content">
+                            
+                               <a title="Project 1" href="#">
+                                   Project 1
+                                </a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="">
+                            Tools
+                        </a>
+                        <div class="dropdown-content">
+                            
+                               <a title="tool1" href="#">
+                                   tool1
+                                </a>
+                            
+                               <a title="tool2" href="#">
+                                   tool2
+                                </a>
+                            
+                        </div>
+                    </li>
+                </div>
             
         
 
@@ -149,6 +203,11 @@ This document is a brief primer on using Go templates.">
                     </svg>
                 </span>
             
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
         </span>
     </span>
 </header>
@@ -588,11 +647,28 @@ so, such as in this example:</p>
                 <footer class="footer">
     
     
+        <div class="footer__inner">
+            <ul class="icons">
+                
+                <li><a href="https://arnocat.github.io/posts/index.xml" target="_blank" title="rss" class="icon fa-solid fa-rss"></a></li>
+                
+            </ul>
+        </div>
+    
+    
+        <div class="footer__inner">
+            <span>&copy;2024</span>&nbsp;
+            <span><a href="https://arnocat.github.io/"></a></span>&nbsp;
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+        </div>
     
         <div class="footer__inner">
             <div class="footer__content">
             
             
+                <span>Powered by <a href="http://gohugo.io">Hugo</a></span><span>with <a href="https://github.com/coolapso/hugo-theme-hello-4s3ti">Hello-friend-4s3ti</a></span> 
+            </div>
+          
         </div>
 </footer>
 
