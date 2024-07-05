@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating a New Theme</title>
@@ -22,6 +22,13 @@
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/migrate-from-jekyll/</guid>
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like&#xA;▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png should become&#xA;▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+    </item>
+    <item>
+      <title>新建一个hugo博客</title>
+      <link>http://localhost:1313/posts/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</guid>
+      <description>Introduction 从零开始创建一个hugo项目并且部署到github&#xA;环境要求： 下载go 和 git&#xA;创建github库 打开github，创建一个库 输入项目名，要与 Github 用户名一致。比如我的是 arnocat，那么输入的 Repository name 就是 arnocat.github.io，README 不要勾选上。 setting页面选择main / docs文件夹，然后save 多账号github搭建 （此处自选） $ ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; Generating public/private rsa key pair. Enter file in which to save the key (~/.ssh/id_rsa):&amp;lt;为了区分多个key，请填写自定义的名称&amp;gt; $ vim ~/.ssh/config Host github.com Hostname ssh.github.com Port 443 User git IdentityFile ~/.ssh/id_rsa Host github.com-work HostName ssh.github.com Port 443 User git IdentityFile ~/.ssh/id_rsa_work $ ssh-add ~/.ssh/id_rsa ssh-add ~/.</description>
     </item>
     <item>
       <title>Création d&#39;un nouveau thème</title>

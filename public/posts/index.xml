@@ -6,7 +6,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Fri, 05 Jul 2024 00:00:00 +0000</lastBuildDate>
         <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
@@ -968,6 +968,85 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
 <h2 id="a-practical-example-in-a-diff">A practical example in a diff</h2>
 <p><a href="http://heyitsalex.net/">Hey, it&rsquo;s Alex</a> was migrated in less than a <em>father-with-kids day</em> from Jekyll to Hugo. You can see all the changes (and screw-ups) by looking at this <a href="https://github.com/alexandre-normand/alexandre-normand/compare/869d69435bd2665c3fbf5b5c78d4c22759d7613a...b7f6605b1265e83b4b81495423294208cc74d610">diff</a>.</p>
 ]]></content>
+        </item>
+        
+        <item>
+            <title>新建一个hugo博客</title>
+            <link>http://localhost:1313/posts/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</link>
+            <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+            
+            <guid>http://localhost:1313/posts/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</guid>
+            <description>Introduction 从零开始创建一个hugo项目并且部署到github
+环境要求： 下载go 和 git
+创建github库 打开github，创建一个库 输入项目名，要与 Github 用户名一致。比如我的是 arnocat，那么输入的 Repository name 就是 arnocat.github.io，README 不要勾选上。 setting页面选择main / docs文件夹，然后save 多账号github搭建 （此处自选） $ ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; Generating public/private rsa key pair. Enter file in which to save the key (~/.ssh/id_rsa):&amp;lt;为了区分多个key，请填写自定义的名称&amp;gt; $ vim ~/.ssh/config Host github.com Hostname ssh.github.com Port 443 User git IdentityFile ~/.ssh/id_rsa Host github.com-work HostName ssh.github.com Port 443 User git IdentityFile ~/.ssh/id_rsa_work $ ssh-add ~/.ssh/id_rsa ssh-add ~/.</description>
+            <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>从零开始创建一个hugo项目并且部署到github</p>
+<p>环境要求：
+下载go 和 git</p>
+<h2 id="创建github库">创建github库</h2>
+<ol>
+<li>打开github，创建一个库</li>
+<li>输入项目名，要与 Github 用户名一致。比如我的是 arnocat，那么输入的 Repository name 就是 arnocat.github.io，README 不要勾选上。</li>
+<li>setting页面选择main / docs文件夹，然后save</li>
+</ol>
+<h3 id="多账号github搭建-此处自选">多账号github搭建 （此处自选）</h3>
+<pre tabindex="0"><code>$ ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34;
+Generating public/private rsa key pair.
+Enter file in which to save the key (~/.ssh/id_rsa):&lt;为了区分多个key，请填写自定义的名称&gt;
+
+$ vim ~/.ssh/config
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    User git
+    IdentityFile ~/.ssh/id_rsa
+Host github.com-work
+    HostName ssh.github.com
+    Port 443
+    User git
+    IdentityFile ~/.ssh/id_rsa_work
+
+$ ssh-add ~/.ssh/id_rsa  ssh-add ~/.ssh/id_rsa_work
+
+$ ssh -T git@github.com
+
+$ ssh -T git@github.com-work
+</code></pre><h2 id="安装-hugo">安装 Hugo</h2>
+<pre tabindex="0"><code>## 我用的官方最新版，没有用brew install hugo
+$ CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
+$ hugo version
+</code></pre><h2 id="新建hugo网站">新建hugo网站</h2>
+<pre tabindex="0"><code>## 创建一个文件夹
+$ mkdir xxx &amp;&amp; cd xxx
+## git初始化
+$ git init
+## 给当前文件夹设置用户名账号 （多账号的时候使用，单账号可选）
+$ git config user.name xxx
+$ git config user.email xxx
+
+$ git remote add origin git@github.com:xxx/xxx.git
+
+## 下载themes
+$ git submodule add https://github.com/4s3ti/hugo-theme-hello-4s3ti.git themes/hello-4s3ti
+
+## 将exampleSite里面的content 和resources复制到 content里面，将其他的也一一复制到book下面的空文件夹
+
+## 将config.toml里面的内容拷贝到hugo.toml里面
+
+## 使用命令查看是否能本地启动展示，不能根据提示修改即可
+$  hugo server 
+
+## 发布到docs文件夹
+$ hugo -d docs
+
+$ git add . 
+
+$ git commit
+
+$ git push (根据提示可能需要加 -f)
+
+## github编译如有报错，观察错误修改重现打包发布并提交
+</code></pre>]]></content>
         </item>
         
         <item>
