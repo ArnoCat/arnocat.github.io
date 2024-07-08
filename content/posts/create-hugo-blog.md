@@ -8,7 +8,7 @@ featuredpath = "date"
 linktitle = ""
 title = "新建一个hugo博客"
 slug = "新建一个hugo博客"
-type = "post"
+type = "posts"
 +++
 
 ## Introduction

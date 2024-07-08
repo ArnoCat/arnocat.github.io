@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hello Friend NG</title>
+    <title>Hello Word NG</title>
     <link>https://arnocat.github.io/</link>
-    <description>Recent content on Hello Friend NG</description>
+    <description>Recent content on Hello Word NG</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 05 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://arnocat.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker-proto</title>
+      <link>https://arnocat.github.io/posts/creating-docker-proto-image/</link>
+      <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/creating-docker-proto-image/</guid>
+      <description>用go Makefile make -&amp;gt; docker image 生成proto （容器化用法） 为什么使用Makefile 在学习docker命令的时候，发现有人使用Makefile来存储操作，叼爆了。&#xA;因为最开始一个字一个字敲，因为这样会记住命令。但是熟悉了之后，每次想要做一些操作的时候就不得不 重复的输入以前的命令。当切换一个项目之后，又重复输入类似但又不完全相同的命令，仅仅通过history命令加速也比较慢。&#xA;先看实战Makefile示例 编译多个语种的proto文件 .PHONY: compile go java BUILDER_CONTAINER=namely/protoc-all:1.51_2 compile: java go go: docker run --rm -t -w /proto \ -v ${PWD}:/proto ${BUILDER_CONTAINER} \ -l go -o . -d proto java: docker run --rm -t -w /proto \ -v ${PWD}:/proto ${BUILDER_CONTAINER} \ -l java -o java/ -d proto Makefile是什么 Makefile是make命令的规则配置文件。make命令是什么？&#xA;先来看看make在哪里&#xA;$ whereis make make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.1 可以看到make是bin下的以可执行文件。&#xA;make 用户手册 MAKE(1) User Commands MAKE(1) NAME make - GNU make utility to maintain groups of programs SYNOPSIS make [OPTION].</description>
+    </item>
+    <item>
+      <title>docker</title>
+      <link>https://arnocat.github.io/posts/creating-docker/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/creating-docker/</guid>
+      <description>docker </description>
+    </item>
     <item>
       <title>Creating a New Theme</title>
       <link>https://arnocat.github.io/posts/creating-a-new-theme/</link>
