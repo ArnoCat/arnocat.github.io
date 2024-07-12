@@ -12,7 +12,7 @@ IsMultiLingual = true
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04"
   # Subtitle for home
-  homeSubtitle = "A simple and beautiful blog"
+  homeSubtitle = ""
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false

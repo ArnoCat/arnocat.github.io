@@ -7,20 +7,62 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 08 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://arnocat.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>github-action</title>
+      <link>https://arnocat.github.io/posts/github/github-action/</link>
+      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/github/github-action/</guid>
+      <description>docker </description>
+    </item>
+    <item>
+      <title>go-viper</title>
+      <link>https://arnocat.github.io/posts/go/go-viper/</link>
+      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/go/go-viper/</guid>
+      <description>Go 每日一库之 viper viper 是一个配置解决方案，拥有丰富的特性：&#xA;支持 JSON/TOML/YAML/HCL/envfile/Java properties 等多种格式的配置文件； ·可以设置监听配置文件的修改，修改时自动加载新的配置； ·从环境变量、命令行选项和io.Reader中读取配置； ·从远程配置系统中读取和监听修改，如 etcd/Consul； ·代码逻辑中显示设置键值。&#xA;快速使用 安装： $ go get github.com/spf13/viper 示例 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;github.com/spf13/viper&amp;#34; ) func main() { &amp;lt;!-- viper.SetConfigName(&amp;#34;config&amp;#34;) viper.SetConfigType(&amp;#34;toml&amp;#34;) viper.AddConfigPath(&amp;#34;.&amp;#34;) 试过带路径的不适合部署--&amp;gt; viper.SetConfigFile(&amp;#34;config.yml&amp;#34;) viper.SetConfigType(&amp;#34;yaml&amp;#34;) viper.SetDefault(&amp;#34;redis.port&amp;#34;, 6381) if err := viper.ReadInConfig(); err != nil { return nil, err } var cfg Config if err := viper.Unmarshal(&amp;amp;cfg); err != nil { return nil, err } return &amp;amp;cfg, nil } Unmarshal viper 支持将配置Unmarshal到一个结构体中，为结构体中的对应字段赋值。 切记要大写！！！</description>
+    </item>
+    <item>
+      <title>vscode实用功能</title>
+      <link>https://arnocat.github.io/posts/vscode/creating-vscode/</link>
+      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/vscode/creating-vscode/</guid>
+      <description>vscode 实用功能 vscode快捷键 好用插件 vscode好用插件 vscode好用插件</description>
+    </item>
+    <item>
+      <title>从零开始学go</title>
+      <link>https://arnocat.github.io/posts/go/creating-go/</link>
+      <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/go/creating-go/</guid>
+      <description>从零开始学go 1. var _ Interface = (*Type)(nil) 在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是，在编译时强制检查类型实现接口的情况。&#xA;接口声明：首先你需要声明一个接口。例如： type Interface interface { Method1() Method2() } 类型声明并实现接口方法：然后你声明一个类型，并实现接口中的所有方法。例如： type Type struct{} func (t *Type) Method1() { // 实现 Method1 } func (t *Type) Method2() { // 实现 Method2 } 接口实现验证：最后使用 var _ Interface = (*Type)(nil) 来验证 Type 是否实现了 Interface 接口。 var _ Interface = (*Type)(nil) 这一行代码的作用是在编译时确保 *Type 实现了 Interface 接口。如果 *Type 没有实现 Interface 中的所有方法，编译器会报错。 为什么使用这种方式？ 这种方式的好处是显而易见的：</description>
+    </item>
+    <item>
       <title>docker-proto</title>
-      <link>https://arnocat.github.io/posts/creating-docker-proto-image/</link>
+      <link>https://arnocat.github.io/posts/docker/creating-docker-proto-image/</link>
       <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/creating-docker-proto-image/</guid>
+      <guid>https://arnocat.github.io/posts/docker/creating-docker-proto-image/</guid>
       <description>用go Makefile make -&amp;gt; docker image 生成proto （容器化用法） 为什么使用Makefile 在学习docker命令的时候，发现有人使用Makefile来存储操作，叼爆了。&#xA;因为最开始一个字一个字敲，因为这样会记住命令。但是熟悉了之后，每次想要做一些操作的时候就不得不 重复的输入以前的命令。当切换一个项目之后，又重复输入类似但又不完全相同的命令，仅仅通过history命令加速也比较慢。&#xA;先看实战Makefile示例 编译多个语种的proto文件 .PHONY: compile go java BUILDER_CONTAINER=namely/protoc-all:1.51_2 compile: java go go: docker run --rm -t -w /proto \ -v ${PWD}:/proto ${BUILDER_CONTAINER} \ -l go -o . -d proto java: docker run --rm -t -w /proto \ -v ${PWD}:/proto ${BUILDER_CONTAINER} \ -l java -o java/ -d proto Makefile是什么 Makefile是make命令的规则配置文件。make命令是什么？&#xA;先来看看make在哪里&#xA;$ whereis make make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.1 可以看到make是bin下的以可执行文件。&#xA;make 用户手册 MAKE(1) User Commands MAKE(1) NAME make - GNU make utility to maintain groups of programs SYNOPSIS make [OPTION].</description>
     </item>
     <item>
+      <title>general-command</title>
+      <link>https://arnocat.github.io/posts/linux/creating-general-command/</link>
+      <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/linux/creating-general-command/</guid>
+      <description>常用命令 git go $ go env $ env $ env | grep -i proxy GOPROXY=https://goproxy.cn,direct $ curl -I google.com HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Content-Security-Policy-Report-Only: object-src &amp;#39;none&amp;#39;;base-uri &amp;#39;self&amp;#39;;script-src &amp;#39;nonce-L_UKjT9Yze3yROlGcbG9pA&amp;#39; &amp;#39;strict-dynamic&amp;#39; &amp;#39;report-sample&amp;#39; &amp;#39;unsafe-eval&amp;#39; &amp;#39;unsafe-inline&amp;#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp Date: Mon, 08 Jul 2024 09:28:33 GMT network tcp java </description>
+    </item>
+    <item>
       <title>docker</title>
-      <link>https://arnocat.github.io/posts/creating-docker/</link>
+      <link>https://arnocat.github.io/posts/default/</link>
       <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/creating-docker/</guid>
+      <guid>https://arnocat.github.io/posts/default/</guid>
+      <description>docker </description>
+    </item>
+    <item>
+      <title>docker</title>
+      <link>https://arnocat.github.io/posts/docker/creating-docker/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/docker/creating-docker/</guid>
       <description>docker </description>
     </item>
     <item>
@@ -39,9 +81,9 @@
     </item>
     <item>
       <title>新建一个hugo博客</title>
-      <link>https://arnocat.github.io/posts/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</guid>
       <description>Introduction 从零开始创建一个hugo项目并且部署到github&#xA;环境要求： 下载go 和 git&#xA;创建github库 打开github，创建一个库 输入项目名，要与 Github 用户名一致。比如我的是 arnocat，那么输入的 Repository name 就是 arnocat.github.io，README 不要勾选上。 setting页面选择main / docs文件夹，然后save 多账号github搭建 （此处自选） $ ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; Generating public/private rsa key pair. Enter file in which to save the key (~/.ssh/id_rsa):&amp;lt;为了区分多个key，请填写自定义的名称&amp;gt; $ vim ~/.ssh/config Host github.com Hostname ssh.github.com Port 443 User git IdentityFile ~/.ssh/id_rsa Host github.com-work HostName ssh.github.com Port 443 User git IdentityFile ~/.ssh/id_rsa_work $ ssh-add ~/.ssh/id_rsa ssh-add ~/.</description>
     </item>
     <item>

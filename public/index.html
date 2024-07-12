@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
-<meta name="description" content="A simple and beautiful blog" />
-<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="homepage, blog" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://arnocat.github.io/" />
@@ -50,8 +50,8 @@
 
   <meta itemprop="name" content="Hello Word NG">
   <meta itemprop="description" content="My new homepage or blog">
-  <meta itemprop="datePublished" content="2024-07-08T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-07-08T00:00:00+00:00">
+  <meta itemprop="datePublished" content="2024-07-10T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-07-10T00:00:00+00:00">
   <meta itemprop="image" content="https://arnocat.github.io/background.webp">
 
   <meta name="twitter:card" content="summary_large_image">
@@ -200,7 +200,6 @@
         <div>
             <h1></h1>
             
-    <p>A simple and beautiful blog</p>
         
         
             
@@ -214,59 +213,11 @@
                 <div class="posts">
                 
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://arnocat.github.io/posts/creating-docker-proto-image/">docker-proto</a></h1>
+                    <h1 class="post-title"><a href="https://arnocat.github.io/posts/github/github-action/">github-action</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2024-07-08
-                        </span>
-                        
-                            
-
-
-
-                        
-                    
-                        <br>
-                    
-                        <i class="fa-solid fa-clock"></i>
-                        4 minutes
-                    
-                    </div>
-                    
-                        <span class="post-tags">
-                        
-                        </span>
-                    
-                    <div class="post-content">
-                        
-                            
-                                用go Makefile make -&gt; docker image 生成proto （容器化用法） 为什么使用Makefile 在学习docker命令的时候，发现有人使用Makefile来存储操作，叼爆了。
-因为最开始一个字一个字敲，因为这样会记住命令。但是熟悉了之后，每次想要做一些操作的时候就不得不 重复的输入以前的命令。当切换一个项目之后，又重复输入类似但又不完全相同的命令，仅仅通过history命令加速也比较慢。
-先看实战Makefile示例 编译多个语种的proto文件 .PHONY: compile go java BUILDER_CONTAINER=namely/protoc-all:1.51_2 compile: java go go: docker run --rm -t -w /proto \ -v ${PWD}:/proto ${BUILDER_CONTAINER} \ -l go -o . -d proto java: docker run --rm -t -w /proto \ -v ${PWD}:/proto ${BUILDER_CONTAINER} \ -l java -o java/ -d proto Makefile是什么 Makefile是make命令的规则配置文件。make命令是什么？
-先来看看make在哪里
-$ whereis make make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.1 可以看到make是bin下的以可执行文件。
-make 用户手册 MAKE(1) User Commands MAKE(1) NAME make - GNU make utility to maintain groups of programs SYNOPSIS make [OPTION].
-                            
-                        
-                    </div>
-                    
-                        
-                        <div> 
-                            <a class="read-more" href="/posts/creating-docker-proto-image/">
-                                Read more ...
-                            </a>
-                        </div>
-                        
-                    
-                </div> 
-            
-                <div class="post on-list">
-                    <h1 class="post-title"><a href="https://arnocat.github.io/posts/creating-docker/">docker</a></h1>
-                    <div class="post-meta">
-                    
-                        <span class="post-date">
-                        2024-07-07
+                        2024-07-10
                         </span>
                         
                             
@@ -294,7 +245,52 @@ make 用户手册 MAKE(1) User Commands MAKE(1) NAME make - GNU make utility to 
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/creating-docker/">
+                            <a class="read-more" href="/posts/github/github-action/">
+                                Read more ...
+                            </a>
+                        </div>
+                        
+                    
+                </div> 
+            
+                <div class="post on-list">
+                    <h1 class="post-title"><a href="https://arnocat.github.io/posts/go/go-viper/">go-viper</a></h1>
+                    <div class="post-meta">
+                    
+                        <span class="post-date">
+                        2024-07-10
+                        </span>
+                        
+                            
+
+
+
+                        
+                    
+                        <br>
+                    
+                        <i class="fa-solid fa-clock"></i>
+                        One minute
+                    
+                    </div>
+                    
+                        <span class="post-tags">
+                        
+                        </span>
+                    
+                    <div class="post-content">
+                        
+                            
+                                Go 每日一库之 viper viper 是一个配置解决方案，拥有丰富的特性：
+支持 JSON/TOML/YAML/HCL/envfile/Java properties 等多种格式的配置文件； ·可以设置监听配置文件的修改，修改时自动加载新的配置； ·从环境变量、命令行选项和io.Reader中读取配置； ·从远程配置系统中读取和监听修改，如 etcd/Consul； ·代码逻辑中显示设置键值。
+快速使用 安装： $ go get github.com/spf13/viper 示例 package main import ( &#34;fmt&#34; &#34;log&#34; &#34;github.com/spf13/viper&#34; ) func main() { &lt;!-- viper.SetConfigName(&#34;config&#34;) viper.SetConfigType(&#34;toml&#34;) viper.AddConfigPath(&#34;.&#34;) 试过带路径的不适合部署--&gt; viper.SetConfigFile(&#34;config.yml&#34;) viper.SetConfigType(&#34;yaml&#34;) viper.SetDefault(&#34;redis.port&#34;, 6381) if err := viper.ReadInConfig(); err != nil { return nil, err } var cfg Config if err := viper.Unmarshal(&amp;cfg); err != nil { return nil, err } return &amp;cfg, nil } Unmarshal viper 支持将配置Unmarshal到一个结构体中，为结构体中的对应字段赋值。 切记要大写！！！
+                            
+                        
+                    </div>
+                    
+                        
+                        <div> 
+                            <a class="read-more" href="/posts/go/go-viper/">
                                 Read more ...
                             </a>
                         </div>
