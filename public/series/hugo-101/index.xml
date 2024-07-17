@@ -2,95 +2,95 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo 101 on Hello Word NG</title>
-    <link>https://arnocat.github.io/series/hugo-101/</link>
+    <link>http://localhost:1313/series/hugo-101/</link>
     <description>Recent content in Hugo 101 on Hello Word NG</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 10 Jul 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://arnocat.github.io/series/hugo-101/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/series/hugo-101/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>github-action</title>
-      <link>https://arnocat.github.io/posts/github/github-action/</link>
+      <link>http://localhost:1313/posts/github/github-action/</link>
       <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/github/github-action/</guid>
-      <description>docker </description>
+      <guid>http://localhost:1313/posts/github/github-action/</guid>
+      <description>git命令 不应用当前分支的修改，单纯地切换分支 # 保存dev分支的修改到堆栈中 $ git stash # 切换master分支 $ git checkout master # 切回dev分支 $ git checkout dev # 获取堆栈列表 $ git stash list # 对比本地与堆栈条目差异 $ git stash show stash@{0} # 对比本地与堆栈条目详细代码差异 $ git stash show stash@{0} -p # 取回堆栈最新的修改 $ git stash 应用当前分支的修改到切换的分支中 # 保存dev分支的修改到堆栈中 $ git stash # 切换master分支 $ git checkout master # 取回堆栈最新的修改 $ git stash pop # 或者取回堆栈指定的修改 $ git stash apply stash@{0} </description>
     </item>
     <item>
       <title>go-viper</title>
-      <link>https://arnocat.github.io/posts/go/go-viper/</link>
+      <link>http://localhost:1313/posts/go/go-viper/</link>
       <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/go/go-viper/</guid>
+      <guid>http://localhost:1313/posts/go/go-viper/</guid>
       <description>Go 每日一库之 viper viper 是一个配置解决方案，拥有丰富的特性：&#xA;支持 JSON/TOML/YAML/HCL/envfile/Java properties 等多种格式的配置文件； ·可以设置监听配置文件的修改，修改时自动加载新的配置； ·从环境变量、命令行选项和io.Reader中读取配置； ·从远程配置系统中读取和监听修改，如 etcd/Consul； ·代码逻辑中显示设置键值。&#xA;快速使用 安装： $ go get github.com/spf13/viper 示例 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;github.com/spf13/viper&amp;#34; ) func main() { &amp;lt;!-- viper.SetConfigName(&amp;#34;config&amp;#34;) viper.SetConfigType(&amp;#34;toml&amp;#34;) viper.AddConfigPath(&amp;#34;.&amp;#34;) 试过带路径的不适合部署--&amp;gt; viper.SetConfigFile(&amp;#34;config.yml&amp;#34;) viper.SetConfigType(&amp;#34;yaml&amp;#34;) viper.SetDefault(&amp;#34;redis.port&amp;#34;, 6381) if err := viper.ReadInConfig(); err != nil { return nil, err } var cfg Config if err := viper.Unmarshal(&amp;amp;cfg); err != nil { return nil, err } return &amp;amp;cfg, nil } Unmarshal viper 支持将配置Unmarshal到一个结构体中，为结构体中的对应字段赋值。 切记要大写！！！</description>
     </item>
     <item>
       <title>vscode实用功能</title>
-      <link>https://arnocat.github.io/posts/vscode/creating-vscode/</link>
+      <link>http://localhost:1313/posts/vscode/creating-vscode/</link>
       <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/vscode/creating-vscode/</guid>
-      <description>vscode 实用功能 vscode快捷键 好用插件 vscode好用插件 vscode好用插件</description>
+      <guid>http://localhost:1313/posts/vscode/creating-vscode/</guid>
+      <description>vscode 实用功能 vscode测试获取go的环境变量 1.创建launch.json文件 2.然后在项目目录中会自动创建.vscode的目录 3.在.vscode目录下创建settings.json项目独立配置文件 4.在settings.json中写入 { &amp;#34;go.testEnvFile&amp;#34;: &amp;#34;${workspaceFolder}/.vscode/.env&amp;#34; } 5. .vscode下创建.env文件 APPID=22222222 APPSECRET=1234567 6.代码中如何获取环境变量 var conf = &amp;amp;Config{} type Config struct { APPID string APPSECRET string } conf.APPID = os.Getenv(&amp;#34;APPID&amp;#34;) conf.APPSECRET = os.Getenv(&amp;#34;APPSECRET&amp;#34;) vscode快捷键 (mac版) 好用插件 vscode好用插件 vscode好用插件</description>
     </item>
     <item>
       <title>从零开始学go</title>
-      <link>https://arnocat.github.io/posts/go/creating-go/</link>
+      <link>http://localhost:1313/posts/go/creating-go/</link>
       <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/go/creating-go/</guid>
+      <guid>http://localhost:1313/posts/go/creating-go/</guid>
       <description>从零开始学go 1. var _ Interface = (*Type)(nil) 在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是，在编译时强制检查类型实现接口的情况。&#xA;接口声明：首先你需要声明一个接口。例如： type Interface interface { Method1() Method2() } 类型声明并实现接口方法：然后你声明一个类型，并实现接口中的所有方法。例如： type Type struct{} func (t *Type) Method1() { // 实现 Method1 } func (t *Type) Method2() { // 实现 Method2 } 接口实现验证：最后使用 var _ Interface = (*Type)(nil) 来验证 Type 是否实现了 Interface 接口。 var _ Interface = (*Type)(nil) 这一行代码的作用是在编译时确保 *Type 实现了 Interface 接口。如果 *Type 没有实现 Interface 中的所有方法，编译器会报错。 为什么使用这种方式？ 这种方式的好处是显而易见的：</description>
     </item>
     <item>
       <title>docker-proto</title>
-      <link>https://arnocat.github.io/posts/docker/creating-docker-proto-image/</link>
+      <link>http://localhost:1313/posts/docker/creating-docker-proto-image/</link>
       <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/docker/creating-docker-proto-image/</guid>
+      <guid>http://localhost:1313/posts/docker/creating-docker-proto-image/</guid>
       <description>用go Makefile make -&amp;gt; docker image 生成proto （容器化用法） 为什么使用Makefile 在学习docker命令的时候，发现有人使用Makefile来存储操作，叼爆了。&#xA;因为最开始一个字一个字敲，因为这样会记住命令。但是熟悉了之后，每次想要做一些操作的时候就不得不 重复的输入以前的命令。当切换一个项目之后，又重复输入类似但又不完全相同的命令，仅仅通过history命令加速也比较慢。&#xA;先看实战Makefile示例 编译多个语种的proto文件 .PHONY: compile go java BUILDER_CONTAINER=namely/protoc-all:1.51_2 compile: java go go: docker run --rm -t -w /proto \ -v ${PWD}:/proto ${BUILDER_CONTAINER} \ -l go -o . -d proto java: docker run --rm -t -w /proto \ -v ${PWD}:/proto ${BUILDER_CONTAINER} \ -l java -o java/ -d proto Makefile是什么 Makefile是make命令的规则配置文件。make命令是什么？&#xA;先来看看make在哪里&#xA;$ whereis make make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.1 可以看到make是bin下的以可执行文件。&#xA;make 用户手册 MAKE(1) User Commands MAKE(1) NAME make - GNU make utility to maintain groups of programs SYNOPSIS make [OPTION].</description>
     </item>
     <item>
       <title>general-command</title>
-      <link>https://arnocat.github.io/posts/linux/creating-general-command/</link>
+      <link>http://localhost:1313/posts/linux/creating-general-command/</link>
       <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/linux/creating-general-command/</guid>
-      <description>常用命令 git go $ go env $ env $ env | grep -i proxy GOPROXY=https://goproxy.cn,direct $ curl -I google.com HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Content-Security-Policy-Report-Only: object-src &amp;#39;none&amp;#39;;base-uri &amp;#39;self&amp;#39;;script-src &amp;#39;nonce-L_UKjT9Yze3yROlGcbG9pA&amp;#39; &amp;#39;strict-dynamic&amp;#39; &amp;#39;report-sample&amp;#39; &amp;#39;unsafe-eval&amp;#39; &amp;#39;unsafe-inline&amp;#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp Date: Mon, 08 Jul 2024 09:28:33 GMT network tcp java </description>
+      <guid>http://localhost:1313/posts/linux/creating-general-command/</guid>
+      <description>常用命令 git go $ go env $ env $ env | grep -i proxy GOPROXY=https://goproxy.cn,direct $ curl -I google.com HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Content-Security-Policy-Report-Only: object-src &amp;#39;none&amp;#39;;base-uri &amp;#39;self&amp;#39;;script-src &amp;#39;nonce-L_UKjT9Yze3yROlGcbG9pA&amp;#39; &amp;#39;strict-dynamic&amp;#39; &amp;#39;report-sample&amp;#39; &amp;#39;unsafe-eval&amp;#39; &amp;#39;unsafe-inline&amp;#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp Date: Mon, 08 Jul 2024 09:28:33 GMT 查看端口 Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。&#xA;lsof $ lsof -i:端口号 $ lsof -i:8080：查看8080端口占用 $ lsof abc.txt：显示开启文件abc.txt的进程 $ lsof -c abc：显示abc进程现在打开的文件 $ lsof -c -p 1234：列出进程号为1234的进程所打开的文件 $ lsof -g gid：显示归属gid的进程情况 $ lsof +d /usr/local/：显示目录下被进程开启的文件 $ lsof +D /usr/local/：同上，但是会搜索目录下的目录，时间较长 $ lsof -d 4：显示使用fd为4的进程 $ lsof -i -U：显示所有打开的端口和UNIX domain文件 netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况。 -t (tcp) 仅显示tcp相关选项 -u (udp)仅显示udp相关选项 -n 拒绝显示别名，能显示数字的全部转化为数字 -l 仅列出在Listen(监听)的服务状态 -p 显示建立相关链接的程序名</description>
     </item>
     <item>
       <title>docker</title>
-      <link>https://arnocat.github.io/posts/default/</link>
+      <link>http://localhost:1313/posts/default/</link>
       <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/default/</guid>
+      <guid>http://localhost:1313/posts/default/</guid>
       <description>docker </description>
     </item>
     <item>
       <title>docker</title>
-      <link>https://arnocat.github.io/posts/docker/creating-docker/</link>
+      <link>http://localhost:1313/posts/docker/creating-docker/</link>
       <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/docker/creating-docker/</guid>
-      <description>docker </description>
+      <guid>http://localhost:1313/posts/docker/creating-docker/</guid>
+      <description>DockerFile编写 </description>
     </item>
     <item>
       <title>Creating a New Theme</title>
-      <link>https://arnocat.github.io/posts/creating-a-new-theme/</link>
+      <link>http://localhost:1313/posts/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/creating-a-new-theme/</guid>
+      <guid>http://localhost:1313/posts/creating-a-new-theme/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&#xA;We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     <item>
       <title>Migrate to Hugo from Jekyll</title>
-      <link>https://arnocat.github.io/posts/migrate-from-jekyll/</link>
+      <link>http://localhost:1313/posts/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/migrate-from-jekyll/</guid>
+      <guid>http://localhost:1313/posts/migrate-from-jekyll/</guid>
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like&#xA;▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png should become&#xA;▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
     </item>
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>https://arnocat.github.io/posts/goisforlovers/</link>
+      <link>http://localhost:1313/posts/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/goisforlovers/</guid>
+      <guid>http://localhost:1313/posts/goisforlovers/</guid>
       <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.&#xA;This document is a brief primer on using Go templates.</description>
     </item>
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://arnocat.github.io/posts/hugoisforlovers/</link>
+      <link>http://localhost:1313/posts/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/hugoisforlovers/</guid>
+      <guid>http://localhost:1313/posts/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.&#xA;Save it somewhere specific as we will be using it in the next step.&#xA;More complete instructions are available at Install Hugo&#xA;Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.&#xA;Follow the following steps:&#xA;Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313 Corresponding pseudo commands:</description>
     </item>
   </channel>

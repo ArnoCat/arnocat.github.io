@@ -1,39 +1,52 @@
-# Translations for English
-# https://gohugo.io/content-management/multilingual/#translation-of-strings
-
-# Generic
-#
-[translations]
-other = "Çeviriler"
-
-[postAvailable]
-other = "Ayrıca"
-
-
-# 404.html
-#
-[archives]
-other = "Arşiv"
-
 [home]
 other = "Ana Sayfa"
 
-[notFound]
-other = "Sayfa bulunamadı…"
+[backToHome]
+other = "Ana sayfaya geri dön"
 
+[flip]
+other = "Çevir!"
 
-# posts/single.html
-#
-[readingTime]
-one   = "Bir dakika"
-other = "{{ .Count }} dakika"
+[archives]
+other = "Arşivler"
 
-[tableOfContents]
-other = "İçindekiler"
+[allTags]
+other = "Tüm etiketler"
 
-[wordCount]
-one   = "One Kelime"
-other = "{{ .Count }} Kelime"
+[tag]
+one = "1 etiket"
+other = "{{ .Count }} etiket"
 
-[lastModified]
-other = "Son güncelleme"
+[allCategories]
+other = "Tüm kategoriler"
+
+[category]
+one = "1 kategori"
+other = "{{ .Count }} kategori"
+
+[article]
+one = "1 makale"
+other = "{{ .Count }} makale"
+
+[group]
+one = "1 grup"
+other = "{{ .Count }} grup"
+
+[socialLinks]
+other = "Sosyal Bağlantılar"
+
+[minuteRead]
+one = " dakika okuma süresi"
+other = " dakika okuma süresi"
+
+[updateAt]
+other = "Güncellenme tarihi"
+
+[prevPage]
+other = "Önceki sayfa"
+
+[nextPage]
+other = "Sonraki sayfa"
+
+[search]
+other = "Arama"

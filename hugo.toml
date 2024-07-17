@@ -1,107 +1,59 @@
-baseurl      = "https://arnocat.github.io"
-title        = "My Blog"
-languageCode = "en-us"
-theme        = "hello-4s3ti"
-paginate     = 10
-copyright = "All Rights Reserved"
-IsMultiLingual = true
+baseurl = "https://arnocat.github.io"
+languageCode = "zh"
+defaultContentLanguage = "zh"
+enableRobotsTXT = true
+hasCJKLanguage = true
+title = "Arno"
+theme = "dream"
+
+# [services]
+# [services.disqus]
+# shortname = ""
+# [services.googleAnalytics]
+# ID = ""
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04"
-  # Subtitle for home
-  homeSubtitle = ""
+lightTheme = "emerald"
+darkTheme = "forest"
 
-  # Set disableReadOtherPosts to true in order to hide the links to other posts.
-  disableReadOtherPosts = false
-  defaultTheme = "dark"
-  EnableThemeToggle = true
-  EnableSharingButtons = true
-  EnableGlobalLanguageMenu = true
-  backgroundImage = "static/coolapso.webp"
-  backgroundEffects = true
-  showPosts = true
-  tags = true
-  ReadMoreText = true
-  fontAwesome = { KitURL = "https://kit.fontawesome.com/0ed5cec925.js" }
-  ShowReadingTime = true
-  LastModDisplay = true
-  logo = { logoText = "coolapso.sh", logoCursorColor = "#ffffff" }
-  footer = { showVersion = true, socialIcons = true, author = true, rss = true, trademark = true, copyright = true, bottomText = ["Powered by <a href=\"http://gohugo.io\">Hugo</a>", "with <a href=\"https://github.com/coolapso/hugo-theme-hello-4s3ti\">Hello-friend-4s3ti</a>"] }
+backgroundImage = "/background.jpg"
+backgroundImageDark = ""
 
-  # Metadata mostly used in document's head
-  description = "My new homepage or blog"
-  keywords = "homepage, blog"
-  images = ["background.webp"]
+author = "Arno"
+description = "Arno 的生活记录~"
+avatar = "/img/avatar.png"
+headerTitle = "arno cat home"
+motto = "与其感慨路难行，不如马上出发"
 
-[taxonomies]
-    category = "blog"
-    tag      = "tags"
-    series   = "series"
+# footerBottomText = ""
 
-[languages]
-  [languages.en]
-    title = "Hello Word NG"
-    subtitle = "Hello Word"
-    keywords = ""
-    copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-    readOtherPosts = "Read other posts"
+rss = true
 
-    [languages.en.params.logo]
-      logoText = "hello word ng"
-      logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
+utterancesRepo = "arnocat/arnocat.github.io"
 
-  # And you can even create generic menu
-    weight = 2
-    params = { backgroundImage = "../static/coolapso.webp" }
+# valine = true
+# LEANCLOUD_APP_ID = ""
+# LEANCLOUD_APP_KEY = ""
+# VALINE_LANGUAGE = ""
 
-    [[languages.en.menu.main]]
-      identifier = "posts"
-      name = "Posts"
-      url = "/posts"
-      weight = 1
+email = "q243284589@gmail.com"
 
-    [[languages.en.menu.main]]
-      identifier = "about"
-      name = "About"
-      url = "#"
-      weight = 2
+siteStartYear = 2016
 
-    [[languages.en.menu.main]]
-      identifier = "projects"
-      name = "Projects"
-      url = "/projects"
+favicon = "/images/favicon.ico"
 
-    [[languages.en.menu.main]]
-      identifier = "Project 1"
-      name = "Project 1"
-      url = "#"
-      parent = "projects"
+# Syntax highlighting
+# customSyntaxHighlighting = true
 
-    [[languages.en.menu.main]]
-      identifier = "tools"
-      name = "Tools"
+# options
+stickyNav = true
+showSummaryCoverInPost = true
+# hasTwitterEmbed = true
 
-    [[languages.en.menu.main]]
-      identifier = "tool1"
-      name = "tool1"
-      url = "#"
-      parent = "tools"
+[params.advanced]
+# customCSS = ["css/custom.css"]
+# customJS = []
 
-    [[languages.en.menu.main]]
-      identifier = "Tool2"
-      name = "tool2"
-      url = '#'
-      parent = "tools"
-
-[menu]
-  [[menu.main]]
-    identifier = "blog"
-    name       = "Blog"
-    url        = "/posts"
+[params.experimental]
+jsDate = true
+jsDateFormat = "yyyy年MM月dd日"

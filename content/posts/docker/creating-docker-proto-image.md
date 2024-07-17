@@ -52,7 +52,7 @@ make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.
 
 ```
 
-可以看到make是bin下的以可执行文件。 
+可以看到make是bin下的以可执行文件。
 
 #### make 用户手册
 ```
@@ -110,9 +110,9 @@ airflow@88e36c088b81:~$ cat /etc/issue
 Debian GNU/Linux 9 \n \l
 
 ## RedHat
-[root@data-docker001 docker-airflow]# cat /etc/redhat-release 
-CentOS Linux release 7.4.1708 (Core) 
-[root@data-docker001 docker-airflow]# uname -a                
+[root@data-docker001 docker-airflow]# cat /etc/redhat-release
+CentOS Linux release 7.4.1708 (Core)
+[root@data-docker001 docker-airflow]# uname -a
 Linux data-docker001 3.10.0-693.2.2.el7.x86_64 #1 SMP Tue Sep 12 22:26:13 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 
 ```
@@ -136,7 +136,7 @@ $ name=arno
 #### 声明规则Rule
 Makefile文件由一系列规则（rules）构成。每条规则的形式如下。
 ```
-<target> : <prerequisites> 
+<target> : <prerequisites>
 [tab]  <commands>
 
 ```
@@ -181,9 +181,9 @@ make build && make start && make push
 ### docker run images 里面镜像每个命令的作用
 ```
 gen-proto生成grpc和protobuf@即
- 
+
 用法：gen proto-f my-service.proto-l go
- 
+
 选项：
 -h、 --help显示帮助
 -f FILE要生成的原型源文件
@@ -235,5 +235,5 @@ gen-proto生成grpc和protobuf@即
 
  https://www.ruanyifeng.com/blog/2015/02/make.html
 
- https://blog.csdn.net/icycolawater/article/details/77921688 
+ https://blog.csdn.net/icycolawater/article/details/77921688
 

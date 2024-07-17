@@ -1,39 +1,45 @@
-# Translations for Spanish
-# https://gohugo.io/content-management/multilingual/#translation-of-strings
-
-# Generic
-#
-[translations]
-other = "Traducciones"
-
-[postAvailable]
-other = "También disponible en"
-
-
-# 404.html
-#
-[archives]
-other = "Archivo"
-
 [home]
-other = "Home"
+other = "Inicio"
 
-[notFound]
-other = "Oops, página no encontrada…"
+[backToHome]
+other = "Volver a inicio"
 
+[flip]
+other = "Voltear!"
 
-# posts/single.html
-#
-[readingTime]
-one   = "Un minuto"
-other = "{{ .Count }} minutos"
+[archives]
+other = "Archivos"
 
-[tableOfContents]
-other = "Tabla de Contenido"
+[allTags]
+other = "Todas las etiquetas"
 
-[wordCount]
-one   = "Una Palabra"
-other = "{{ .Count }} Palabras"
+[tag]
+one = "1 etiqueta"
+other = "{{ .Count }} etiquetas"
 
-[lastModified]
-other = "Ultima actualización"
+[allCategories]
+other = "Todas las categorías"
+
+[category]
+one = "1 categoría"
+other = "{{ .Count }} categorías"
+
+[article]
+one = "1 artículo"
+other = "{{ .Count }} artículos"
+
+[socialLinks]
+other = "Enlaces sociales"
+
+[minuteRead]
+one = " minuto de lectura"
+other = " minutos de lectura"
+
+[updateAt]
+other = "Actualizado en"
+
+[prevPage]
+other = "Página anterior"
+
+[nextPage]
+other = "Página siguiente"

@@ -1,43 +1,56 @@
-# Translations for Russian
-# https://gohugo.io/content-management/multilingual/#translation-of-strings
-
-# Generic
-#
-[translations]
-other = "Переводы"
-
-[postAvailable]
-other = "Доступно на "
-
-
-# 404.html
-#
-[archives]
-other = "Архивы"
-
 [home]
 other = "Главная"
 
-[notFound]
-other = "Упс, страница не найдена…"
+[backToHome]
+other = "На главную"
 
+[flip]
+other = "Повернуть!"
 
-# posts/single.html
-#
-[readingTime]
-one   = "{{ .Count }} минута"
-few   = "{{ .Count }} минуты"
-many  = "{{ .Count }} минут"
-other = "{{ .Count }} минут"
+[archives]
+other = "Архивы"
 
-[tableOfContents]
-other = "Содержимое"
+[allTags]
+other = "Все теги"
 
-[wordCount]
-one   = "{{ .Count }} слово"
-few   = "{{ .Count }} слова"
-many  = "{{ .Count }} слов"
-other = "{{ .Count }} слов"
+[tag]
+one = "1 тег"
+few = "{{ .Count }} тега"
+many = "{{ .Count }} тегов"
+other = "{{ .Count }} тегов"
 
-[lastModified]
-other = "Последнее обновление"
+[allCategories]
+other = "Все категории"
+
+[category]
+one = "1 категория"
+few = "{{ .Count }} категории"
+many = "{{ .Count }} категорий"
+other = "{{ .Count }} категорий"
+
+[article]
+one = "1 статья"
+few = "{{ .Count }} статьи"
+many = "{{ .Count }} статей"
+other = "{{ .Count }} статей"
+
+[socialLinks]
+other = "Социальные сети"
+
+[minuteRead]
+one = " минута чтения"
+few = " минуты чтения"
+many = " минут чтения"
+other = " минут чтения"
+
+[updateAt]
+other = "Обновлено"
+
+[prevPage]
+other = "Предыдущая"
+
+[nextPage]
+other = "Следующая"
+
+[search]
+other = "Поиск"

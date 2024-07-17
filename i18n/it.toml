@@ -1,39 +1,48 @@
-# Translations for English
-# https://gohugo.io/content-management/multilingual/#translation-of-strings
-
-# Generic
-#
-[translations]
-other = "Traduzioni"
-
-[postAvailable]
-other = "Disponibile anche in"
-
-
-# 404.html
-#
-[archives]
-other = "Archivi"
-
 [home]
 other = "Home"
 
-[notFound]
-other = "Oops, pagina non trovata…"
+[backToHome]
+other = "Torna alla home"
 
+[flip]
+other = "Flip it!"
 
-# posts/single.html
-#
-[readingTime]
-one   = "Un minuto"
-other = "{{ .Count }} minuti"
+[archives]
+other = "Archivi"
 
-[tableOfContents]
-other = "Contenuti"
+[allTags]
+other = "Tutti i Tag"
 
-[wordCount]
-one   = "Una parola"
-other = "{{ .Count }} parole"
+[tag]
+one = "Un tag"
+other = "{{ .Count }} tag"
 
-[lastModified]
-other = "Ultimo aggiornamento"
+[allCategories]
+other = "Tutte le categorie"
+
+[category]
+one = "Una categoria"
+other = "{{ .Count }} categorie"
+
+[article]
+one = "Un articolo"
+other = "{{ .Count }} articoli"
+
+[socialLinks]
+other = "Social"
+
+[minuteRead]
+one = " minuto"
+other = " minuti"
+
+[updateAt]
+other = "Aggiornato al"
+
+[prevPage]
+other = "Pagina precedente"
+
+[nextPage]
+other = "Pagina successiva"
+
+[search]
+other = "Cerca"
