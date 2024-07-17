@@ -40,7 +40,7 @@ email = "q243284589@gmail.com"
 
 siteStartYear = 2016
 
-favicon = "/images/favicon.ico"
+favicon = "/img/favicon.ico"
 
 # Syntax highlighting
 customSyntaxHighlighting = true
