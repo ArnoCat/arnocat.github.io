@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>general-command | Arno</title>
+    <title>搜索 | Arno</title>
 
     
 <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -14,29 +14,26 @@
 
 
 
-<meta name="author" content="map[name:arno]" />
-<meta name="description" content="常用命令 git go $ go env $ env $ env | grep -i proxy GOPROXY=https://goproxy.cn,direct $ curl -I google.com HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Content-Security-Policy-Report-Only: object-src &amp;#39;none&amp;#39;;base-uri &amp;#39;self&amp;#39;;script-src &amp;#39;nonce-L_UKjT9Yze3yROlGcbG9pA&amp;#39; &amp;#39;strict-dynamic&amp;#39; &amp;#39;report-sample&amp;#39; &amp;#39;unsafe-eval&amp;#39; &amp;#39;unsafe-inline&amp;#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp Date: Mon, 08 Jul 2024 09:28:33 GMT 查看端口 Linux 查看端口占用情况可以使用 lsof 和 netstat" />
+<meta name="author" content="Arno" />
+<meta name="description" content="Arno 的生活记录~" />
 
 
-<link rel="canonical" href="https://arnocat.github.io/posts/linux/creating-general-command/" />
+<link rel="canonical" href="https://arnocat.github.io/search/" />
 
 
-<meta property="og:url" content="https://arnocat.github.io/posts/linux/creating-general-command/">
+<meta property="og:url" content="https://arnocat.github.io/search/">
   <meta property="og:site_name" content="Arno">
-  <meta property="og:title" content="general-command">
-  <meta property="og:description" content="常用命令 git go $ go env $ env $ env | grep -i proxy GOPROXY=https://goproxy.cn,direct $ curl -I google.com HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Content-Security-Policy-Report-Only: object-src &#39;none&#39;;base-uri &#39;self&#39;;script-src &#39;nonce-L_UKjT9Yze3yROlGcbG9pA&#39; &#39;strict-dynamic&#39; &#39;report-sample&#39; &#39;unsafe-eval&#39; &#39;unsafe-inline&#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp Date: Mon, 08 Jul 2024 09:28:33 GMT 查看端口 Linux 查看端口占用情况可以使用 lsof 和 netstat">
+  <meta property="og:title" content="Arno">
+  <meta property="og:description" content="Arno 的生活记录~">
   <meta property="og:locale" content="zh">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-07-08T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-07-08T00:00:00+00:00">
+  <meta property="og:type" content="website">
 
 
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="general-command">
-  <meta name="twitter:description" content="常用命令 git go $ go env $ env $ env | grep -i proxy GOPROXY=https://goproxy.cn,direct $ curl -I google.com HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Content-Security-Policy-Report-Only: object-src &#39;none&#39;;base-uri &#39;self&#39;;script-src &#39;nonce-L_UKjT9Yze3yROlGcbG9pA&#39; &#39;strict-dynamic&#39; &#39;report-sample&#39; &#39;unsafe-eval&#39; &#39;unsafe-inline&#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp Date: Mon, 08 Jul 2024 09:28:33 GMT 查看端口 Linux 查看端口占用情况可以使用 lsof 和 netstat">
+  <meta name="twitter:title" content="Arno">
+  <meta name="twitter:description" content="Arno 的生活记录~">
 
 
 
@@ -55,27 +52,7 @@
 </style>
 
 
-    
-
-
-<link rel="stylesheet" data-custom-syntax-highlighting />
-<style>
-  .chroma {
-    padding: 1em;
-    background-color: var(--dream-pre-bg, #f5f5f5);
-    border-radius: .5em;
-    overflow: auto;
-  }
-
-  html.dark .chroma {
-    background-color: var(--dream-pre-bg-dark, #262626);
-  }
-</style>
-
-
-
-
-
+     
 
     
 
@@ -211,128 +188,57 @@
         <section class="front">
           <div class="container">
             
-<div class="mt-4 px-4">
-  <section class="mx-auto prose dark:prose-invert" id="dream-single-page">
-    <header>
-      <h1>general-command</h1>
-      <p class="text-sm">
-        
-          <span data-format="luxon">2024-07-08T00:00:00Z</span>
-        
 
-        | <span>1 分钟阅读</span>
+<div class="mt-8 lg:mt-12 px-4" x-data="{
+  search: '',
+  get posts() { return this.search !== '' ? window.fuse.search(this.search) : [] },
+}">
+  <label class="input input-bordered flex items-center gap-2">
+    <input type="text" class="grow" placeholder="搜索" x-model.debounce="search" />
+    <ion-icon name="search"></ion-icon>
+  </label>
 
-        
-        | <span>更新于
-          
-            <span data-format="luxon">2024-07-08T00:00:00Z</span>
-          </span>
-        
-      </p>
-      <div class="flex justify-between">
-        <div class="flex items-center">
-  
-  <span>@</span>
-  
+  <div class="mt-8 space-y-4">
+  <template x-for="post in posts">
+    <a class="card card-compact bg-base-100 hover:bg-base-content/10 cursor-pointer border border-base-content/30" :href="post.item.url">
+      <div class="card-body">
+        <h2 class="card-title" x-text="post.item.title"></h2>
 
-  <span>
-  
-    
-      map[name:arno]
-    
-  
-  </span>
-</div>
+        <div x-html="post.item.description"></div>
 
+        <div class="card-actions justify-between items-center mt-4">
+          <div class="flex items-center">
+            <template x-if="post.item.avatar">
+            <div class="avatar mr-1">
+              <div class="w-8 rounded-full">
+                <img class="my-0" :src="post.item.avatar" />
+              </div>
+            </div>
+            </template>
+            <template x-if="!post.item.avatar">
+            <span>@</span>
+            </template>
 
-        <span class="flex items-center gap-2">
-  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=general-command&url=https%3a%2f%2farnocat.github.io%2fposts%2flinux%2fcreating-general-command%2f" title="Share on X">
-    <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
-  </a>
-  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2farnocat.github.io%2fposts%2flinux%2fcreating-general-command%2f" title="Share on Facebook">
-    <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
-  </a>
-</span>
+            <template x-if="post.item.author">
+            <span x-text="post.item.author"></span>
+            </template>
+            <template x-if="!post.item.author">
+            <span x-text="Arno"></span>
+            </template>
+            </span>
+          </div>
 
+          <div class="inline-flex items-center">
+            <ion-icon name="time" class="mr-1"></ion-icon>
+            <span><span x-text="post.item.readingTime"></span> 分钟阅读</span>
+          </div>
+        </div>
       </div>
-    </header>
-
-    <main>
-      
-
-      <h2 id="常用命令">常用命令</h2>
-<h3 id="git">git</h3>
-<h3 id="go">go</h3>
-<pre tabindex="0"><code>$ go env
-$ env
-$ env | grep -i proxy
-GOPROXY=https://goproxy.cn,direct
-$ curl -I google.com
-HTTP/1.1 301 Moved Permanently
-Location: http://www.google.com/
-Content-Type: text/html; charset=UTF-8
-Content-Security-Policy-Report-Only: object-src &#39;none&#39;;base-uri &#39;self&#39;;script-src &#39;nonce-L_UKjT9Yze3yROlGcbG9pA&#39; &#39;strict-dynamic&#39; &#39;report-sample&#39; &#39;unsafe-eval&#39; &#39;unsafe-inline&#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
-Date: Mon, 08 Jul 2024 09:28:33 GMT
-</code></pre><h3 id="查看端口">查看端口</h3>
-<p>Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。</p>
-<h4 id="lsof">lsof</h4>
-<pre tabindex="0"><code>$ lsof -i:端口号
-$ lsof -i:8080：查看8080端口占用
-$ lsof abc.txt：显示开启文件abc.txt的进程
-$ lsof -c abc：显示abc进程现在打开的文件
-$ lsof -c -p 1234：列出进程号为1234的进程所打开的文件
-$ lsof -g gid：显示归属gid的进程情况
-$ lsof +d /usr/local/：显示目录下被进程开启的文件
-$ lsof +D /usr/local/：同上，但是会搜索目录下的目录，时间较长
-$ lsof -d 4：显示使用fd为4的进程
-$ lsof -i -U：显示所有打开的端口和UNIX domain文件
-</code></pre><p>netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况。
--t (tcp) 仅显示tcp相关选项
--u (udp)仅显示udp相关选项
--n 拒绝显示别名，能显示数字的全部转化为数字
--l 仅列出在Listen(监听)的服务状态
--p 显示建立相关链接的程序名</p>
-<h4 id="netstat">netstat</h4>
-<pre tabindex="0"><code>$ netstat -ntlp   //查看当前所有tcp端口
-$ netstat -ntulp | grep 80   //查看所有80端口使用情况
-$ netstat -ntulp | grep 3306   //查看所有3306端口使用情况
-</code></pre><h3 id="kill进程">kill进程</h3>
-<pre tabindex="0"><code>$ kill -9 pid
-
-$ killall 进程名
-</code></pre><h3 id="tcp">tcp</h3>
-<h3 id="java">java</h3>
-
-    </main>
-  </section>
-
-  
-
-  
-  <div class="divider max-w-[65ch] mx-auto"></div>
-  
-
-  <section class="max-w-[65ch] mx-auto space-y-4">
-    
-
-    
-    <template x-if="['localhost', '127.0.0.1'].indexOf(window.location.hostname) == -1">
-      <article>
-        <script
-          src="https://utteranc.es/client.js"
-          repo="arnocat/arnocat.github.io"
-          issue-term="og:title"
-          theme="github-light"
-          crossorigin="anonymous"
-          async>
-        </script>
-      </article>
-    </template>
-    
-
-    
-  </section>
+    </a>
+  </template>
+  </div>
 </div>
+
 
 
             <footer class="flex justify-between items-center gap-2 px-4 py-12">
@@ -498,41 +404,37 @@ $ killall 进程名
     
 
 
-<script
-  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
-  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
-  crossorigin="anonymous"
-></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
 <script>
-  format()
+  var fuseData = [{"author":{"name":"arno"},"avatar":null,"categories":null,"description":"git命令 不应用当前分支的修改，单纯地切换分支 # 保存dev分支的修改到堆栈中 $ git stash # 切换master分支 $ git checkout master # 切回dev分支 $ git checkout dev # 获","readingTime":1,"tags":null,"title":"github-action","url":"/posts/github/github-action/"},{"author":{"name":"arno"},"avatar":null,"categories":null,"description":"Go 每日一库之 viper viper 是一个配置解决方案，拥有丰富的特性： 支持 JSON/TOML/YAML/HCL/envfile/Java properties 等多种格式的配置文件； ·可以设置监听配置文件的修改，修改时自动加载新的配置； ·从","readingTime":1,"tags":null,"title":"go-viper","url":"/posts/go/go-viper/"},{"author":{"name":"arno"},"avatar":null,"categories":null,"description":"vscode 实用功能 vscode测试获取go的环境变量 1.创建launch.json文件 2.然后在项目目录中会自动创建.vscode的目录 3.在.vs","readingTime":1,"tags":null,"title":"vscode实用功能","url":"/posts/vscode/creating-vscode/"},{"author":{"name":"arno"},"avatar":null,"categories":null,"description":"从零开始学go 1. var _ Interface = (*Type)(nil) 在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是","readingTime":1,"tags":null,"title":"从零开始学go","url":"/posts/go/creating-go/"},{"author":{"name":"arno"},"avatar":null,"categories":null,"description":"用go Makefile make -\u0026gt; docker image 生成proto （容器化用法） 为什么使用Makefile 在学习docker命令的时候，发现有人使用Makefile来存储操作，","readingTime":8,"tags":null,"title":"docker-proto","url":"/posts/docker/creating-docker-proto-image/"},{"author":{"name":"arno"},"avatar":null,"categories":null,"description":"常用命令 git go $ go env $ env $ env | grep -i proxy GOPROXY=https://goproxy.cn,direct $ curl -I google.com HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Content-Security-Policy-Report-Only: object-src \u0026#39;none\u0026#39;;base-uri \u0026#39;self\u0026#39;;script-src \u0026#39;nonce-L_UKjT9Yze3yROlGcbG9pA\u0026#39; \u0026#39;strict-dynamic\u0026#39; \u0026#39;report-sample\u0026#39; \u0026#39;unsafe-eval\u0026#39; \u0026#39;unsafe-inline\u0026#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp Date: Mon, 08 Jul 2024 09:28:33 GMT 查看端口 Linux 查看端口占用情况可以使用 lsof 和 netstat","readingTime":1,"tags":null,"title":"general-command","url":"/posts/linux/creating-general-command/"},{"author":{"name":"arno"},"avatar":null,"categories":null,"description":"docker ","readingTime":1,"tags":null,"title":"docker","url":"/posts/default/"},{"author":{"name":"arno"},"avatar":null,"categories":null,"description":"Docker 常用命令 # Docker常用命令 $ docker images 查看本地镜像文件 $ docker ps 查看正在运行的容器 $ docker ps –a 查看所有的容器 $ docker container exec -it container_id /bin/bash 进入到容器 $ exit 退出（do","readingTime":1,"tags":null,"title":"docker","url":"/posts/docker/creating-docker/"},{"author":null,"avatar":null,"categories":["Hugo"],"description":"Introduction 从零开始创建一个hugo项目并且部署到github 环境要求： 下载go 和 git 创建github库 打开github，创建一个库 输入项目名，要与 Github 用","readingTime":2,"tags":null,"title":"新建一个hugo博客","url":"/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/"}];
+  var fuseOptions = {
+    keys: [
+      "title",
+    ]
+  };
 
-  function format() {
-    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
-      const date = el.textContent
-
-      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
-    })
-  }
+  var fuse = new Fuse(fuseData, fuseOptions);
 </script>
-
-
-
-<script>
-  window.customSyntaxHighlighting = {
-    light: "/css/syntax-light.min.css",
-    dark: "/css/syntax-dark.min.css"
-  }
-
-  document.addEventListener('alpine:initialized', () => {
-    var isDark = Alpine.store('darkMode').isDark()
-    var customSyntaxHighlightingUrl = isDark ? window.customSyntaxHighlighting.dark : window.customSyntaxHighlighting.light
-
-    document
-      .querySelector('link[data-custom-syntax-highlighting]')
-      .setAttribute('href', customSyntaxHighlightingUrl)
-  })
-</script>
-
 
 
 
