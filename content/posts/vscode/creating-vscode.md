@@ -1,6 +1,5 @@
 ---
-author:
-  name: "arno"
+author: "arno"
 date: 2024-07-10
 linktitle: vscode实用功能
 type:

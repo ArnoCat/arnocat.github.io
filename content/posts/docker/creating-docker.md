@@ -1,6 +1,5 @@
 ---
-author:
-  name: "arno"
+author: "arno"
 date: 2024-07-07
 linktitle: docker
 type:

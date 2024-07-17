@@ -1,6 +1,5 @@
 ---
-author:
-  name: "arno"
+author: "arno"
 date: 2024-07-09
 linktitle: 从零开始学go
 type:
