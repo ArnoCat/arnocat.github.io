@@ -2,48 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://arnocat.github.io/posts/github/github-action/</loc>
+    <loc>http://localhost:1313/posts/github/github-action/</loc>
     <lastmod>2024-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/posts/go/go-viper/</loc>
+    <loc>http://localhost:1313/posts/go/go-viper/</loc>
     <lastmod>2024-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/posts/vscode/creating-vscode/</loc>
+    <loc>http://localhost:1313/posts/vscode/creating-vscode/</loc>
     <lastmod>2024-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/posts/go/creating-go/</loc>
+    <loc>http://localhost:1313/posts/go/creating-go/</loc>
     <lastmod>2024-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/posts/docker/creating-docker-proto-image/</loc>
+    <loc>http://localhost:1313/posts/docker/creating-docker-proto-image/</loc>
     <lastmod>2024-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/posts/linux/creating-general-command/</loc>
+    <loc>http://localhost:1313/posts/linux/creating-general-command/</loc>
     <lastmod>2024-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/posts/default/</loc>
+    <loc>http://localhost:1313/posts/default/</loc>
     <lastmod>2024-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/posts/docker/creating-docker/</loc>
+    <loc>http://localhost:1313/posts/docker/creating-docker/</loc>
     <lastmod>2024-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2024-07-17T14:44:54+08:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/posts/</loc>
+    <loc>http://localhost:1313/posts/article-title/</loc>
     <lastmod>2024-07-17T14:44:54+08:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-07-17T14:44:54+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/category1/</loc>
+    <lastmod>2024-07-17T14:44:54+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-07-17T14:44:54+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/tag1/</loc>
+    <lastmod>2024-07-17T14:44:54+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/tag2/</loc>
+    <lastmod>2024-07-17T14:44:54+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-07-17T14:44:54+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/hugo/</loc>
     <lastmod>2024-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/categories/hugo/</loc>
+    <loc>http://localhost:1313/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2024-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2024-07-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://arnocat.github.io/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://arnocat.github.io/tags/</loc>
   </url>
 </urlset>

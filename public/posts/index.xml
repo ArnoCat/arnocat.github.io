@@ -2,73 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Arno</title>
-    <link>https://arnocat.github.io/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Arno</description>
     <generator>Hugo</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 10 Jul 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://arnocat.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jul 2024 14:44:54 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>github-action</title>
-      <link>https://arnocat.github.io/posts/github/github-action/</link>
+      <link>http://localhost:1313/posts/github/github-action/</link>
       <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/github/github-action/</guid>
+      <guid>http://localhost:1313/posts/github/github-action/</guid>
       <description>git命令 不应用当前分支的修改，单纯地切换分支 # 保存dev分支的修改到堆栈中 $ git stash # 切换master分支 $ git checkout master # 切回dev分支 $ git checkout dev # 获</description>
     </item>
     <item>
       <title>go-viper</title>
-      <link>https://arnocat.github.io/posts/go/go-viper/</link>
+      <link>http://localhost:1313/posts/go/go-viper/</link>
       <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/go/go-viper/</guid>
+      <guid>http://localhost:1313/posts/go/go-viper/</guid>
       <description>Go 每日一库之 viper viper 是一个配置解决方案，拥有丰富的特性： 支持 JSON/TOML/YAML/HCL/envfile/Java properties 等多种格式的配置文件； ·可以设置监听配置文件的修改，修改时自动加载新的配置； ·从</description>
     </item>
     <item>
       <title>vscode实用功能</title>
-      <link>https://arnocat.github.io/posts/vscode/creating-vscode/</link>
+      <link>http://localhost:1313/posts/vscode/creating-vscode/</link>
       <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/vscode/creating-vscode/</guid>
+      <guid>http://localhost:1313/posts/vscode/creating-vscode/</guid>
       <description>vscode 实用功能 vscode测试获取go的环境变量 1.创建launch.json文件 2.然后在项目目录中会自动创建.vscode的目录 3.在.vs</description>
     </item>
     <item>
       <title>从零开始学go</title>
-      <link>https://arnocat.github.io/posts/go/creating-go/</link>
+      <link>http://localhost:1313/posts/go/creating-go/</link>
       <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/go/creating-go/</guid>
+      <guid>http://localhost:1313/posts/go/creating-go/</guid>
       <description>从零开始学go 1. var _ Interface = (*Type)(nil) 在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是</description>
     </item>
     <item>
       <title>docker-proto</title>
-      <link>https://arnocat.github.io/posts/docker/creating-docker-proto-image/</link>
+      <link>http://localhost:1313/posts/docker/creating-docker-proto-image/</link>
       <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/docker/creating-docker-proto-image/</guid>
+      <guid>http://localhost:1313/posts/docker/creating-docker-proto-image/</guid>
       <description>用go Makefile make -&amp;gt; docker image 生成proto （容器化用法） 为什么使用Makefile 在学习docker命令的时候，发现有人使用Makefile来存储操作，</description>
     </item>
     <item>
       <title>general-command</title>
-      <link>https://arnocat.github.io/posts/linux/creating-general-command/</link>
+      <link>http://localhost:1313/posts/linux/creating-general-command/</link>
       <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/linux/creating-general-command/</guid>
+      <guid>http://localhost:1313/posts/linux/creating-general-command/</guid>
       <description>常用命令 git go $ go env $ env $ env | grep -i proxy GOPROXY=https://goproxy.cn,direct $ curl -I google.com HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Content-Security-Policy-Report-Only: object-src &amp;#39;none&amp;#39;;base-uri &amp;#39;self&amp;#39;;script-src &amp;#39;nonce-L_UKjT9Yze3yROlGcbG9pA&amp;#39; &amp;#39;strict-dynamic&amp;#39; &amp;#39;report-sample&amp;#39; &amp;#39;unsafe-eval&amp;#39; &amp;#39;unsafe-inline&amp;#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp Date: Mon, 08 Jul 2024 09:28:33 GMT 查看端口 Linux 查看端口占用情况可以使用 lsof 和 netstat</description>
     </item>
     <item>
       <title>docker</title>
-      <link>https://arnocat.github.io/posts/default/</link>
+      <link>http://localhost:1313/posts/default/</link>
       <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/default/</guid>
+      <guid>http://localhost:1313/posts/default/</guid>
       <description>docker </description>
     </item>
     <item>
       <title>docker</title>
-      <link>https://arnocat.github.io/posts/docker/creating-docker/</link>
+      <link>http://localhost:1313/posts/docker/creating-docker/</link>
       <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/docker/creating-docker/</guid>
+      <guid>http://localhost:1313/posts/docker/creating-docker/</guid>
       <description>Docker 常用命令 # Docker常用命令 $ docker images 查看本地镜像文件 $ docker ps 查看正在运行的容器 $ docker ps –a 查看所有的容器 $ docker container exec -it container_id /bin/bash 进入到容器 $ exit 退出（do</description>
     </item>
     <item>
+      <title>Article Title</title>
+      <link>http://localhost:1313/posts/article-title/</link>
+      <pubDate>Wed, 17 Jul 2024 14:44:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/article-title/</guid>
+      <description>&lt;p&gt;Cut out summary from your post content here.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>新建一个hugo博客</title>
-      <link>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</link>
+      <link>http://localhost:1313/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>http://localhost:1313/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</guid>
       <description>Introduction 从零开始创建一个hugo项目并且部署到github 环境要求： 下载go 和 git 创建github库 打开github，创建一个库 输入项目名，要与 Github 用</description>
     </item>
   </channel>
