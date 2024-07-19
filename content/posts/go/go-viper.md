@@ -110,6 +110,21 @@ func main() {
 }
 ```
 
+#### 解决viper读取yaml配置存在下划线时无法映射
+yaml示例:
+```
+mysql:
+	rds_host: "rds_xxxxxx.com"
+	rds_port: 3306
+
+```
+config.go部分内容如下:
+```
+type Mysql struct {
+	RdsHost string `yaml:"rds_host" mapstructure:"rds_host"`
+	RdsPort int    `yaml:"rds_port" mapstructure:"rds_port"`
+}
+```
 ## 参考
 
 [go每日一库之viper]https://darjun.github.io/2020/01/18/godailylib/viper/

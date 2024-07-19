@@ -26,14 +26,32 @@
     <loc>https://arnocat.github.io/posts/docker/creating-docker/</loc>
     <lastmod>2024-07-07T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://arnocat.github.io/posts/go/go-makefile/</loc>
+    <lastmod>2024-07-18T16:44:54+08:00</lastmod>
+  </url><url>
     <loc>https://arnocat.github.io/posts/</loc>
-    <lastmod>2024-07-17T14:44:54+08:00</lastmod>
+    <lastmod>2024-07-18T16:44:54+08:00</lastmod>
   </url><url>
     <loc>https://arnocat.github.io/</loc>
-    <lastmod>2024-07-17T14:44:54+08:00</lastmod>
+    <lastmod>2024-07-18T16:44:54+08:00</lastmod>
   </url><url>
     <loc>https://arnocat.github.io/categories/</loc>
-    <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-18T16:44:54+08:00</lastmod>
+  </url><url>
+    <loc>https://arnocat.github.io/categories/category1/</loc>
+    <lastmod>2024-07-18T16:44:54+08:00</lastmod>
+  </url><url>
+    <loc>https://arnocat.github.io/tags/tag1/</loc>
+    <lastmod>2024-07-18T16:44:54+08:00</lastmod>
+  </url><url>
+    <loc>https://arnocat.github.io/tags/tag2/</loc>
+    <lastmod>2024-07-18T16:44:54+08:00</lastmod>
+  </url><url>
+    <loc>https://arnocat.github.io/tags/</loc>
+    <lastmod>2024-07-18T16:44:54+08:00</lastmod>
+  </url><url>
+    <loc>https://arnocat.github.io/posts/go/go-test/</loc>
+    <lastmod>2024-07-18T14:44:54+08:00</lastmod>
   </url><url>
     <loc>https://arnocat.github.io/categories/hugo/</loc>
     <lastmod>2024-07-05T00:00:00+00:00</lastmod>
@@ -42,7 +60,5 @@
     <lastmod>2024-07-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://arnocat.github.io/search/</loc>
-  </url><url>
-    <loc>https://arnocat.github.io/tags/</loc>
   </url>
 </urlset>

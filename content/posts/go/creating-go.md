@@ -12,7 +12,7 @@ series:
 ---
 
 
-## 从零开始学go
+## go基础知识
 
 ### 1. var _ Interface = (*Type)(nil)
 在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是，在编译时强制检查类型实现接口的情况。

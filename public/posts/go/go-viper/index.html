@@ -156,6 +156,13 @@
 
 
 
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
+    <ion-icon name="pricetags"></ion-icon>
+    所有标签
+  </a>
+</li>
+
 
 
 <li>
@@ -194,6 +201,10 @@
       </a>
       
 
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
       
 
       
@@ -347,6 +358,16 @@ func main() {
 
   fmt.Println(c.MySQL)
 }
+</code></pre><h4 id="解决viper读取yaml配置存在下划线时无法映射">解决viper读取yaml配置存在下划线时无法映射</h4>
+<p>yaml示例:</p>
+<pre tabindex="0"><code>mysql:
+	rds_host: &#34;rds_xxxxxx.com&#34;
+	rds_port: 3306
+</code></pre><p>config.go部分内容如下:</p>
+<pre tabindex="0"><code>type Mysql struct {
+	RdsHost string `yaml:&#34;rds_host&#34; mapstructure:&#34;rds_host&#34;`
+	RdsPort int    `yaml:&#34;rds_port&#34; mapstructure:&#34;rds_port&#34;`
+}
 </code></pre><h2 id="参考">参考</h2>
 <p>[go每日一库之viper]https://darjun.github.io/2020/01/18/godailylib/viper/</p>
 
@@ -442,6 +463,21 @@ func main() {
     >
       <div class="card-body">
         <div class="card-title">About Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Cut out summary from your post content here.</p>
+<p>The remaining content of your post.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Copyright</div>
 
         <div class="prose dark:prose-invert">
           <p>Cut out summary from your post content here.</p>

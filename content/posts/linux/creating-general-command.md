@@ -4,7 +4,7 @@ date: 2024-07-08
 linktitle: general-command
 type:
 - post
-- posts
+- posts/linux
 title: general-command
 weight: 10
 series:
@@ -59,6 +59,17 @@ $ netstat -ntlp   //查看当前所有tcp端口
 $ netstat -ntulp | grep 80   //查看所有80端口使用情况
 $ netstat -ntulp | grep 3306   //查看所有3306端口使用情况
 ```
+
+#### /bin/sh -c
+带上 -c 参数的话，会把参数后面的值当作命令行，而不是普通的字符串
+```
+$ /bin/sh -c ls
+```
+如果 -c 后面的命令行有空格隔开，可以使用双引号括起来
+```
+$ /bin/sh -c "ls -al"
+```
+
 ### kill进程
 ```
 $ kill -9 pid

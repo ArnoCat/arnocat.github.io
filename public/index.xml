@@ -6,7 +6,7 @@
     <description>Recent content on Arno</description>
     <generator>Hugo</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 10 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jul 2024 16:44:54 +0800</lastBuildDate>
     <atom:link href="https://arnocat.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>github-action</title>
@@ -34,7 +34,7 @@
       <link>https://arnocat.github.io/posts/go/creating-go/</link>
       <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://arnocat.github.io/posts/go/creating-go/</guid>
-      <description>从零开始学go 1. var _ Interface = (*Type)(nil) 在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是</description>
+      <description>go基础知识 1. var _ Interface = (*Type)(nil) 在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是，</description>
     </item>
     <item>
       <title>docker-proto</title>
@@ -65,11 +65,32 @@
       <description>Docker 常用命令 # Docker常用命令 $ docker images 查看本地镜像文件 $ docker ps 查看正在运行的容器 $ docker ps –a 查看所有的容器 $ docker container exec -it container_id /bin/bash 进入到容器 $ exit 退出（do</description>
     </item>
     <item>
+      <title>go-makefile</title>
+      <link>https://arnocat.github.io/posts/go/go-makefile/</link>
+      <pubDate>Thu, 18 Jul 2024 16:44:54 +0800</pubDate>
+      <guid>https://arnocat.github.io/posts/go/go-makefile/</guid>
+      <description>Using Makefile for Go - Go语言项目如何正确使用Makefile 我们一直在用Go语言编写的HackerRank项目中的一个项目使用make作为构建工具，并</description>
+    </item>
+    <item>
+      <title>go-test</title>
+      <link>https://arnocat.github.io/posts/go/go-test/</link>
+      <pubDate>Thu, 18 Jul 2024 14:44:54 +0800</pubDate>
+      <guid>https://arnocat.github.io/posts/go/go-test/</guid>
+      <description>go基础之Testify单元测试 1. 简单使用 package main import ( &amp;#34;testing&amp;#34; &amp;#34;github.com/stretchr/testify/assert&amp;#34; ) func TestSomething(t *testing.T) { // assert equality assert.Equal(t, 123, 123, &amp;#34;they should be equal&amp;#34;) // assert inequality assert.NotEqual(t, 123, 456, &amp;#34;they should not be equal&amp;#34;) // assert for nil (good for errors) assert.Nil(t, object) // assert for not nil (good when you</description>
+    </item>
+    <item>
       <title>新建一个hugo博客</title>
       <link>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</guid>
       <description>Introduction 从零开始创建一个hugo项目并且部署到github 环境要求： 下载go 和 git 创建github库 打开github，创建一个库 输入项目名，要与 Github 用</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://arnocat.github.io/about/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/about/</guid>
+      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.&#xA;It makes use of a variety of open source projects including:&#xA;https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper Learn more and contribute on GitHub.</description>
     </item>
   </channel>
 </rss>
