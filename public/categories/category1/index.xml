@@ -2,32 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Category1 on Arno</title>
-    <link>http://localhost:1313/categories/category1/</link>
+    <link>https://arnocat.github.io/categories/category1/</link>
     <description>Recent content in Category1 on Arno</description>
     <generator>Hugo</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 18 Jul 2024 16:44:54 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/category1/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/categories/category1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go-makefile</title>
-      <link>http://localhost:1313/posts/go/go-makefile/</link>
+      <link>https://arnocat.github.io/posts/go/go-makefile/</link>
       <pubDate>Thu, 18 Jul 2024 16:44:54 +0800</pubDate>
-      <guid>http://localhost:1313/posts/go/go-makefile/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-makefile/</guid>
       <description>Using Makefile for Go - Go语言项目如何正确使用Makefile 我们一直在用Go语言编写的HackerRank项目中的一个项目使用make作为构建工具，并</description>
     </item>
     <item>
       <title>go-test</title>
-      <link>http://localhost:1313/posts/go/go-test/</link>
+      <link>https://arnocat.github.io/posts/go/go-test/</link>
       <pubDate>Thu, 18 Jul 2024 14:44:54 +0800</pubDate>
-      <guid>http://localhost:1313/posts/go/go-test/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-test/</guid>
       <description>go基础之Testify单元测试 1. 简单使用 package main import ( &amp;#34;testing&amp;#34; &amp;#34;github.com/stretchr/testify/assert&amp;#34; ) func TestSomething(t *testing.T) { // assert equality assert.Equal(t, 123, 123, &amp;#34;they should be equal&amp;#34;) // assert inequality assert.NotEqual(t, 123, 456, &amp;#34;they should not be equal&amp;#34;) // assert for nil (good for errors) assert.Nil(t, object) // assert for not nil (good when you</description>
-    </item>
-    <item>
-      <title>Article Title</title>
-      <link>http://localhost:1313/posts/article-title/</link>
-      <pubDate>Wed, 17 Jul 2024 14:44:54 +0800</pubDate>
-      <guid>http://localhost:1313/posts/article-title/</guid>
-      <description>&lt;p&gt;Cut out summary from your post content here.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
