@@ -54,7 +54,7 @@ func TestSomething(t *testing.T) {
 ```
 
 ### 2.httptest
-1.实现http.ResponseWriter接口，通过Mock HTTP Response模拟HTTP响应
+1. 实现http.ResponseWriter接口，通过Mock HTTP Response模拟HTTP响应
 w := httptest.NewRecorder()
 req := httptest.NewRequest()
 resp := handler(w, req)
@@ -79,7 +79,7 @@ func TestRespRecorder(t *testing.T) {
 }
 
 ```
-2.真实创建HTTP测试服务，创建后就立马监听，通过http.Get(ts.URL)、http.Post(ts.URL)等发起真实HTTP请求
+2. 真实创建HTTP测试服务，创建后就立马监听，通过http.Get(ts.URL)、http.Post(ts.URL)等发起真实HTTP请求
 ts := httptest.NewServer()
 ts := httptest.NewTLSServer()
 
@@ -124,14 +124,121 @@ func TestNormalHTTPServer(t *testing.T) {
 
 ```
 
-3.真实创建HTTP测试服务，创建后可以通过ts来说设置相关参数，并需要通过StartTLS()启动HTTP测试服务，再进行HTTP请求测试
+3. 真实创建HTTP测试服务，创建后可以通过ts来说设置相关参数，并需要通过StartTLS()启动HTTP测试服务，再进行HTTP请求测试
 ts := httptest.NewUnstartedServer()
 ts.EnableHTTP2 = true: 设置参数
 ts.StartTLS():启动
 另外，注意真实创建HTTP测试服务，需要在UT结束时候关闭打开的资源，包括套接字资源:defer ts.Close()以及defer res.Body.Close()。
+
+
+4. 使用mock的方式，mockhttp接口
+ 原理： 例如调用微软ChatGpt的http方法的时候，采用接口的形式去调用DoTimeOut方法
+ 等到使用 testify 去进行单元测试的时候，会将DoTimeOut方法mock，去调用mock方法。
+ eg:
+```
+	var _ agent.ChatAgents = (*ChatGPT)(nil)
+
+	var _ HTTPClient = (*fasthttp.Client)(nil)
+
+	type ChatGPT struct {
+		client HTTPClient
+	}
+
+	type HTTPClient interface {
+		DoTimeout(req *fasthttp.Request, resp *fasthttp.Response, timeout time.Duration) error
+	}
+
+	func NewChatGPT(client HTTPClient) *ChatGPT {
+		return &ChatGPT{
+			client: client,
+		}
+	}
+
+	func NewDefaultChatAgent() *ChatGPT {
+		return NewChatGPT(http.NewClient())
+	}
+
+	func (c *ChatGPT) Chat(ctx common.Context, chatReq *agent.ChatReq) (*agent.ChatRsp, error) {
+	endpoint, apiKey := c.endpoint(ctx)
+
+	req := fasthttp.AcquireRequest()
+	req.SetRequestURI(endpoint)
+	req.Header.SetMethod(fasthttp.MethodPost)
+	req.Header.SetContentType(contentTypeJson)
+	req.Header.Set("api-key", apiKey)
+	req.SetBodyRaw([]byte(chatReq.Body))
+	resp := fasthttp.AcquireResponse()
+	err := c.client.DoTimeout(req, resp, reqTimeout)
+	if err != nil {
+		return nil, err
+	}
+	fasthttp.ReleaseRequest(req)
+	defer fasthttp.ReleaseResponse(resp)
+
+	if resp.StatusCode() != fasthttp.StatusOK {
+		return nil, fmt.Errorf("unexpected status code %d", resp.StatusCode())
+	}
+
+	if len(resp.Body()) == 0 {
+		return nil, nil
+	}
+
+	return &agent.ChatRsp{
+		Result: string(resp.Body()),
+	}, nil
+}
+```
+test eg:
+```
+// MockHTTPClient is a mock implementation of the HTTPClient interface
+type MockHTTPClient struct {
+	mock.Mock
+}
+
+func (m *MockHTTPClient) DoTimeout(req *fasthttp.Request, resp *fasthttp.Response, timeout time.Duration) error {
+	args := m.Called(req, resp, timeout)
+	return args.Error(0)
+}
+
+func TestChatGPT(t *testing.T) {
+	mockClient := new(MockHTTPClient)
+	chatGPT := NewChatGPT(mockClient)
+
+	resp := &fasthttp.Response{}
+	resp.SetStatusCode(fasthttp.StatusOK)
+	resp.SetBodyString(`{"result": "mocked response"}`)
+
+	// Set up the mock expectation
+	mockClient.On("DoTimeout", mock.Anything, mock.Anything, time.Second*10).Return(nil).Run(func(args mock.Arguments) {
+		// Simulate setting response body
+		argResp := args.Get(1).(*fasthttp.Response)
+		argResp.SetStatusCode(fasthttp.StatusOK)
+		argResp.SetBodyString("mocked response")
+	})
+
+	ctx := common.Context{}
+	chatReq := &agent.ChatReq{Body: `{"message": "test"}`}
+
+	got, err := chatGPT.Chat(ctx, chatReq)
+	if err != nil {
+		t.Fatalf("expected no error, got %v", err)
+	}
+	var expected *agent.ChatRsp
+	err = json.Unmarshal(resp.Body(), &expected)
+	if err != nil {
+		t.Errorf("json Unmarshal %v", err)
+	}
+	assert.Equal(t, got, expected)
+
+	// Assert that the expectations were met
+	mockClient.AssertExpectations(t)
+}
+```
 
 ### GenericContainer
 
 
 ## 参考
 https://darjun.github.io/2021/08/11/godailylib/testify/
+
+https://tkstorm.com/2020/10/go-httptest-%E5%9C%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%AD%E8%BF%9B%E8%A1%8Chttp%E6%A8%A1%E6%8B%9F%E6%B5%8B%E8%AF%95/

@@ -6,8 +6,15 @@
     <description>Recent content in Archives on Arno</description>
     <generator>Hugo</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 18 Jul 2024 16:44:54 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://arnocat.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>zsh</title>
+      <link>https://arnocat.github.io/posts/zsh/zsh/</link>
+      <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/zsh/zsh/</guid>
+      <description>实用工具 iTerm2 zsh ohmyzsh 参考 https://www.poloxue.com/posts/2023-10-16-zsh-themes-and-plugins/ 安装报错 [oh-my-zsh] plugin &amp;lsquo;zsh-syntax-highlighting&amp;rsquo; not found [oh-my-zsh] plugin &amp;lsquo;zsh-autosuggestions&amp;rsquo; not found 解决 cd 到 /.oh-my-zsh/plugins 然后 git clone zsh-syntax-hightlight 在那里 并确保 .zshrc 中提到的插件 我认为 .zshrc 中提到的每个插件都必须放在这个目录中：</description>
+    </item>
     <item>
       <title>github-action</title>
       <link>https://arnocat.github.io/posts/github/github-action/</link>

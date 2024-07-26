@@ -38,7 +38,7 @@ series:
 ```
 
 ### vscode快捷键 (mac版)
-
+参考  https://code.visualstudio.com/docs/setup/mac
 
 ### 好用插件
 vscode好用插件 [vscode好用插件](https://blog.csdn.net/u011262253/article/details/113879997)

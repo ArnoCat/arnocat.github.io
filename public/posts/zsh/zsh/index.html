@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页 | Arno</title>
+    <title>zsh | Arno</title>
 
     
 <link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -14,26 +14,29 @@
 
 
 
-<meta name="author" content="Arno" />
-<meta name="description" content="Arno 的生活记录~" />
+<meta name="author" content="arno" />
+<meta name="description" content="实用工具 iTerm2 zsh ohmyzsh 参考 https://www.poloxue.com/posts/2023-10-16-zsh-themes-and-plugins/ 安装报错 [oh-my-zsh] plugin &amp;lsquo;zsh-syntax-highlighting&amp;rsquo; not found [oh-my-zsh] plugin &amp;lsquo;zsh-autosuggestions&amp;rsquo; not found 解决 cd 到 /.oh-my-zsh/plugins 然后 git clone zsh-syntax-hightlight 在那里 并确保 .zshrc 中提到的插件 我认为 .zshrc 中提到的每个插件都必须放在这个目录中：" />
 
 
-<link rel="canonical" href="https://arnocat.github.io/" />
+<link rel="canonical" href="https://arnocat.github.io/posts/zsh/zsh/" />
 
 
-<meta property="og:url" content="https://arnocat.github.io/">
+<meta property="og:url" content="https://arnocat.github.io/posts/zsh/zsh/">
   <meta property="og:site_name" content="Arno">
-  <meta property="og:title" content="Arno">
-  <meta property="og:description" content="Arno 的生活记录~">
+  <meta property="og:title" content="zsh">
+  <meta property="og:description" content="实用工具 iTerm2 zsh ohmyzsh 参考 https://www.poloxue.com/posts/2023-10-16-zsh-themes-and-plugins/ 安装报错 [oh-my-zsh] plugin ‘zsh-syntax-highlighting’ not found [oh-my-zsh] plugin ‘zsh-autosuggestions’ not found 解决 cd 到 /.oh-my-zsh/plugins 然后 git clone zsh-syntax-hightlight 在那里 并确保 .zshrc 中提到的插件 我认为 .zshrc 中提到的每个插件都必须放在这个目录中：">
   <meta property="og:locale" content="zh">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-25T00:00:00+00:00">
 
 
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Arno">
-  <meta name="twitter:description" content="Arno 的生活记录~">
+  <meta name="twitter:title" content="zsh">
+  <meta name="twitter:description" content="实用工具 iTerm2 zsh ohmyzsh 参考 https://www.poloxue.com/posts/2023-10-16-zsh-themes-and-plugins/ 安装报错 [oh-my-zsh] plugin ‘zsh-syntax-highlighting’ not found [oh-my-zsh] plugin ‘zsh-autosuggestions’ not found 解决 cd 到 /.oh-my-zsh/plugins 然后 git clone zsh-syntax-hightlight 在那里 并确保 .zshrc 中提到的插件 我认为 .zshrc 中提到的每个插件都必须放在这个目录中：">
 
 
 
@@ -52,7 +55,27 @@
 </style>
 
 
-     
+    
+
+
+<link rel="stylesheet" data-custom-syntax-highlighting />
+<style>
+  .chroma {
+    padding: 1em;
+    background-color: var(--dream-pre-bg, #f5f5f5);
+    border-radius: .5em;
+    overflow: auto;
+  }
+
+  html.dark .chroma {
+    background-color: var(--dream-pre-bg-dark, #262626);
+  }
+</style>
+
+
+
+
+
 
     
 
@@ -199,37 +222,26 @@
         <section class="front">
           <div class="container">
             
+<div class="mt-4 px-4">
+  <section class="mx-auto prose dark:prose-invert" id="dream-single-page">
+    <header>
+      <h1>zsh</h1>
+      <p class="text-sm">
+        
+          <span data-format="luxon">2024-07-25T00:00:00Z</span>
+        
 
-<div class="dream-grid">
-  
-  
-  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
-    <a class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl cursor-pointer dark:border dark:border-base-content/30" href="/posts/go/go-test/">
-  <figure>
-  
-    
-    
-    <picture>
-      <source srcset="/images/default2_hu3d03a01dcc18bc5be0e67db3d8d209a6_92733_640x443_resize_q75_h2_box.webp" type="image/webp" />
-      <img src="/images/default2.jpg" alt="/images/default2.jpg" />
-    </picture>
-    
-  
-  </figure>
+        | <span>1 分钟阅读</span>
 
-  <div class="card-body">
-    <h2 class="card-title">go-test</h2>
-
-    <p class="date text-base-content/60">
-    
-      <span data-format="luxon">2024-07-18T14:44:54&#43;08:00</span>
-    
-    </p>
-
-    go基础之Testify单元测试 1. 简单使用 package main import ( &#34;testing&#34; &#34;github.com/stretchr/testify/assert&#34; ) func TestSomething(t *testing.T) { // assert equality assert.Equal(t, 123, 123, &#34;they should be equal&#34;) // assert inequality assert.NotEqual(t, 123, 456, &#34;they should not be equal&#34;) // assert for nil (good for errors) assert.Nil(t, object) // assert for not nil (good when you
-
-    <div class="card-actions justify-between items-center mt-4">
-      <div class="flex items-center">
+        
+        | <span>更新于
+          
+            <span data-format="luxon">2024-07-25T00:00:00Z</span>
+          </span>
+        
+      </p>
+      <div class="flex justify-between">
+        <div class="flex items-center">
   
   <span>@</span>
   
@@ -237,89 +249,113 @@
   <span>
   
     
-      Author Name
+      arno
     
   
   </span>
 </div>
 
 
-      <div class="inline-flex items-center">
-        <ion-icon name="time" class="mr-1"></ion-icon>
-        <span>2 分钟阅读</span>
-      </div>
-    </div>
-  </div>
-</a>
-
-  </div>
-  
-  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
-    <a class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl cursor-pointer dark:border dark:border-base-content/30" href="/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/">
-  <figure>
-  
-    
-    
-    <picture>
-      <source srcset="/images/default3_hu3d03a01dcc18bc5be0e67db3d8d209a6_69593_640x421_resize_q75_h2_box.webp" type="image/webp" />
-      <img src="/images/default3.jpg" alt="/images/default3.jpg" />
-    </picture>
-    
-  
-  </figure>
-
-  <div class="card-body">
-    <h2 class="card-title">新建一个hugo博客</h2>
-
-    <p class="date text-base-content/60">
-    
-      <span data-format="luxon">2024-07-05T00:00:00Z</span>
-    
-    </p>
-
-    Introduction 从零开始创建一个hugo项目并且部署到github 环境要求： 下载go 和 git 创建github库 打开github，创建一个库 输入项目名，要与 Github 用
-
-    <div class="card-actions justify-between items-center mt-4">
-      <div class="flex items-center">
-  
-  <span>@</span>
-  
-
-  <span>
-  
-    Arno
-  
-  </span>
-</div>
-
-
-      <div class="inline-flex items-center">
-        <ion-icon name="time" class="mr-1"></ion-icon>
-        <span>2 分钟阅读</span>
-      </div>
-    </div>
-  </div>
-</a>
-
-  </div>
-  
-</div>
-<div class="flex justify-center mt-8">
-  <div class="join grid grid-cols-2">
-  
-  <a href="/" title=上一页 class="join-item btn btn-outline btn-sm">
-    上一页
+        <span class="flex items-center gap-2">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=zsh&url=https%3a%2f%2farnocat.github.io%2fposts%2fzsh%2fzsh%2f" title="Share on X">
+    <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
   </a>
-  
-  
-  <button class="join-item btn btn-outline btn-sm" disabled>
-    下一页
-  </button>
-  
-</div>
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2farnocat.github.io%2fposts%2fzsh%2fzsh%2f" title="Share on Facebook">
+    <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+  </a>
+</span>
 
-</div>
+      </div>
+    </header>
 
+    <main>
+      
+
+      <h2 id="实用工具">实用工具</h2>
+<p>iTerm2  zsh   ohmyzsh
+参考 <a href="https://www.poloxue.com/posts/2023-10-16-zsh-themes-and-plugins/">https://www.poloxue.com/posts/2023-10-16-zsh-themes-and-plugins/</a></p>
+<ol>
+<li>
+<p>安装报错
+[oh-my-zsh] plugin &lsquo;zsh-syntax-highlighting&rsquo; not found
+[oh-my-zsh] plugin &lsquo;zsh-autosuggestions&rsquo; not found</p>
+</li>
+<li>
+<p>解决
+cd 到 <del>/.oh-my-zsh/plugins
+然后 git clone zsh-syntax-hightlight 在那里
+并确保 .zshrc 中提到的插件
+我认为 .zshrc 中提到的每个插件都必须放在这个目录中：</del>/.oh-my-zsh/plugins</p>
+</li>
+</ol>
+<p>$ git clone <a href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a> ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+$ git clone <a href="https://github.com/zsh-users/zsh-syntax-highlighting.git">https://github.com/zsh-users/zsh-syntax-highlighting.git</a> ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting</p>
+<p>autojump 是用来在 terminal 里跳转目录的</p>
+<ol>
+<li>
+<p>安装
+$ brew install autojump</p>
+</li>
+<li>
+<p>注意，安装好后，仔细看提示的内容
+Add the following line to your ~/.bash_profile or ~/.zshrc file:
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] &amp;&amp; . /opt/homebrew/etc/profile.d/autojump.sh</p>
+</li>
+</ol>
+<p>If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
+[ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
+编辑配置文件[将下方的命令粘进去]
+$ vi ~/.zshrc</p>
+<p>plugins=(
+git
+zsh-autosuggestions
+autojump
+)
+[ -f /usr/local/etc/profile.d/autojump.sh ] &amp;&amp; . /usr/local/etc/profile.d/autojump.sh</p>
+<ol start="3">
+<li>
+<p>安装成功后，
+#source 在当前bash环境下读取并执行FileName(zshrc)中的命令
+source ~/.zshrc</p>
+</li>
+<li>
+<p>j &ndash;stat 显示数据库条目及其关键权重(show database entries and their key weights)</p>
+</li>
+</ol>
+<p>只有使用过的目录，才可以直接跳转，或者在数据库条目中的目录，才可以直接用j+目录
+add DIRECTORY 添加目录到数据库
+参考: <a href="https://blog.csdn.net/shenhonglei1234/article/details/106674554">https://blog.csdn.net/shenhonglei1234/article/details/106674554</a></p>
+
+    </main>
+  </section>
+
+  
+
+  
+  <div class="divider max-w-[65ch] mx-auto"></div>
+  
+
+  <section class="max-w-[65ch] mx-auto space-y-4">
+    
+
+    
+    <template x-if="['localhost', '127.0.0.1'].indexOf(window.location.hostname) == -1">
+      <article>
+        <script
+          src="https://utteranc.es/client.js"
+          repo="arnocat/arnocat.github.io"
+          issue-term="og:title"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </article>
+    </template>
+    
+
+    
+  </section>
+</div>
 
 
             <footer class="flex justify-between items-center gap-2 px-4 py-12">
@@ -517,6 +553,23 @@
   }
 </script>
 
+
+
+<script>
+  window.customSyntaxHighlighting = {
+    light: "/css/syntax-light.min.css",
+    dark: "/css/syntax-dark.min.css"
+  }
+
+  document.addEventListener('alpine:initialized', () => {
+    var isDark = Alpine.store('darkMode').isDark()
+    var customSyntaxHighlightingUrl = isDark ? window.customSyntaxHighlighting.dark : window.customSyntaxHighlighting.light
+
+    document
+      .querySelector('link[data-custom-syntax-highlighting]')
+      .setAttribute('href', customSyntaxHighlightingUrl)
+  })
+</script>
 
 
 
