@@ -325,10 +325,10 @@ resp := handler(w, req)</li>
 	t.Log(string(body))
 }
 </code></pre><ol start="2">
-<li>真实创建HTTP测试服务，创建后就立马监听，通过http.Get(ts.URL)、http.Post(ts.URL)等发起真实HTTP请求
-ts := httptest.NewServer()
-ts := httptest.NewTLSServer()</li>
+<li>真实创建HTTP测试服务，创建后就立马监听，通过http.Get(ts.URL)、http.Post(ts.URL)等发起真实HTTP请求</li>
 </ol>
+<p>ts := httptest.NewServer()
+ts := httptest.NewTLSServer()</p>
 <pre tabindex="0"><code>func TestNormalHTTPServer(t *testing.T) {
 	// 创建一个普通HTTP1.1测试服务
 	handler := func(w http.ResponseWriter, r *http.Request) {
@@ -375,12 +375,12 @@ ts.StartTLS():启动
 另外，注意真实创建HTTP测试服务，需要在UT结束时候关闭打开的资源，包括套接字资源:defer ts.Close()以及defer res.Body.Close()。</p>
 </li>
 <li>
-<p>使用mock的方式，mockhttp接口
-原理： 例如调用微软ChatGpt的http方法的时候，采用接口的形式去调用DoTimeOut方法
-等到使用 testify 去进行单元测试的时候，会将DoTimeOut方法mock，去调用mock方法。
-eg:</p>
+<p>使用mock的方式，mockhttp接口</p>
 </li>
 </ol>
+<p>原理： 例如调用微软ChatGpt的http方法的时候，采用接口的形式去调用DoTimeOut方法
+等到使用 testify 去进行单元测试的时候，会将DoTimeOut方法mock，去调用mock方法。</p>
+<p>eg:</p>
 <pre tabindex="0"><code>	var _ agent.ChatAgents = (*ChatGPT)(nil)
 
 	var _ HTTPClient = (*fasthttp.Client)(nil)
@@ -477,9 +477,10 @@ func TestChatGPT(t *testing.T) {
 	mockClient.AssertExpectations(t)
 }
 </code></pre><h3 id="genericcontainer">GenericContainer</h3>
-<h2 id="参考">参考</h2>
+<h2 id="参考">参考：</h2>
 <p><a href="https://darjun.github.io/2021/08/11/godailylib/testify/">https://darjun.github.io/2021/08/11/godailylib/testify/</a></p>
 <p><a href="https://tkstorm.com/2020/10/go-httptest-%E5%9C%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%AD%E8%BF%9B%E8%A1%8Chttp%E6%A8%A1%E6%8B%9F%E6%B5%8B%E8%AF%95/">https://tkstorm.com/2020/10/go-httptest-%E5%9C%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%AD%E8%BF%9B%E8%A1%8Chttp%E6%A8%A1%E6%8B%9F%E6%B5%8B%E8%AF%95/</a></p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line%2Cpython-new&amp;pivots=rest-api">https://learn.microsoft.com/zh-cn/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line%2Cpython-new&amp;pivots=rest-api</a></p>
 
     </main>
   </section>
