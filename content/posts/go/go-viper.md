@@ -12,7 +12,7 @@ series:
 ---
 
 
-# Go 每日一库之 viper
+## Go 每日一库之 viper
 
 viper 是一个配置解决方案，拥有丰富的特性：
 
@@ -23,12 +23,16 @@ viper 是一个配置解决方案，拥有丰富的特性：
 ·代码逻辑中显示设置键值。
 
 ## 快速使用
-### 安装：
+
+### 安装
+
+```go
+go get github.com/spf13/viper
 ```
-$ go get github.com/spf13/viper
-```
+
 #### 示例
-```
+
+```go
 package main
 
 import (
@@ -44,26 +48,33 @@ func main() {
   viper.AddConfigPath(".") 试过带路径的不适合部署-->
 
   viper.SetConfigFile("config.yml")
-	viper.SetConfigType("yaml")
+ viper.SetConfigType("yaml")
 
   viper.SetDefault("redis.port", 6381)
 
   if err := viper.ReadInConfig(); err != nil {
-		return nil, err
-	}
+  return nil, err
+ }
 
-	var cfg Config
-	if err := viper.Unmarshal(&cfg); err != nil {
-		return nil, err
-	}
-	return &cfg, nil
+ var cfg Config
+ if err := viper.Unmarshal(&cfg); err != nil {
+  return nil, err
+ }
+ return &cfg, nil
 }
 ```
-#### Unmarshal
-viper 支持将配置Unmarshal到一个结构体中，为结构体中的对应字段赋值。
-<font color=red>切记要大写！！！</font>
 
+#### Unmarshal
+
+viper 支持将配置Unmarshal到一个结构体中，为结构体中的对应字段赋值。
+
+```diff
+-切记要大写！！！
 ```
+
+eg:
+
+```go
 package main
 
 import (
@@ -111,20 +122,25 @@ func main() {
 ```
 
 #### 解决viper读取yaml配置存在下划线时无法映射
+
 yaml示例:
-```
+
+```yml
 mysql:
-	rds_host: "rds_xxxxxx.com"
-	rds_port: 3306
+ rds_host: "rds_xxxxxx.com"
+ rds_port: 3306
 
 ```
+
 config.go部分内容如下:
-```
+
+```go
 type Mysql struct {
-	RdsHost string `yaml:"rds_host" mapstructure:"rds_host"`
-	RdsPort int    `yaml:"rds_port" mapstructure:"rds_port"`
+ RdsHost string `yaml:"rds_host" mapstructure:"rds_host"`
+ RdsPort int    `yaml:"rds_port" mapstructure:"rds_port"`
 }
 ```
+
 ## 参考
 
-[go每日一库之viper]https://darjun.github.io/2020/01/18/godailylib/viper/
+[go每日一库之viper]<https://darjun.github.io/2020/01/18/godailylib/viper/>

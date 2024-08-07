@@ -37,7 +37,7 @@
       <description>vscode 实用功能 vscode测试获取go的环境变量 1.创建launch.json文件 2.然后在项目目录中会自动创建.vscode的目录 3.在.vs</description>
     </item>
     <item>
-      <title>从零开始学go</title>
+      <title>GO每日一库之go基础</title>
       <link>https://arnocat.github.io/posts/go/creating-go/</link>
       <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://arnocat.github.io/posts/go/creating-go/</guid>
@@ -88,7 +88,7 @@
     <item>
       <title>新建一个hugo博客</title>
       <link>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
       <guid>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</guid>
       <description>Introduction 从零开始创建一个hugo项目并且部署到github 环境要求： 下载go 和 git 创建github库 打开github，创建一个库 输入项目名，要与 Github 用</description>
     </item>

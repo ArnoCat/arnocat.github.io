@@ -46,13 +46,13 @@ Cleaning and DRYing
 构建二进制文件并运行应用程序后，一切正常, 确保我们在执行其他任何操作之前先清理二进制文件。我们更新Makefile应该看起来像这样：
 
 build:
-	go build -o stringifier main.go
+ go build -o stringifier main.go
 
 run:
-	go run -race main.go
+ go run -race main.go
 
 clean:
-	go clean
+ go clean
 
 我们有两点可以改进，
 
@@ -63,13 +63,13 @@ clean:
 APP=stringifier
 
 build: clean
-	go build -o ${APP} main.go
+ go build -o ${APP} main.go
 
 run:
-	go run -race main.go
+ go run -race main.go
 
 clean:
-	go clean
+ go clean
 
 更新: 这个例子之前使用的rm -r ${APP}， 但是感谢讲者的建议，现在使用go clean。
 
@@ -86,18 +86,17 @@ PHONY targets
 
 APP=stringifier
 
-
 .PHONY: build
 build: clean
-	go build -o ${APP} main.go
+ go build -o ${APP} main.go
 
 .PHONY: run
 run:
-	go run -race main.go
+ go run -race main.go
 
 .PHONY: clean
 clean:
-	go clean
+ go clean
 现在你已将上述所有的targets指定为phony, 每次你调用任何phony目标（target) 时，make将会执行相应的规则。你还可以一次将所有要指定为phony的目标指定为:
 
 .PHONY: build clean run
@@ -115,34 +114,35 @@ Recursive Make targets
       └── Makefile
 很自然，某些时候我们也想build和test我们的tokenizer模块。由于它是一个独立的模块也可能是一个独立的项目，在它的目录有如下内容的一个Makefile是很有必要的：
 
-# ~/programming/stringifier/tokenizer/Makefile
+## ~/programming/stringifier/tokenizer/Makefile
 
 APP=tokenizer
 
 build:
-	go build -o ${APP} main.go
+ go build -o ${APP} main.go
 现在只要您在stringifier项目的根目录中并且想要构建tokenizer应用程序，你不会想使用诸如cd tokenizer && make build && cd - 这样的易受攻击的命令行技巧，而具体的Makefiles的规则写在子目录中的方式。幸运的是，make可以帮助你解决这个问题。你可以使用-C标志和特殊的${NAME}变量在其他目录中调用make targets。下面是stringifies项目最初的Makefile:
 
-# ~/programming/stringifier/Makefile
+## ~/programming/stringifier/Makefile
 
 APP=stringifier
 
-
+```SHELL
 .PHONY: build
 build: clean
-	go build -o ${APP} main.go
+ go build -o ${APP} main.go
+```
 
 .PHONY: run
 run:
-	go run -race main.go
+ go run -race main.go
 
 .PHONY: clean
 clean:
-	go clean
+ go clean
 
 .PHONY: build-tokenizer
 build-tokenizer:
-	${MAKE} -C tokenizer build
+ ${MAKE} -C tokenizer build
 现在只要你运行make build-tokenizer，make都将为您处理目录切换，并以更加可读和健壮的方式为您调用正确目录中的正确目标
 
 Targets for Docker commands
@@ -152,12 +152,12 @@ Targets for Docker commands
 
 .PHONY: docker-build
 docker-build: build
-	docker build -t stringifier .
-	docker tag stringifier stringifier:tag
+ docker build -t stringifier .
+ docker tag stringifier stringifier:tag
 
 .PHONY: docker-push
 docker-push: docker-build
-	docker push gcr.io/stringifier/stringifier-staging/stringifier:tag
+ docker push gcr.io/stringifier/stringifier-staging/stringifier:tag
 docker命令基本满足需要，但是还有改善的空间，
 
 对于新手，你可以再次重用你的${APP}变量。
@@ -170,12 +170,12 @@ COMMIT_SHA=$(shell git rev-parse --short HEAD)
 
 .PHONY: docker-build
 docker-build: build
-	docker build -t ${APP} .
-	docker tag ${APP} ${APP}:${COMMIT_SHA}
+ docker build -t ${APP} .
+ docker tag ${APP} ${APP}:${COMMIT_SHA}
 
 .PHONY: docker-push
 docker-push: check-environment docker-build
-	docker push ${REGISTRY}/${ENV}/${APP}:${COMMIT_SHA}
+ docker push ${REGISTRY}/${ENV}/${APP}:${COMMIT_SHA}
 
 check-environment:
 ifndef ENV
@@ -206,47 +206,57 @@ Help target
 一个新成员加入了该项目并想知道Makefile中所有规则的作用，为帮助它们您可以添加一个新目标(target)，该目标将打印所有目标名称以及它们作用的简短描述:
 
 .PHONY: build
+
 ## build: build the application
+
 build: clean
     @echo "Building..."
     @go build -o ${APP} main.go
 
 .PHONY: run
+
 ## run: runs go run main.go
+
 run:
-	go run -race main.go
+ go run -race main.go
 
 .PHONY: clean
+
 ## clean: cleans the binary
+
 clean:
     @echo "Cleaning"
     @go clean
 
 .PHONY: setup
+
 ## setup: setup go modules
+
 setup:
-	@go mod init \
-		&& go mod tidy \
-		&& go mod vendor
+ @go mod init \
+  && go mod tidy \
+  && go mod vendor
 
 .PHONY: help
+
 ## help: prints this help message
+
 help:
-	@echo "Usage: \n"
-	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
+ @echo "Usage: \n"
+ @sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 你先注意下最后一条规则，help 在这里，您只是使用一些sed魔术来解析和在命令行上打印。 但是要做到这一点，您必要在每条规则之前写了目标名称和简短描述作为注释。 注意另一个特殊变量$ {MAKEFILE_LIST}，它是您所引用的所有Makefile的列表，在本例中仅是Makefile。
 
 您会将文件Makefile作为输入传递给sed命令，该命令将解析所有帮助注释并以表格格式将其打印到stdout，以便于阅读。 上一个代码段的help目标的输出如下所示：
 
 $ make help
 Usage:
-	build             Build the application
-	clean             cleans the binary
-	run               runs go run main.go
-	docker-build      builds docker image
-	docker-push       pushes the docker image
-	setup             set up modules
-	help              prints this help message
+ build             Build the application
+ clean             cleans the binary
+ run               runs go run main.go
+ docker-build      builds docker image
+ docker-push       pushes the docker image
+ setup             set up modules
+ help              prints this help message
 这些消息很有帮助，对于其他人甚至有时对自己都是一个不错的提示。
 
 Conclusion 结论
@@ -259,67 +269,83 @@ APP?=stringifier
 REGISTRY?=gcr.io/images
 COMMIT_SHA=$(shell git rev-parse --short HEAD)
 
-
-
 .PHONY: build
+
 ## build: build the application
+
 build: clean
     @echo "Building..."
     @go build -o ${APP} main.go
 
 .PHONY: run
+
 ## run: runs go run main.go
+
 run:
-	go run -race main.go
+ go run -race main.go
 
 .PHONY: clean
+
 ## clean: cleans the binary
+
 clean:
     @echo "Cleaning"
     @go clean
 
 .PHONY: test
-## test: runs go test with default values
-test:
-	go test -v -count=1 -race ./...
 
+## test: runs go test with default values
+
+test:
+ go test -v -count=1 -race ./...
 
 .PHONY: build-tokenizer
+
 ## build-tokenizer: build the tokenizer application
+
 build-tokenizer:
-	${MAKE} -c tokenizer build
+ ${MAKE} -c tokenizer build
 
 .PHONY: setup
+
 ## setup: setup go modules
+
 setup:
-	@go mod init \
-		&& go mod tidy \
-		&& go mod vendor
+ @go mod init \
+  && go mod tidy \
+  && go mod vendor
 
 # helper rule for deployment
+
 check-environment:
 ifndef ENV
     $(error ENV not set, allowed values - `staging` or `production`)
 endif
 
 .PHONY: docker-build
+
 ## docker-build: builds the stringifier docker image to registry
+
 docker-build: build
-	docker build -t ${APP}:${COMMIT_SHA} .
+ docker build -t ${APP}:${COMMIT_SHA} .
 
 .PHONY: docker-push
+
 ## docker-push: pushes the stringifier docker image to registry
+
 docker-push: check-environment docker-build
-	docker push ${REGISTRY}/${ENV}/${APP}:${COMMIT_SHA}
+ docker push ${REGISTRY}/${ENV}/${APP}:${COMMIT_SHA}
 
 .PHONY: help
+
 ## help: Prints this help message
+
 help:
-	@echo "Usage: \n"
-	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
+ @echo "Usage: \n"
+ @sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 Refer to:
 
-https://danishpraka.sh/2019/12/07/using-makefiles-for-go.html
-https://www.gnu.org/software/make/manual/html_node/Special-Targets.html#Special-Targets
+<https://danishpraka.sh/2019/12/07/using-makefiles-for-go.html>
+<https://www.gnu.org/software/make/manual/html_node/Special-Targets.html#Special-Targets>
 
-https://colynn.github.io/2020-03-03-using_makefile/
+<https://colynn.github.io/2020-03-03-using_makefile/>

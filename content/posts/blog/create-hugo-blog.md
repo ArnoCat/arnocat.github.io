@@ -1,6 +1,6 @@
 +++
 categories = ["Hugo"]
-date = "2024-07-05"
+date = "2022-07-05"
 description = "新建一个hugo博客"
 featured = "pic01.jpg"
 featuredalt = ""
@@ -18,7 +18,6 @@ type = "posts"
 环境要求：
 下载go 和 git
 
-
 ## 创建github库
 
 1. 打开github，创建一个库
@@ -26,7 +25,8 @@ type = "posts"
 3. setting页面选择main / docs文件夹，然后save
 
 ### 多账号github搭建 （此处自选）
-```
+
+```SHELL
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 Generating public/private rsa key pair.
 Enter file in which to save the key (~/.ssh/id_rsa):<为了区分多个key，请填写自定义的名称>
@@ -53,9 +53,9 @@ $ ssh -T git@github.com-work
 
 ```
 
-
 ## 安装 Hugo
-```
+
+```SHELL
 ## 我用的官方最新版，没有用brew install hugo
 $ CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
 $ hugo version
@@ -64,7 +64,7 @@ $ hugo version
 
 ## 新建hugo网站
 
-```
+```SHELL
 ## 创建一个文件夹
 $ mkdir xxx && cd xxx
 ## git初始化

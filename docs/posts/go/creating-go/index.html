@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>从零开始学go | Arno</title>
+    <title>GO每日一库之go基础 | Arno</title>
 
     
 <link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -23,7 +23,7 @@
 
 <meta property="og:url" content="https://arnocat.github.io/posts/go/creating-go/">
   <meta property="og:site_name" content="Arno">
-  <meta property="og:title" content="从零开始学go">
+  <meta property="og:title" content="GO每日一库之go基础">
   <meta property="og:description" content="go基础知识 1. var _ Interface = (*Type)(nil) 在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是，">
   <meta property="og:locale" content="zh">
   <meta property="og:type" content="article">
@@ -35,7 +35,7 @@
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="从零开始学go">
+  <meta name="twitter:title" content="GO每日一库之go基础">
   <meta name="twitter:description" content="go基础知识 1. var _ Interface = (*Type)(nil) 在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是，">
 
 
@@ -225,7 +225,7 @@
 <div class="mt-4 px-4">
   <section class="mx-auto prose dark:prose-invert" id="dream-single-page">
     <header>
-      <h1>从零开始学go</h1>
+      <h1>GO每日一库之go基础</h1>
       <p class="text-sm">
         
           <span data-format="luxon">2024-07-09T00:00:00Z</span>
@@ -257,7 +257,7 @@
 
 
         <span class="flex items-center gap-2">
-  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e5%ad%a6go&url=https%3a%2f%2farnocat.github.io%2fposts%2fgo%2fcreating-go%2f" title="Share on X">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=GO%e6%af%8f%e6%97%a5%e4%b8%80%e5%ba%93%e4%b9%8bgo%e5%9f%ba%e7%a1%80&url=https%3a%2f%2farnocat.github.io%2fposts%2fgo%2fcreating-go%2f" title="Share on X">
     <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
   </a>
   <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2farnocat.github.io%2fposts%2fgo%2fcreating-go%2f" title="Share on Facebook">
@@ -274,60 +274,60 @@
       <h2 id="go基础知识">go基础知识</h2>
 <h3 id="1-var-_-interface--typenil">1. var _ Interface = (*Type)(nil)</h3>
 <p>在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是，在编译时强制检查类型实现接口的情况。</p>
-<h4 id="接口声明首先你需要声明一个接口例如">接口声明：首先你需要声明一个接口。例如：</h4>
-<pre tabindex="0"><code>type Interface interface {
-    Method1()
-    Method2()
-}
-</code></pre><h4 id="类型声明并实现接口方法然后你声明一个类型并实现接口中的所有方法例如">类型声明并实现接口方法：然后你声明一个类型，并实现接口中的所有方法。例如：</h4>
-<pre tabindex="0"><code>type Type struct{}
-
-func (t *Type) Method1() {
-    // 实现 Method1
-}
-
-func (t *Type) Method2() {
-    // 实现 Method2
-}
-</code></pre><h4 id="接口实现验证最后使用-var-_-interface--typenil-来验证-type-是否实现了-interface-接口">接口实现验证：最后使用 var _ Interface = (*Type)(nil) 来验证 Type 是否实现了 Interface 接口。</h4>
-<pre tabindex="0"><code>var _ Interface = (*Type)(nil)
-</code></pre><p>这一行代码的作用是在编译时确保 *Type 实现了 Interface 接口。如果 *Type 没有实现 Interface 中的所有方法，编译器会报错。
+<h4 id="接口声明首先你需要声明一个接口例如">接口声明：首先你需要声明一个接口。例如</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Interface</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Method1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Method2</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="类型声明并实现接口方法然后你声明一个类型并实现接口中的所有方法例如">类型声明并实现接口方法：然后你声明一个类型，并实现接口中的所有方法。例如</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Type</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Type</span><span class="p">)</span> <span class="nf">Method1</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 实现 Method1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Type</span><span class="p">)</span> <span class="nf">Method2</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 实现 Method2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h4 id="接口实现验证最后使用-var-_-interface--typenil-来验证-type-是否实现了-interface-接口">接口实现验证：最后使用 var _ Interface = (*Type)(nil) 来验证 Type 是否实现了 Interface 接口</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">_</span> <span class="nx">Interface</span> <span class="p">=</span> <span class="p">(</span><span class="o">*</span><span class="nx">Type</span><span class="p">)(</span><span class="kc">nil</span><span class="p">)</span>
+</span></span></code></pre></div><p>这一行代码的作用是在编译时确保 <em>Type 实现了 Interface 接口。如果</em>Type 没有实现 Interface 中的所有方法，编译器会报错。
 为什么使用这种方式？
 这种方式的好处是显而易见的：</p>
 <p>编译时检查：它在编译时就能发现类型没有完全实现接口的错误。
 文档化：它清晰地表明了 Type 需要实现某个接口，使代码更加自文档化。
 避免运行时错误：通过编译时检查，可以避免某些运行时才会发现的问题。</p>
-<h4 id="完整示例">完整示例：</h4>
-<pre tabindex="0"><code>package main
-
-import &#34;fmt&#34;
-
-// 定义接口
-type Interface interface {
-    Method1()
-    Method2()
-}
-
-// 编译时检查 Type 是否实现了 Interface
-var _ Interface = (*Type)(nil)
-
-// 定义类型并实现接口方法
-type Type struct{}
-
-func (t *Type) Method1() {
-    fmt.Println(&#34;Method1 implemented&#34;)
-}
-
-func (t *Type) Method2() {
-    fmt.Println(&#34;Method2 implemented&#34;)
-}
-
-func main() {
-    var t Interface = &amp;Type{}
-    t.Method1()
-    t.Method2()
-}
-</code></pre>
+<h4 id="完整示例">完整示例</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义接口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Interface</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Method1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Method2</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 编译时检查 Type 是否实现了 Interface
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">_</span> <span class="nx">Interface</span> <span class="p">=</span> <span class="p">(</span><span class="o">*</span><span class="nx">Type</span><span class="p">)(</span><span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义类型并实现接口方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Type</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Type</span><span class="p">)</span> <span class="nf">Method1</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Method1 implemented&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Type</span><span class="p">)</span> <span class="nf">Method2</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Method2 implemented&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">t</span> <span class="nx">Interface</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Type</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nf">Method1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nf">Method2</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
     </main>
   </section>
 

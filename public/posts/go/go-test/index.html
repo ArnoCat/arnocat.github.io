@@ -275,98 +275,98 @@
 
       <h2 id="go基础之testify单元测试">go基础之Testify单元测试</h2>
 <h3 id="1-简单使用">1. 简单使用</h3>
-<pre tabindex="0"><code>package main
-
-import (
-    &#34;testing&#34;
-    &#34;github.com/stretchr/testify/assert&#34;
-)
-
-func TestSomething(t *testing.T) {
-    // assert equality
-    assert.Equal(t, 123, 123, &#34;they should be equal&#34;)
-
-    // assert inequality
-    assert.NotEqual(t, 123, 456, &#34;they should not be equal&#34;)
-
-    // assert for nil (good for errors)
-    assert.Nil(t, object)
-
-    // assert for not nil (good when you expect something)
-    if assert.NotNil(t, object) {
-        // now we know that object isn&#39;t nil, we are safe to make
-        // further assertions without causing any errors
-        assert.Equal(t, &#34;Something&#34;, object.Value)
-    }
-}
-</code></pre><h3 id="2httptest">2.httptest</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;github.com/stretchr/testify/assert&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestSomething</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// assert equality
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">assert</span><span class="p">.</span><span class="nf">Equal</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="s">&#34;they should be equal&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// assert inequality
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">assert</span><span class="p">.</span><span class="nf">NotEqual</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">456</span><span class="p">,</span> <span class="s">&#34;they should not be equal&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// assert for nil (good for errors)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">assert</span><span class="p">.</span><span class="nf">Nil</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">object</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// assert for not nil (good when you expect something)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="nx">assert</span><span class="p">.</span><span class="nf">NotNil</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// now we know that object isn&#39;t nil, we are safe to make
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// further assertions without causing any errors
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">assert</span><span class="p">.</span><span class="nf">Equal</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="s">&#34;Something&#34;</span><span class="p">,</span> <span class="nx">object</span><span class="p">.</span><span class="nx">Value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="2httptest">2.httptest</h3>
 <ol>
 <li>实现http.ResponseWriter接口，通过Mock HTTP Response模拟HTTP响应
 w := httptest.NewRecorder()
 req := httptest.NewRequest()
 resp := handler(w, req)</li>
 </ol>
-<pre tabindex="0"><code>func TestRespRecorder(t *testing.T) {
-	// define handler
-	handler := func(w http.ResponseWriter, r *http.Request) {
-		io.WriteString(w, &#34;&lt;html&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#34;)
-	}
-	// define request
-	req := httptest.NewRequest(&#34;GET&#34;, &#34;http://httpbin.org/ip&#34;, nil)
-	t.Logf(&#34;%+v&#34;, req)
-	// new an recorder impl http.ResponseWriter
-	w := httptest.NewRecorder()
-	// handle
-	handler(w, req)
-	// get fake http response
-	resp := w.Result()
-	body, _ := ioutil.ReadAll(resp.Body)
-	t.Logf(&#34;%+v&#34;, resp)
-	t.Log(string(body))
-}
-</code></pre><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestRespRecorder</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// define handler
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">handler</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">io</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;&lt;html&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// define request
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">req</span> <span class="o">:=</span> <span class="nx">httptest</span><span class="p">.</span><span class="nf">NewRequest</span><span class="p">(</span><span class="s">&#34;GET&#34;</span><span class="p">,</span> <span class="s">&#34;http://httpbin.org/ip&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;%+v&#34;</span><span class="p">,</span> <span class="nx">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// new an recorder impl http.ResponseWriter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">w</span> <span class="o">:=</span> <span class="nx">httptest</span><span class="p">.</span><span class="nf">NewRecorder</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// handle
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">handler</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// get fake http response
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">resp</span> <span class="o">:=</span> <span class="nx">w</span><span class="p">.</span><span class="nf">Result</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">body</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;%+v&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">body</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="2">
 <li>真实创建HTTP测试服务，创建后就立马监听，通过http.Get(ts.URL)、http.Post(ts.URL)等发起真实HTTP请求</li>
 </ol>
 <p>ts := httptest.NewServer()
 ts := httptest.NewTLSServer()</p>
-<pre tabindex="0"><code>func TestNormalHTTPServer(t *testing.T) {
-	// 创建一个普通HTTP1.1测试服务
-	handler := func(w http.ResponseWriter, r *http.Request) {
-		// json header
-		w.Header().Set(&#34;Content-Type&#34;, &#34;application/json&#34;)
-		// json回包
-		m := map[string]interface{}{
-			&#34;id&#34;:   100,
-			&#34;name&#34;: &#34;clark&#34;,
-			&#34;likes&#34;: []string{&#34;play game&#34;, &#34;watch tv&#34;, &#34;read book&#34;,},
-		}
-		jdt, err := json.Marshal(m)
-		if err != nil {
-			t.Fatal(err)
-		}
-		w.Write(jdt)
-		// fmt.Fprintf(w, &#34;%s&#34;, jdt)
-	}
-	ts := httptest.NewServer(http.HandlerFunc(handler))
-	defer ts.Close()
-
-	// 发起http请求
-	res, err := http.Get(ts.URL)
-	if err != nil {
-		log.Fatal(err)
-	}
-	t.Logf(&#34;%s&#34;, res.Header)
-	t.Logf(&#34;%s&#34;, res.Request.URL)
-
-    // http响应处理
-	greeting, err := ioutil.ReadAll(res.Body)
-	res.Body.Close()
-	if err != nil {
-		log.Fatal(err)
-	}
-	t.Logf(&#34;%s&#34;, greeting)
-}
-</code></pre><ol start="3">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestNormalHTTPServer</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 创建一个普通HTTP1.1测试服务
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">handler</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// json header
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">w</span><span class="p">.</span><span class="nf">Header</span><span class="p">().</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">,</span> <span class="s">&#34;application/json&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// json回包
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">m</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;id&#34;</span><span class="p">:</span>   <span class="mi">100</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;name&#34;</span><span class="p">:</span> <span class="s">&#34;clark&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;likes&#34;</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;play game&#34;</span><span class="p">,</span> <span class="s">&#34;watch tv&#34;</span><span class="p">,</span> <span class="s">&#34;read book&#34;</span><span class="p">,},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">jdt</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">jdt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// fmt.Fprintf(w, &#34;%s&#34;, jdt)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ts</span> <span class="o">:=</span> <span class="nx">httptest</span><span class="p">.</span><span class="nf">NewServer</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">handler</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">defer</span> <span class="nx">ts</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 发起http请求
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">res</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">ts</span><span class="p">.</span><span class="nx">URL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">.</span><span class="nx">Header</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">URL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// http响应处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">greeting</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">res</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="nx">greeting</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol>
 <li>
 <p>真实创建HTTP测试服务，创建后可以通过ts来说设置相关参数，并需要通过StartTLS()启动HTTP测试服务，再进行HTTP请求测试
 ts := httptest.NewUnstartedServer()
@@ -381,103 +381,103 @@ ts.StartTLS():启动
 <p>原理： 例如调用微软ChatGpt的http方法的时候，采用接口的形式去调用DoTimeOut方法
 等到使用 testify 去进行单元测试的时候，会将DoTimeOut方法mock，去调用mock方法。</p>
 <p>eg:</p>
-<pre tabindex="0"><code>	var _ agent.ChatAgents = (*ChatGPT)(nil)
-
-	var _ HTTPClient = (*fasthttp.Client)(nil)
-
-	type ChatGPT struct {
-		client HTTPClient
-	}
-
-	type HTTPClient interface {
-		DoTimeout(req *fasthttp.Request, resp *fasthttp.Response, timeout time.Duration) error
-	}
-
-	func NewChatGPT(client HTTPClient) *ChatGPT {
-		return &amp;ChatGPT{
-			client: client,
-		}
-	}
-
-	func NewDefaultChatAgent() *ChatGPT {
-		return NewChatGPT(http.NewClient())
-	}
-
-	func (c *ChatGPT) Chat(ctx common.Context, chatReq *agent.ChatReq) (*agent.ChatRsp, error) {
-	endpoint, apiKey := c.endpoint(ctx)
-
-	req := fasthttp.AcquireRequest()
-	req.SetRequestURI(endpoint)
-	req.Header.SetMethod(fasthttp.MethodPost)
-	req.Header.SetContentType(contentTypeJson)
-	req.Header.Set(&#34;api-key&#34;, apiKey)
-	req.SetBodyRaw([]byte(chatReq.Body))
-	resp := fasthttp.AcquireResponse()
-	err := c.client.DoTimeout(req, resp, reqTimeout)
-	if err != nil {
-		return nil, err
-	}
-	fasthttp.ReleaseRequest(req)
-	defer fasthttp.ReleaseResponse(resp)
-
-	if resp.StatusCode() != fasthttp.StatusOK {
-		return nil, fmt.Errorf(&#34;unexpected status code %d&#34;, resp.StatusCode())
-	}
-
-	if len(resp.Body()) == 0 {
-		return nil, nil
-	}
-
-	return &amp;agent.ChatRsp{
-		Result: string(resp.Body()),
-	}, nil
-}
-</code></pre><p>test eg:</p>
-<pre tabindex="0"><code>// MockHTTPClient is a mock implementation of the HTTPClient interface
-type MockHTTPClient struct {
-	mock.Mock
-}
-
-func (m *MockHTTPClient) DoTimeout(req *fasthttp.Request, resp *fasthttp.Response, timeout time.Duration) error {
-	args := m.Called(req, resp, timeout)
-	return args.Error(0)
-}
-
-func TestChatGPT(t *testing.T) {
-	mockClient := new(MockHTTPClient)
-	chatGPT := NewChatGPT(mockClient)
-
-	resp := &amp;fasthttp.Response{}
-	resp.SetStatusCode(fasthttp.StatusOK)
-	resp.SetBodyString(`{&#34;result&#34;: &#34;mocked response&#34;}`)
-
-	// Set up the mock expectation
-	mockClient.On(&#34;DoTimeout&#34;, mock.Anything, mock.Anything, time.Second*10).Return(nil).Run(func(args mock.Arguments) {
-		// Simulate setting response body
-		argResp := args.Get(1).(*fasthttp.Response)
-		argResp.SetStatusCode(fasthttp.StatusOK)
-		argResp.SetBodyString(&#34;mocked response&#34;)
-	})
-
-	ctx := common.Context{}
-	chatReq := &amp;agent.ChatReq{Body: `{&#34;message&#34;: &#34;test&#34;}`}
-
-	got, err := chatGPT.Chat(ctx, chatReq)
-	if err != nil {
-		t.Fatalf(&#34;expected no error, got %v&#34;, err)
-	}
-	var expected *agent.ChatRsp
-	err = json.Unmarshal(resp.Body(), &amp;expected)
-	if err != nil {
-		t.Errorf(&#34;json Unmarshal %v&#34;, err)
-	}
-	assert.Equal(t, got, expected)
-
-	// Assert that the expectations were met
-	mockClient.AssertExpectations(t)
-}
-</code></pre><h3 id="genericcontainer">GenericContainer</h3>
-<h2 id="参考">参考：</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"> <span class="kd">var</span> <span class="nx">_</span> <span class="nx">agent</span><span class="p">.</span><span class="nx">ChatAgents</span> <span class="p">=</span> <span class="p">(</span><span class="o">*</span><span class="nx">ChatGPT</span><span class="p">)(</span><span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">var</span> <span class="nx">_</span> <span class="nx">HTTPClient</span> <span class="p">=</span> <span class="p">(</span><span class="o">*</span><span class="nx">fasthttp</span><span class="p">.</span><span class="nx">Client</span><span class="p">)(</span><span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">type</span> <span class="nx">ChatGPT</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">client</span> <span class="nx">HTTPClient</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">type</span> <span class="nx">HTTPClient</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">DoTimeout</span><span class="p">(</span><span class="nx">req</span> <span class="o">*</span><span class="nx">fasthttp</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">resp</span> <span class="o">*</span><span class="nx">fasthttp</span><span class="p">.</span><span class="nx">Response</span><span class="p">,</span> <span class="nx">timeout</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Duration</span><span class="p">)</span> <span class="kt">error</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">func</span> <span class="nf">NewChatGPT</span><span class="p">(</span><span class="nx">client</span> <span class="nx">HTTPClient</span><span class="p">)</span> <span class="o">*</span><span class="nx">ChatGPT</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">&amp;</span><span class="nx">ChatGPT</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">client</span><span class="p">:</span> <span class="nx">client</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">func</span> <span class="nf">NewDefaultChatAgent</span><span class="p">()</span> <span class="o">*</span><span class="nx">ChatGPT</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nf">NewChatGPT</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">NewClient</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ChatGPT</span><span class="p">)</span> <span class="nf">Chat</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">common</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">chatReq</span> <span class="o">*</span><span class="nx">agent</span><span class="p">.</span><span class="nx">ChatReq</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">agent</span><span class="p">.</span><span class="nx">ChatRsp</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">endpoint</span><span class="p">,</span> <span class="nx">apiKey</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">endpoint</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="nx">req</span> <span class="o">:=</span> <span class="nx">fasthttp</span><span class="p">.</span><span class="nf">AcquireRequest</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">req</span><span class="p">.</span><span class="nf">SetRequestURI</span><span class="p">(</span><span class="nx">endpoint</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">SetMethod</span><span class="p">(</span><span class="nx">fasthttp</span><span class="p">.</span><span class="nx">MethodPost</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">SetContentType</span><span class="p">(</span><span class="nx">contentTypeJson</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;api-key&#34;</span><span class="p">,</span> <span class="nx">apiKey</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">req</span><span class="p">.</span><span class="nf">SetBodyRaw</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">chatReq</span><span class="p">.</span><span class="nx">Body</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">resp</span> <span class="o">:=</span> <span class="nx">fasthttp</span><span class="p">.</span><span class="nf">AcquireResponse</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nf">DoTimeout</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">reqTimeout</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">fasthttp</span><span class="p">.</span><span class="nf">ReleaseRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="k">defer</span> <span class="nx">fasthttp</span><span class="p">.</span><span class="nf">ReleaseResponse</span><span class="p">(</span><span class="nx">resp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nf">StatusCode</span><span class="p">()</span> <span class="o">!=</span> <span class="nx">fasthttp</span><span class="p">.</span><span class="nx">StatusOK</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;unexpected status code %d&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nf">StatusCode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nf">Body</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="o">&amp;</span><span class="nx">agent</span><span class="p">.</span><span class="nx">ChatRsp</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Result</span><span class="p">:</span> <span class="nb">string</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nf">Body</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl"> <span class="p">},</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>test eg:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// MockHTTPClient is a mock implementation of the HTTPClient interface
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">MockHTTPClient</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">mock</span><span class="p">.</span><span class="nx">Mock</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">MockHTTPClient</span><span class="p">)</span> <span class="nf">DoTimeout</span><span class="p">(</span><span class="nx">req</span> <span class="o">*</span><span class="nx">fasthttp</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">resp</span> <span class="o">*</span><span class="nx">fasthttp</span><span class="p">.</span><span class="nx">Response</span><span class="p">,</span> <span class="nx">timeout</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Duration</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">args</span> <span class="o">:=</span> <span class="nx">m</span><span class="p">.</span><span class="nf">Called</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="nx">args</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestChatGPT</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">mockClient</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">MockHTTPClient</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">chatGPT</span> <span class="o">:=</span> <span class="nf">NewChatGPT</span><span class="p">(</span><span class="nx">mockClient</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="nx">resp</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">fasthttp</span><span class="p">.</span><span class="nx">Response</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">resp</span><span class="p">.</span><span class="nf">SetStatusCode</span><span class="p">(</span><span class="nx">fasthttp</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">resp</span><span class="p">.</span><span class="nf">SetBodyString</span><span class="p">(</span><span class="s">`{&#34;result&#34;: &#34;mocked response&#34;}`</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="c1">// Set up the mock expectation
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="nx">mockClient</span><span class="p">.</span><span class="nf">On</span><span class="p">(</span><span class="s">&#34;DoTimeout&#34;</span><span class="p">,</span> <span class="nx">mock</span><span class="p">.</span><span class="nx">Anything</span><span class="p">,</span> <span class="nx">mock</span><span class="p">.</span><span class="nx">Anything</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="o">*</span><span class="mi">10</span><span class="p">).</span><span class="nf">Return</span><span class="p">(</span><span class="kc">nil</span><span class="p">).</span><span class="nf">Run</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">args</span> <span class="nx">mock</span><span class="p">.</span><span class="nx">Arguments</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Simulate setting response body
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">argResp</span> <span class="o">:=</span> <span class="nx">args</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="mi">1</span><span class="p">).(</span><span class="o">*</span><span class="nx">fasthttp</span><span class="p">.</span><span class="nx">Response</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">argResp</span><span class="p">.</span><span class="nf">SetStatusCode</span><span class="p">(</span><span class="nx">fasthttp</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">argResp</span><span class="p">.</span><span class="nf">SetBodyString</span><span class="p">(</span><span class="s">&#34;mocked response&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="nx">ctx</span> <span class="o">:=</span> <span class="nx">common</span><span class="p">.</span><span class="nx">Context</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">chatReq</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">agent</span><span class="p">.</span><span class="nx">ChatReq</span><span class="p">{</span><span class="nx">Body</span><span class="p">:</span> <span class="s">`{&#34;message&#34;: &#34;test&#34;}`</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="nx">got</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">chatGPT</span><span class="p">.</span><span class="nf">Chat</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">chatReq</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">t</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;expected no error, got %v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="kd">var</span> <span class="nx">expected</span> <span class="o">*</span><span class="nx">agent</span><span class="p">.</span><span class="nx">ChatRsp</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">err</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nf">Body</span><span class="p">(),</span> <span class="o">&amp;</span><span class="nx">expected</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">t</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;json Unmarshal %v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">assert</span><span class="p">.</span><span class="nf">Equal</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">got</span><span class="p">,</span> <span class="nx">expected</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="c1">// Assert that the expectations were met
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="nx">mockClient</span><span class="p">.</span><span class="nf">AssertExpectations</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="genericcontainer">GenericContainer</h3>
+<h2 id="参考">参考</h2>
 <p><a href="https://darjun.github.io/2021/08/11/godailylib/testify/">https://darjun.github.io/2021/08/11/godailylib/testify/</a></p>
 <p><a href="https://tkstorm.com/2020/10/go-httptest-%E5%9C%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%AD%E8%BF%9B%E8%A1%8Chttp%E6%A8%A1%E6%8B%9F%E6%B5%8B%E8%AF%95/">https://tkstorm.com/2020/10/go-httptest-%E5%9C%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%AD%E8%BF%9B%E8%A1%8Chttp%E6%A8%A1%E6%8B%9F%E6%B5%8B%E8%AF%95/</a></p>
 <p><a href="https://learn.microsoft.com/zh-cn/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line%2Cpython-new&amp;pivots=rest-api">https://learn.microsoft.com/zh-cn/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line%2Cpython-new&amp;pivots=rest-api</a></p>

@@ -18,7 +18,7 @@ series:
 
 ### go
 
-```
+```SHELL
 $ go env
 $ env
 $ env | grep -i proxy
@@ -33,57 +33,70 @@ Date: Mon, 08 Jul 2024 09:28:33 GMT
 ```
 
 ### 查看端口
+
 Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。
+
 #### lsof
+
+```SHELL
+lsof -i:端口号
+lsof -i:8080：查看8080端口占用
+lsof abc.txt：显示开启文件abc.txt的进程
+lsof -c abc：显示abc进程现在打开的文件
+lsof -c -p 1234：列出进程号为1234的进程所打开的文件
+lsof -g gid：显示归属gid的进程情况
+lsof +d /usr/local/：显示目录下被进程开启的文件
+lsof +D /usr/local/：同上，但是会搜索目录下的目录，时间较长
+lsof -d 4：显示使用fd为4的进程
+lsof -i -U：显示所有打开的端口和UNIX domain文件
 ```
-$ lsof -i:端口号
-$ lsof -i:8080：查看8080端口占用
-$ lsof abc.txt：显示开启文件abc.txt的进程
-$ lsof -c abc：显示abc进程现在打开的文件
-$ lsof -c -p 1234：列出进程号为1234的进程所打开的文件
-$ lsof -g gid：显示归属gid的进程情况
-$ lsof +d /usr/local/：显示目录下被进程开启的文件
-$ lsof +D /usr/local/：同上，但是会搜索目录下的目录，时间较长
-$ lsof -d 4：显示使用fd为4的进程
-$ lsof -i -U：显示所有打开的端口和UNIX domain文件
-```
+
 netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况。
 -t (tcp) 仅显示tcp相关选项
 -u (udp)仅显示udp相关选项
 -n 拒绝显示别名，能显示数字的全部转化为数字
 -l 仅列出在Listen(监听)的服务状态
 -p 显示建立相关链接的程序名
+
 #### netstat
-```
-$ netstat -ntlp   //查看当前所有tcp端口
-$ netstat -ntulp | grep 80   //查看所有80端口使用情况
-$ netstat -ntulp | grep 3306   //查看所有3306端口使用情况
+
+```SHELL
+netstat -ntlp   //查看当前所有tcp端口
+netstat -ntulp | grep 80   //查看所有80端口使用情况
+netstat -ntulp | grep 3306   //查看所有3306端口使用情况
 ```
 
 #### /bin/sh -c
+
 带上 -c 参数的话，会把参数后面的值当作命令行，而不是普通的字符串
+
+```SHELL
+/bin/sh -c ls
 ```
-$ /bin/sh -c ls
-```
+
 如果 -c 后面的命令行有空格隔开，可以使用双引号括起来
-```
-$ /bin/sh -c "ls -al"
+
+```SHELL
+/bin/sh -c "ls -al"
 ```
 
 ### kill进程
-```
-$ kill -9 pid
 
-$ killall 进程名
+```SHELL
+kill -9 pid
+
+killall 进程名
 ```
+
 ### tcp
 
 ### java
 
-
 ### curl 命令踩坑实录
+
 #### 环境
-```
+
+```SHELL
 $ curl --version
 
 curl 7.79.1 (x86_64-apple-darwin21.0) libcurl/7.79.1 (SecureTransport) LibreSSL/3.3.6 zlib/1.2.11 nghttp2/1.45.1
@@ -91,19 +104,21 @@ Release-Date: 2021-09-22
 Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
 Features: alt-svc AsynchDNS GSS-API HSTS HTTP2 HTTPS-proxy IPv6 Kerberos Largefile libz MultiSSL NTLM NTLM_WB SPNEGO SSL UnixSockets
 ```
-#### 报错原因 curl命令一个地址的时候报错：zsh: no matches found: https://xxx.openai.azure.com/openai/deployments/xxx/chat/completions?api-version=2024-04-01-previe
-```
+
+#### 报错原因 curl命令一个地址的时候报错：zsh: no matches found: <https://xxx.openai.azure.com/openai/deployments/xxx/chat/completions?api-version=2024-04-01-previe>
+
+```SHELL
 curl https://xxx.openai.azure.com/openai/deployments/xxx/chat/completions?api-version=2024-04-01-preview \
   -H "Content-Type: application/json" \
   -H "api-key: xxx" \
   -d '{"messages":[{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},{"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},{"role": "user", "content": "Do other Azure AI services support this too?"}]}'
 ```
 
-#### 解决方案参考 https://www.reddit.com/r/zsh/comments/h9mdvc/why_do_i_get_this_error_zsh_no_matches_found/?rdt=42851
+#### 解决方案参考 <https://www.reddit.com/r/zsh/comments/h9mdvc/why_do_i_get_this_error_zsh_no_matches_found/?rdt=42851>
 
 1. 使用反斜杠进行转义：\?
 
-2. 将 URL 括在引号中：'https://www.youtube.com/watch?v=mVEwurFdnYk'
+2. 将 URL 括在引号中：'<https://www.youtube.com/watch?v=mVEwurFdnYk>'
 
 3. noglob像u/grumpycrash建议的那样 使用预命令修饰符。
 
@@ -112,25 +127,54 @@ curl https://xxx.openai.azure.com/openai/deployments/xxx/chat/completions?api-ve
 采用了第一种方案。
 
 #### 升级curl
+
 Mac 升级 curl 到最新版本
 在 macOS 上，可以使用 Homebrew 来升级 curl 到最新版本。下面是升级 curl 的步骤：
 
 安装 Homebrew：如果你还没有安装 Homebrew，可以在终端中运行以下命令进行安装：
 
-
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```SHELL
+$ /bin/bash -c "$(curl -fsSL <https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh>)"
 使用 Homebrew 升级 curl：在终端中运行以下命令来安装最新版本的 curl：
-
 
 $ brew install curl
 使用 brew link 覆盖系统 curl：为了确保使用的是 Homebrew 安装的 curl，可以运行以下命令将其链接到系统路径中：
 
-
 $ brew link --force curl
 验证 curl 版本：升级完成后，可以运行以下命令来验证 curl 版本：
 
-
 $ curl --version
 通过这些步骤，你应该能够将 macOS 上的 curl 升级到最新版本。
+```
 
-参考: https://docs.ffffee.com/frontend/240429-curl%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.html
+#### Ubuntu切换zsh
+
+```SHELL
+# 安装 zsh
+sudo apt-get install zsh
+
+# 查找 zsh 路径
+which zsh
+
+# 假设路径为 /usr/bin/zsh，切换默认 shell
+chsh -s /usr/bin/zsh
+
+# 检查 /etc/shells 文件是否包含 zsh 路径
+cat /etc/shells
+
+# 如果没有，手动添加 zsh 路径
+sudo nano /etc/shells
+# 在文件末尾添加 /usr/bin/zsh，保存并退出
+
+# 重新登录或重启终端
+
+# 验证默认 shell 是否已更改为 zsh
+echo $SHELL
+
+# 强制启动 zsh（如果仍有问题）
+echo 'if [ -t 1 ]; then exec zsh; fi' >> ~/.bashrc
+source ~/.bashrc
+
+```
+
+参考: <https://docs.ffffee.com/frontend/240429-curl%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.html>

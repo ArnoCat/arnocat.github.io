@@ -6,12 +6,12 @@
     <description>Recent content in Hugo on Arno</description>
     <generator>Hugo</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 05 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://arnocat.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>新建一个hugo博客</title>
       <link>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
       <guid>https://arnocat.github.io/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</guid>
       <description>Introduction 从零开始创建一个hugo项目并且部署到github 环境要求： 下载go 和 git 创建github库 打开github，创建一个库 输入项目名，要与 Github 用</description>
     </item>

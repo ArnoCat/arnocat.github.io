@@ -271,7 +271,7 @@
     <main>
       
 
-      <h1 id="go-每日一库之-viper">Go 每日一库之 viper</h1>
+      <h2 id="go-每日一库之-viper">Go 每日一库之 viper</h2>
 <p>viper 是一个配置解决方案，拥有丰富的特性：</p>
 <p>支持 JSON/TOML/YAML/HCL/envfile/Java properties 等多种格式的配置文件；
 ·可以设置监听配置文件的修改，修改时自动加载新的配置；
@@ -279,97 +279,98 @@
 ·从远程配置系统中读取和监听修改，如 etcd/Consul；
 ·代码逻辑中显示设置键值。</p>
 <h2 id="快速使用">快速使用</h2>
-<h3 id="安装">安装：</h3>
-<pre tabindex="0"><code>$ go get github.com/spf13/viper
-</code></pre><h4 id="示例">示例</h4>
-<pre tabindex="0"><code>package main
-
-import (
-  &#34;fmt&#34;
-  &#34;log&#34;
-
-  &#34;github.com/spf13/viper&#34;
-)
-
-func main() {
-  &lt;!-- viper.SetConfigName(&#34;config&#34;)
-  viper.SetConfigType(&#34;toml&#34;)
-  viper.AddConfigPath(&#34;.&#34;) 试过带路径的不适合部署--&gt;
-
-  viper.SetConfigFile(&#34;config.yml&#34;)
-	viper.SetConfigType(&#34;yaml&#34;)
-
-  viper.SetDefault(&#34;redis.port&#34;, 6381)
-
-  if err := viper.ReadInConfig(); err != nil {
-		return nil, err
-	}
-
-	var cfg Config
-	if err := viper.Unmarshal(&amp;cfg); err != nil {
-		return nil, err
-	}
-	return &amp;cfg, nil
-}
-</code></pre><h4 id="unmarshal">Unmarshal</h4>
-<p>viper 支持将配置Unmarshal到一个结构体中，为结构体中的对应字段赋值。
-<!-- raw HTML omitted -->切记要大写！！！<!-- raw HTML omitted --></p>
-<pre tabindex="0"><code>package main
-
-import (
-  &#34;fmt&#34;
-  &#34;log&#34;
-
-  &#34;github.com/spf13/viper&#34;
-)
-
-type Config struct {
-  AppName  string
-  LogLevel string
-
-  MySQL    MySQLConfig
-  Redis    RedisConfig
-}
-
-type MySQLConfig struct {
-  IP       string
-  Port     int
-  User     string
-  Password string
-  Database string
-}
-
-type RedisConfig struct {
-  IP   string
-  Port int
-}
-
-func main() {
-  viper.SetConfigName(&#34;config&#34;)
-  viper.SetConfigType(&#34;toml&#34;)
-  viper.AddConfigPath(&#34;.&#34;)
-  err := viper.ReadInConfig()
-  if err != nil {
-    log.Fatal(&#34;read config failed: %v&#34;, err)
-  }
-
-  var c Config
-  viper.Unmarshal(&amp;c)
-
-  fmt.Println(c.MySQL)
-}
-</code></pre><h4 id="解决viper读取yaml配置存在下划线时无法映射">解决viper读取yaml配置存在下划线时无法映射</h4>
+<h3 id="安装">安装</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">go</span> <span class="nx">get</span> <span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">spf13</span><span class="o">/</span><span class="nx">viper</span>
+</span></span></code></pre></div><h4 id="示例">示例</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;log&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;github.com/spf13/viper&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;!</span><span class="o">--</span> <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigName</span><span class="p">(</span><span class="s">&#34;config&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigType</span><span class="p">(</span><span class="s">&#34;toml&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">AddConfigPath</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">)</span> <span class="nx">试过带路径的不适合部署</span><span class="o">--</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigFile</span><span class="p">(</span><span class="s">&#34;config.yml&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigType</span><span class="p">(</span><span class="s">&#34;yaml&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">SetDefault</span><span class="p">(</span><span class="s">&#34;redis.port&#34;</span><span class="p">,</span> <span class="mi">6381</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viper</span><span class="p">.</span><span class="nf">ReadInConfig</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">var</span> <span class="nx">cfg</span> <span class="nx">Config</span>
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viper</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">cfg</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="o">&amp;</span><span class="nx">cfg</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="unmarshal">Unmarshal</h4>
+<p>viper 支持将配置Unmarshal到一个结构体中，为结构体中的对应字段赋值。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gd">-切记要大写！！！
+</span></span></span></code></pre></div><p>eg:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;log&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;github.com/spf13/viper&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Config</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">AppName</span>  <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">LogLevel</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">MySQL</span>    <span class="nx">MySQLConfig</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Redis</span>    <span class="nx">RedisConfig</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MySQLConfig</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">IP</span>       <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Port</span>     <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">User</span>     <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Password</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Database</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">RedisConfig</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">IP</span>   <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Port</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigName</span><span class="p">(</span><span class="s">&#34;config&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigType</span><span class="p">(</span><span class="s">&#34;toml&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">AddConfigPath</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viper</span><span class="p">.</span><span class="nf">ReadInConfig</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;read config failed: %v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">c</span> <span class="nx">Config</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">MySQL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="解决viper读取yaml配置存在下划线时无法映射">解决viper读取yaml配置存在下划线时无法映射</h4>
 <p>yaml示例:</p>
-<pre tabindex="0"><code>mysql:
-	rds_host: &#34;rds_xxxxxx.com&#34;
-	rds_port: 3306
-</code></pre><p>config.go部分内容如下:</p>
-<pre tabindex="0"><code>type Mysql struct {
-	RdsHost string `yaml:&#34;rds_host&#34; mapstructure:&#34;rds_host&#34;`
-	RdsPort int    `yaml:&#34;rds_port&#34; mapstructure:&#34;rds_port&#34;`
-}
-</code></pre><h2 id="参考">参考</h2>
-<p>[go每日一库之viper]https://darjun.github.io/2020/01/18/godailylib/viper/</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">mysql</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">rds_host</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;rds_xxxxxx.com&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">rds_port</span><span class="p">:</span><span class="w"> </span><span class="m">3306</span><span class="w">
+</span></span></span></code></pre></div><p>config.go部分内容如下:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Mysql</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">RdsHost</span> <span class="kt">string</span> <span class="s">`yaml:&#34;rds_host&#34; mapstructure:&#34;rds_host&#34;`</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">RdsPort</span> <span class="kt">int</span>    <span class="s">`yaml:&#34;rds_port&#34; mapstructure:&#34;rds_port&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="参考">参考</h2>
+<p>[go每日一库之viper]<a href="https://darjun.github.io/2020/01/18/godailylib/viper/">https://darjun.github.io/2020/01/18/godailylib/viper/</a></p>
 
     </main>
   </section>

@@ -15,7 +15,8 @@ series:
 ## vscode 实用功能
 
 ### vscode测试获取go的环境变量
-```
+
+```TXT
   1.创建launch.json文件
   2.然后在项目目录中会自动创建.vscode的目录
   3.在.vscode目录下创建settings.json项目独立配置文件
@@ -38,8 +39,9 @@ series:
 ```
 
 ### vscode快捷键 (mac版)
-参考  https://code.visualstudio.com/docs/setup/mac
+
+参考  <https://code.visualstudio.com/docs/setup/mac>
 
 ### 好用插件
-vscode好用插件 [vscode好用插件](https://blog.csdn.net/u011262253/article/details/113879997)
 
+vscode好用插件 [vscode好用插件](https://blog.csdn.net/u011262253/article/details/113879997)

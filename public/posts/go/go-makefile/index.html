@@ -334,17 +334,17 @@ go clean
 ├── main.go
 └── Makefile
 很自然，某些时候我们也想build和test我们的tokenizer模块。由于它是一个独立的模块也可能是一个独立的项目，在它的目录有如下内容的一个Makefile是很有必要的：</p>
-<h1 id="programmingstringifiertokenizermakefile">~/programming/stringifier/tokenizer/Makefile</h1>
+<h2 id="programmingstringifiertokenizermakefile">~/programming/stringifier/tokenizer/Makefile</h2>
 <p>APP=tokenizer</p>
 <p>build:
 go build -o ${APP} main.go
 现在只要您在stringifier项目的根目录中并且想要构建tokenizer应用程序，你不会想使用诸如cd tokenizer &amp;&amp; make build &amp;&amp; cd - 这样的易受攻击的命令行技巧，而具体的Makefiles的规则写在子目录中的方式。幸运的是，make可以帮助你解决这个问题。你可以使用-C标志和特殊的${NAME}变量在其他目录中调用make targets。下面是stringifies项目最初的Makefile:</p>
-<h1 id="programmingstringifiermakefile">~/programming/stringifier/Makefile</h1>
+<h2 id="programmingstringifiermakefile">~/programming/stringifier/Makefile</h2>
 <p>APP=stringifier</p>
-<p>.PHONY: build
-build: clean
-go build -o ${APP} main.go</p>
-<p>.PHONY: run
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">.PHONY: build
+</span></span><span class="line"><span class="cl">build: clean
+</span></span><span class="line"><span class="cl"> go build -o <span class="si">${</span><span class="nv">APP</span><span class="si">}</span> main.go
+</span></span></code></pre></div><p>.PHONY: run
 run:
 go run -race main.go</p>
 <p>.PHONY: clean

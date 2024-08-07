@@ -274,70 +274,70 @@
       <h2 id="常用命令">常用命令</h2>
 <h3 id="git">git</h3>
 <h3 id="go">go</h3>
-<pre tabindex="0"><code>$ go env
-$ env
-$ env | grep -i proxy
-GOPROXY=https://goproxy.cn,direct
-$ curl -I google.com
-HTTP/1.1 301 Moved Permanently
-Location: http://www.google.com/
-Content-Type: text/html; charset=UTF-8
-Content-Security-Policy-Report-Only: object-src &#39;none&#39;;base-uri &#39;self&#39;;script-src &#39;nonce-L_UKjT9Yze3yROlGcbG9pA&#39; &#39;strict-dynamic&#39; &#39;report-sample&#39; &#39;unsafe-eval&#39; &#39;unsafe-inline&#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
-Date: Mon, 08 Jul 2024 09:28:33 GMT
-</code></pre><h3 id="查看端口">查看端口</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">$ go env
+</span></span><span class="line"><span class="cl">$ env
+</span></span><span class="line"><span class="cl">$ env <span class="p">|</span> grep -i proxy
+</span></span><span class="line"><span class="cl"><span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.cn,direct
+</span></span><span class="line"><span class="cl">$ curl -I google.com
+</span></span><span class="line"><span class="cl">HTTP/1.1 <span class="m">301</span> Moved Permanently
+</span></span><span class="line"><span class="cl">Location: http://www.google.com/
+</span></span><span class="line"><span class="cl">Content-Type: text/html<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
+</span></span><span class="line"><span class="cl">Content-Security-Policy-Report-Only: object-src <span class="s1">&#39;none&#39;</span><span class="p">;</span>base-uri <span class="s1">&#39;self&#39;</span><span class="p">;</span>script-src <span class="s1">&#39;nonce-L_UKjT9Yze3yROlGcbG9pA&#39;</span> <span class="s1">&#39;strict-dynamic&#39;</span> <span class="s1">&#39;report-sample&#39;</span> <span class="s1">&#39;unsafe-eval&#39;</span> <span class="s1">&#39;unsafe-inline&#39;</span> https: http:<span class="p">;</span>report-uri https://csp.withgoogle.com/csp/gws/other-hp
+</span></span><span class="line"><span class="cl">Date: Mon, <span class="m">08</span> Jul <span class="m">2024</span> 09:28:33 GMT
+</span></span></code></pre></div><h3 id="查看端口">查看端口</h3>
 <p>Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。</p>
 <h4 id="lsof">lsof</h4>
-<pre tabindex="0"><code>$ lsof -i:端口号
-$ lsof -i:8080：查看8080端口占用
-$ lsof abc.txt：显示开启文件abc.txt的进程
-$ lsof -c abc：显示abc进程现在打开的文件
-$ lsof -c -p 1234：列出进程号为1234的进程所打开的文件
-$ lsof -g gid：显示归属gid的进程情况
-$ lsof +d /usr/local/：显示目录下被进程开启的文件
-$ lsof +D /usr/local/：同上，但是会搜索目录下的目录，时间较长
-$ lsof -d 4：显示使用fd为4的进程
-$ lsof -i -U：显示所有打开的端口和UNIX domain文件
-</code></pre><p>netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">lsof -i:端口号
+</span></span><span class="line"><span class="cl">lsof -i:8080：查看8080端口占用
+</span></span><span class="line"><span class="cl">lsof abc.txt：显示开启文件abc.txt的进程
+</span></span><span class="line"><span class="cl">lsof -c abc：显示abc进程现在打开的文件
+</span></span><span class="line"><span class="cl">lsof -c -p 1234：列出进程号为1234的进程所打开的文件
+</span></span><span class="line"><span class="cl">lsof -g gid：显示归属gid的进程情况
+</span></span><span class="line"><span class="cl">lsof +d /usr/local/：显示目录下被进程开启的文件
+</span></span><span class="line"><span class="cl">lsof +D /usr/local/：同上，但是会搜索目录下的目录，时间较长
+</span></span><span class="line"><span class="cl">lsof -d 4：显示使用fd为4的进程
+</span></span><span class="line"><span class="cl">lsof -i -U：显示所有打开的端口和UNIX domain文件
+</span></span></code></pre></div><p>netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况。
 -t (tcp) 仅显示tcp相关选项
 -u (udp)仅显示udp相关选项
 -n 拒绝显示别名，能显示数字的全部转化为数字
 -l 仅列出在Listen(监听)的服务状态
 -p 显示建立相关链接的程序名</p>
 <h4 id="netstat">netstat</h4>
-<pre tabindex="0"><code>$ netstat -ntlp   //查看当前所有tcp端口
-$ netstat -ntulp | grep 80   //查看所有80端口使用情况
-$ netstat -ntulp | grep 3306   //查看所有3306端口使用情况
-</code></pre><h4 id="binsh--c">/bin/sh -c</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">netstat -ntlp   //查看当前所有tcp端口
+</span></span><span class="line"><span class="cl">netstat -ntulp <span class="p">|</span> grep <span class="m">80</span>   //查看所有80端口使用情况
+</span></span><span class="line"><span class="cl">netstat -ntulp <span class="p">|</span> grep <span class="m">3306</span>   //查看所有3306端口使用情况
+</span></span></code></pre></div><h4 id="binsh--c">/bin/sh -c</h4>
 <p>带上 -c 参数的话，会把参数后面的值当作命令行，而不是普通的字符串</p>
-<pre tabindex="0"><code>$ /bin/sh -c ls
-</code></pre><p>如果 -c 后面的命令行有空格隔开，可以使用双引号括起来</p>
-<pre tabindex="0"><code>$ /bin/sh -c &#34;ls -al&#34;
-</code></pre><h3 id="kill进程">kill进程</h3>
-<pre tabindex="0"><code>$ kill -9 pid
-
-$ killall 进程名
-</code></pre><h3 id="tcp">tcp</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">/bin/sh -c ls
+</span></span></code></pre></div><p>如果 -c 后面的命令行有空格隔开，可以使用双引号括起来</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">/bin/sh -c <span class="s2">&#34;ls -al&#34;</span>
+</span></span></code></pre></div><h3 id="kill进程">kill进程</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl"><span class="nb">kill</span> -9 pid
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">killall 进程名
+</span></span></code></pre></div><h3 id="tcp">tcp</h3>
 <h3 id="java">java</h3>
 <h3 id="curl-命令踩坑实录">curl 命令踩坑实录</h3>
 <h4 id="环境">环境</h4>
-<pre tabindex="0"><code>$ curl --version
-
-curl 7.79.1 (x86_64-apple-darwin21.0) libcurl/7.79.1 (SecureTransport) LibreSSL/3.3.6 zlib/1.2.11 nghttp2/1.45.1
-Release-Date: 2021-09-22
-Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
-Features: alt-svc AsynchDNS GSS-API HSTS HTTP2 HTTPS-proxy IPv6 Kerberos Largefile libz MultiSSL NTLM NTLM_WB SPNEGO SSL UnixSockets
-</code></pre><h4 id="报错原因-curl命令一个地址的时候报错zsh-no-matches-found-httpsxxxopenaiazurecomopenaideploymentsxxxchatcompletionsapi-version2024-04-01-previe">报错原因 curl命令一个地址的时候报错：zsh: no matches found: <a href="https://xxx.openai.azure.com/openai/deployments/xxx/chat/completions?api-version=2024-04-01-previe">https://xxx.openai.azure.com/openai/deployments/xxx/chat/completions?api-version=2024-04-01-previe</a></h4>
-<pre tabindex="0"><code>curl https://xxx.openai.azure.com/openai/deployments/xxx/chat/completions?api-version=2024-04-01-preview \
-  -H &#34;Content-Type: application/json&#34; \
-  -H &#34;api-key: xxx&#34; \
-  -d &#39;{&#34;messages&#34;:[{&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: &#34;You are a helpful assistant.&#34;},{&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;Does Azure OpenAI support customer managed keys?&#34;},{&#34;role&#34;: &#34;assistant&#34;, &#34;content&#34;: &#34;Yes, customer managed keys are supported by Azure OpenAI.&#34;},{&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;Do other Azure AI services support this too?&#34;}]}&#39;
-</code></pre><h4 id="解决方案参考-httpswwwredditcomrzshcommentsh9mdvcwhy_do_i_get_this_error_zsh_no_matches_foundrdt42851">解决方案参考 <a href="https://www.reddit.com/r/zsh/comments/h9mdvc/why_do_i_get_this_error_zsh_no_matches_found/?rdt=42851">https://www.reddit.com/r/zsh/comments/h9mdvc/why_do_i_get_this_error_zsh_no_matches_found/?rdt=42851</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">$ curl --version
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl 7.79.1 <span class="o">(</span>x86_64-apple-darwin21.0<span class="o">)</span> libcurl/7.79.1 <span class="o">(</span>SecureTransport<span class="o">)</span> LibreSSL/3.3.6 zlib/1.2.11 nghttp2/1.45.1
+</span></span><span class="line"><span class="cl">Release-Date: 2021-09-22
+</span></span><span class="line"><span class="cl">Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
+</span></span><span class="line"><span class="cl">Features: alt-svc AsynchDNS GSS-API HSTS HTTP2 HTTPS-proxy IPv6 Kerberos Largefile libz MultiSSL NTLM NTLM_WB SPNEGO SSL UnixSockets
+</span></span></code></pre></div><h4 id="报错原因-curl命令一个地址的时候报错zsh-no-matches-found-httpsxxxopenaiazurecomopenaideploymentsxxxchatcompletionsapi-version2024-04-01-previe">报错原因 curl命令一个地址的时候报错：zsh: no matches found: <a href="https://xxx.openai.azure.com/openai/deployments/xxx/chat/completions?api-version=2024-04-01-previe">https://xxx.openai.azure.com/openai/deployments/xxx/chat/completions?api-version=2024-04-01-previe</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">curl https://xxx.openai.azure.com/openai/deployments/xxx/chat/completions?api-version<span class="o">=</span>2024-04-01-preview <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;api-key: xxx&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s1">&#39;{&#34;messages&#34;:[{&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: &#34;You are a helpful assistant.&#34;},{&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;Does Azure OpenAI support customer managed keys?&#34;},{&#34;role&#34;: &#34;assistant&#34;, &#34;content&#34;: &#34;Yes, customer managed keys are supported by Azure OpenAI.&#34;},{&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;Do other Azure AI services support this too?&#34;}]}&#39;</span>
+</span></span></code></pre></div><h4 id="解决方案参考-httpswwwredditcomrzshcommentsh9mdvcwhy_do_i_get_this_error_zsh_no_matches_foundrdt42851">解决方案参考 <a href="https://www.reddit.com/r/zsh/comments/h9mdvc/why_do_i_get_this_error_zsh_no_matches_found/?rdt=42851">https://www.reddit.com/r/zsh/comments/h9mdvc/why_do_i_get_this_error_zsh_no_matches_found/?rdt=42851</a></h4>
 <ol>
 <li>
 <p>使用反斜杠进行转义：?</p>
 </li>
 <li>
-<p>将 URL 括在引号中：&lsquo;<a href="https://www.youtube.com/watch?v=mVEwurFdnYk'">https://www.youtube.com/watch?v=mVEwurFdnYk'</a></p>
+<p>将 URL 括在引号中：&rsquo;<a href="https://www.youtube.com/watch?v=mVEwurFdnYk">https://www.youtube.com/watch?v=mVEwurFdnYk</a>'</p>
 </li>
 <li>
 <p>noglob像u/grumpycrash建议的那样 使用预命令修饰符。</p>
@@ -351,15 +351,43 @@ Features: alt-svc AsynchDNS GSS-API HSTS HTTP2 HTTPS-proxy IPv6 Kerberos Largefi
 <p>Mac 升级 curl 到最新版本
 在 macOS 上，可以使用 Homebrew 来升级 curl 到最新版本。下面是升级 curl 的步骤：</p>
 <p>安装 Homebrew：如果你还没有安装 Homebrew，可以在终端中运行以下命令进行安装：</p>
-<p>$ /bin/bash -c &ldquo;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)%22">https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</a>
-使用 Homebrew 升级 curl：在终端中运行以下命令来安装最新版本的 curl：</p>
-<p>$ brew install curl
-使用 brew link 覆盖系统 curl：为了确保使用的是 Homebrew 安装的 curl，可以运行以下命令将其链接到系统路径中：</p>
-<p>$ brew link &ndash;force curl
-验证 curl 版本：升级完成后，可以运行以下命令来验证 curl 版本：</p>
-<p>$ curl &ndash;version
-通过这些步骤，你应该能够将 macOS 上的 curl 升级到最新版本。</p>
-<p>参考: <a href="https://docs.ffffee.com/frontend/240429-curl%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.html">https://docs.ffffee.com/frontend/240429-curl%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.html</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl">$ /bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL &lt;https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&gt;<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">使用 Homebrew 升级 curl：在终端中运行以下命令来安装最新版本的 curl：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ brew install curl
+</span></span><span class="line"><span class="cl">使用 brew link 覆盖系统 curl：为了确保使用的是 Homebrew 安装的 curl，可以运行以下命令将其链接到系统路径中：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ brew link --force curl
+</span></span><span class="line"><span class="cl">验证 curl 版本：升级完成后，可以运行以下命令来验证 curl 版本：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ curl --version
+</span></span><span class="line"><span class="cl">通过这些步骤，你应该能够将 macOS 上的 curl 升级到最新版本。
+</span></span></code></pre></div><h4 id="ubuntu切换zsh">Ubuntu切换zsh</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl"><span class="c1"># 安装 zsh</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查找 zsh 路径</span>
+</span></span><span class="line"><span class="cl">which zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 假设路径为 /usr/bin/zsh，切换默认 shell</span>
+</span></span><span class="line"><span class="cl">chsh -s /usr/bin/zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检查 /etc/shells 文件是否包含 zsh 路径</span>
+</span></span><span class="line"><span class="cl">cat /etc/shells
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果没有，手动添加 zsh 路径</span>
+</span></span><span class="line"><span class="cl">sudo nano /etc/shells
+</span></span><span class="line"><span class="cl"><span class="c1"># 在文件末尾添加 /usr/bin/zsh，保存并退出</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重新登录或重启终端</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 验证默认 shell 是否已更改为 zsh</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$SHELL</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 强制启动 zsh（如果仍有问题）</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;if [ -t 1 ]; then exec zsh; fi&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/.bashrc
+</span></span></code></pre></div><p>参考: <a href="https://docs.ffffee.com/frontend/240429-curl%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.html">https://docs.ffffee.com/frontend/240429-curl%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.html</a></p>
 
     </main>
   </section>

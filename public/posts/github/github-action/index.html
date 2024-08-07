@@ -272,40 +272,40 @@
       
 
       <h2 id="git命令">git命令</h2>
-<h4 id="不应用当前分支的修改单纯地切换分支">不应用当前分支的修改，单纯地切换分支</h4>
-<pre tabindex="0"><code># 保存dev分支的修改到堆栈中
-$ git stash
-
-# 切换master分支
-$ git checkout master
-
-# 切回dev分支
-$ git checkout dev
-
-# 获取堆栈列表
-$ git stash list
-
-# 对比本地与堆栈条目差异
-$ git stash show stash@{0}
-
-# 对比本地与堆栈条目详细代码差异
-$ git stash show stash@{0} -p
-
-# 取回堆栈最新的修改
-$ git stash
-</code></pre><h4 id="应用当前分支的修改到切换的分支中">应用当前分支的修改到切换的分支中</h4>
-<pre tabindex="0"><code># 保存dev分支的修改到堆栈中
-$ git stash
-
-# 切换master分支
-$ git checkout master
-
-# 取回堆栈最新的修改
-$ git stash pop
-
-# 或者取回堆栈指定的修改
-$ git stash apply stash@{0}
-</code></pre>
+<h3 id="不应用当前分支的修改单纯地切换分支">不应用当前分支的修改，单纯地切换分支</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl"><span class="c1"># 保存dev分支的修改到堆栈中</span>
+</span></span><span class="line"><span class="cl">$ git stash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 切换master分支</span>
+</span></span><span class="line"><span class="cl">$ git checkout master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 切回dev分支</span>
+</span></span><span class="line"><span class="cl">$ git checkout dev
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取堆栈列表</span>
+</span></span><span class="line"><span class="cl">$ git stash list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 对比本地与堆栈条目差异</span>
+</span></span><span class="line"><span class="cl">$ git stash show stash@<span class="o">{</span>0<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 对比本地与堆栈条目详细代码差异</span>
+</span></span><span class="line"><span class="cl">$ git stash show stash@<span class="o">{</span>0<span class="o">}</span> -p
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 取回堆栈最新的修改</span>
+</span></span><span class="line"><span class="cl">$ git stash
+</span></span></code></pre></div><h3 id="应用当前分支的修改到切换的分支中">应用当前分支的修改到切换的分支中</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SHELL" data-lang="SHELL"><span class="line"><span class="cl"><span class="c1"># 保存dev分支的修改到堆栈中</span>
+</span></span><span class="line"><span class="cl">$ git stash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 切换master分支</span>
+</span></span><span class="line"><span class="cl">$ git checkout master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 取回堆栈最新的修改</span>
+</span></span><span class="line"><span class="cl">$ git stash pop
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 或者取回堆栈指定的修改</span>
+</span></span><span class="line"><span class="cl">$ git stash apply stash@<span class="o">{</span>0<span class="o">}</span>
+</span></span></code></pre></div>
     </main>
   </section>
 
