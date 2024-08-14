@@ -43,9 +43,13 @@ import (
 )
 
 func main() {
-  <!-- viper.SetConfigName("config")
+  <!--
+  viper.SetConfigName("config")
   viper.SetConfigType("toml")
-  viper.AddConfigPath(".") 试过带路径的不适合部署-->
+  viper.AddConfigPath(".")
+  // 切记只能写一个,如果有多个viper.AddConfigPath(".") 会导致路径里面多一个空格
+  // 主要用此种方式，因为可以配合pflag自动根据env选择环境变量
+  -->
 
   viper.SetConfigFile("config.yml")
  viper.SetConfigType("yaml")

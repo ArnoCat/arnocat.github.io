@@ -231,7 +231,7 @@
           <span data-format="luxon">2024-07-10T00:00:00Z</span>
         
 
-        | <span>1 分钟阅读</span>
+        | <span>2 分钟阅读</span>
 
         
         | <span>更新于
@@ -292,9 +292,13 @@
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;!</span><span class="o">--</span> <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigName</span><span class="p">(</span><span class="s">&#34;config&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;!</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigName</span><span class="p">(</span><span class="s">&#34;config&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigType</span><span class="p">(</span><span class="s">&#34;toml&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">AddConfigPath</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">)</span> <span class="nx">试过带路径的不适合部署</span><span class="o">--</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">AddConfigPath</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 切记只能写一个,如果有多个viper.AddConfigPath(&#34;.&#34;) 会导致路径里面多一个空格
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 主要用此种方式，因为可以配合pflag自动根据env选择环境变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="o">--</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigFile</span><span class="p">(</span><span class="s">&#34;config.yml&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"> <span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigType</span><span class="p">(</span><span class="s">&#34;yaml&#34;</span><span class="p">)</span>

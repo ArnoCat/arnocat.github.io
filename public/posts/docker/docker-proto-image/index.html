@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>docker-proto | Arno</title>
+
+    
+<link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="arno" />
+<meta name="description" content="用go Makefile make -&amp;gt; docker image 生成proto （容器化用法） 为什么使用Makefile 在学习docker命令的时候，发现有人使用Makefile来存储操作，" />
+
+
+<link rel="canonical" href="https://arnocat.github.io/posts/docker/docker-proto-image/" />
+
+
+<meta property="og:url" content="https://arnocat.github.io/posts/docker/docker-proto-image/">
+  <meta property="og:site_name" content="Arno">
+  <meta property="og:title" content="docker-proto">
+  <meta property="og:description" content="用go Makefile make -&gt; docker image 生成proto （容器化用法） 为什么使用Makefile 在学习docker命令的时候，发现有人使用Makefile来存储操作，">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-08T00:00:00+00:00">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="docker-proto">
+  <meta name="twitter:description" content="用go Makefile make -&gt; docker image 生成proto （容器化用法） 为什么使用Makefile 在学习docker命令的时候，发现有人使用Makefile来存储操作，">
+
+
+
+<meta name="generator" content="Hugo 0.128.2">
+
+<link rel="stylesheet" href="/css/output.css" />
+
+<style>
+
+#dream-global-bg {
+  background-image: url(/background.jpg);
+}
+
+
+
+</style>
+
+
+    
+
+
+<link rel="stylesheet" data-custom-syntax-highlighting />
+<style>
+  .chroma {
+    padding: 1em;
+    background-color: var(--dream-pre-bg, #f5f5f5);
+    border-radius: .5em;
+    overflow: auto;
+  }
+
+  html.dark .chroma {
+    background-color: var(--dream-pre-bg-dark, #262626);
+  }
+</style>
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav class="mt-4 lg:mt-8 pt-4 pb-4">
+
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="翻转！">
+        <div class="h-10 rounded-full">
+          <img src="/img/avatar.png" alt="arno cat home" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="https://arnocat.github.io/" class="text-lg font-semibold cursor-pointer">
+          arno cat home
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">与其感慨路难行，不如马上出发</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square">
+        <ion-icon name="menu-outline" size="large"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="关于">
+    <ion-icon name="information-circle"></ion-icon>关于</div>
+</li>
+
+
+
+
+<li>
+  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="搜索">
+    <ion-icon name="search"></ion-icon>
+    搜索
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="归档">
+    <ion-icon name="archive"></ion-icon>
+    归档
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="所有分类">
+    <ion-icon name="grid"></ion-icon>
+    所有分类
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
+    <ion-icon name="pricetags"></ion-icon>
+    所有标签
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/index.xml" title="RSS">
+    <ion-icon name="logo-rss"></ion-icon>
+    RSS
+  </a>
+</li>
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="关于">关于</div>
+      
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="搜索">
+        <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="归档">
+        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="所有分类">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/index.xml" title="RSS">
+        <ion-icon class="group-hover:text-primary-content" name="logo-rss"></ion-icon>
+      </a>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <section class="front">
+          <div class="container">
+            
+<div class="mt-4 px-4">
+  <section class="mx-auto prose dark:prose-invert" id="dream-single-page">
+    <header>
+      <h1>docker-proto</h1>
+      <p class="text-sm">
+        
+          <span data-format="luxon">2024-07-08T00:00:00Z</span>
+        
+
+        | <span>8 分钟阅读</span>
+
+        
+        | <span>更新于
+          
+            <span data-format="luxon">2024-07-08T00:00:00Z</span>
+          </span>
+        
+      </p>
+      <div class="flex justify-between">
+        <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span>
+  
+    
+      arno
+    
+  
+  </span>
+</div>
+
+
+        <span class="flex items-center gap-2">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=docker-proto&url=https%3a%2f%2farnocat.github.io%2fposts%2fdocker%2fdocker-proto-image%2f" title="Share on X">
+    <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+  </a>
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2farnocat.github.io%2fposts%2fdocker%2fdocker-proto-image%2f" title="Share on Facebook">
+    <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+  </a>
+</span>
+
+      </div>
+    </header>
+
+    <main>
+      
+
+      <h2 id="用go-makefile-make---docker-image-生成proto-容器化用法">用go Makefile make -&gt; docker image 生成proto （容器化用法）</h2>
+<h3 id="为什么使用makefile">为什么使用Makefile</h3>
+<p>在学习docker命令的时候，发现有人使用Makefile来存储操作，叼爆了。</p>
+<p>因为最开始一个字一个字敲，因为这样会记住命令。但是熟悉了之后，每次想要做一些操作的时候就不得不
+重复的输入以前的命令。当切换一个项目之后，又重复输入类似但又不完全相同的命令，仅仅通过history命令加速也比较慢。</p>
+<h3 id="先看实战makefile示例-编译多个语种的proto文件">先看实战Makefile示例 编译多个语种的proto文件</h3>
+<pre tabindex="0"><code>.PHONY: compile go java
+
+BUILDER_CONTAINER=namely/protoc-all:1.51_2
+
+compile: java go
+
+go:
+	docker run --rm -t -w /proto \
+		-v ${PWD}:/proto ${BUILDER_CONTAINER} \
+		-l go -o . -d proto
+
+java:
+	docker run --rm -t -w /proto \
+		-v ${PWD}:/proto ${BUILDER_CONTAINER} \
+		-l java -o java/ -d proto
+</code></pre><h2 id="makefile是什么">Makefile是什么</h2>
+<p>Makefile是make命令的规则配置文件。make命令是什么？</p>
+<p>先来看看make在哪里</p>
+<pre tabindex="0"><code>$ whereis make
+make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.1
+</code></pre><p>可以看到make是bin下的以可执行文件。</p>
+<h4 id="make-用户手册">make 用户手册</h4>
+<pre tabindex="0"><code>MAKE(1)                                                          User Commands                                                         MAKE(1)
+
+NAME
+       make - GNU make utility to maintain groups of programs
+
+SYNOPSIS
+       make [OPTION]... [TARGET]...
+
+DESCRIPTION
+       The  make  utility will determine automatically which pieces of a large program need to be recompiled, and issue the commands to recom‐
+       pile them.  The manual describes the GNU implementation of make, which was written by Richard Stallman and Roland McGrath, and is  cur‐
+       rently  maintained  by Paul Smith.  Our examples show C programs, since they are very common, but you can use make with any programming
+       language whose compiler can be run with a shell command.  In fact, make is not limited to programs.  You can use  it  to  describe  any
+       task where some files must be updated automatically from others whenever the others change.
+
+       To prepare to use make, you must write a file called the makefile that describes the relationships among files in your program, and the
+       states the commands for updating each file.  In a program, typically the executable file is updated from object  files,  which  are  in
+       turn made by compiling source files.
+
+       Once a suitable makefile exists, each time you change some source files, this simple shell command:
+
+              make
+
+       suffices  to  perform  all necessary recompilations.  The make program uses the makefile description and the last-modification times of
+       the files to decide which of the files need to be updated.  For each of those files, it issues the commands recorded in the makefile.
+
+       make executes commands in the makefile to update one or more target names, where name is typically a  program.   If  no  -f  option  is
+       present, make will look for the makefiles GNUmakefile, makefile, and Makefile, in that order.
+
+       Normally  you  should  call  your makefile either makefile or Makefile.  (We recommend Makefile because it appears prominently near the
+       beginning of a directory listing, right near other important files such as README.)  The first name checked, GNUmakefile, is not recom‐
+       mended for most makefiles.  You should use this name if you have a makefile that is specific to GNU make, and will not be understood by
+       other versions of make.  If makefile is &#39;-&#39;, the standard input is read.
+
+       make updates a target if it depends on prerequisite files that have been modified since the target was last modified, or if the  target
+       does not exist.
+</code></pre><p>大致是说make是GNU中维护和组织程序的。比如我们的C语言编译， 再比如源码安装某些软件，比如nginx的时候。那么GNU是什么鬼？</p>
+<p>GNU(GNU&rsquo;s Not Unix)是一个类Unix系统， 目标是创建一套完全自由的操作系统。在Linux出现之前，GNU已经完成了除了内核之外大部分的软件。Linux出现之后，与GNU结合变成GNU/Linux。
+严格的说，Linux只代表Linux内核，其他Linux软件称为Linux发行版。但由于商业发行商坚持称呼Linux, 虽然已经更名为GNU/Linux, 但大家依然叫Linux.</p>
+<pre tabindex="0"><code>## 比如我的本机Ubuntu
+~ ❯ uname
+Linux
+~ ❯ uname -a
+Linux ryan-computer 4.18.0-20-generic #21~18.04.1-Ubuntu SMP Wed May 8 08:43:37 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+
+## 大部分基于Debian的docker镜像
+airflow@88e36c088b81:~$ cat /etc/issue
+Debian GNU/Linux 9 \n \l
+
+## RedHat
+[root@data-docker001 docker-airflow]# cat /etc/redhat-release
+CentOS Linux release 7.4.1708 (Core)
+[root@data-docker001 docker-airflow]# uname -a
+Linux data-docker001 3.10.0-693.2.2.el7.x86_64 #1 SMP Tue Sep 12 22:26:13 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre><h4 id="make-基本用法">make 基本用法</h4>
+<pre tabindex="0"><code>make target
+</code></pre><h3 id="makefile基本语法">Makefile基本语法</h3>
+<p>在当前目录创建一个叫做Makefile的文件。</p>
+<h4 id="声明变量">声明变量</h4>
+<p>简单的变量赋值，比如声明name</p>
+<pre tabindex="0"><code>$ name=arno
+</code></pre><h4 id="声明规则rule">声明规则Rule</h4>
+<p>Makefile文件由一系列规则（rules）构成。每条规则的形式如下。</p>
+<pre tabindex="0"><code>&lt;target&gt; : &lt;prerequisites&gt;
+[tab]  &lt;commands&gt;
+</code></pre><p>target 目标
+prerequisites 前置条件
+tab command必须由tab隔开
+commands 只能有一行的shell</p>
+<h4 id="防止target和文件名一样">防止target和文件名一样</h4>
+<p>当我们设置的target和当前目录下的文件名一样的话，target会被忽略，所以，通常，我们把target都用做phony target。</p>
+<pre tabindex="0"><code>.PHONY: build start push
+</code></pre><p>表示， build start push 这3个target，不检查当前目录下的文件，直接执行命令。</p>
+<h4 id="docker构建用的指令">Docker构建用的指令</h4>
+<pre tabindex="0"><code>NAME = ryan/airflow
+VERSION = 1.10.4
+
+.PHONY: build start push
+
+build:  build-version
+
+build-version:
+        docker build -t ${NAME}:${VERSION}  .
+
+tag-latest:
+        docker tag ${NAME}:${VERSION} ${NAME}:latest
+
+start:
+        docker run -it --rm ${NAME}:${VERSION} /bin/bash
+
+push:   build-version tag-latest
+        docker push ${NAME}:${VERSION}; docker push ${NAME}:latest
+</code></pre><p>make build &amp;&amp; make start &amp;&amp; make push</p>
+<h3 id="makefile的每个命令的作用">Makefile的每个命令的作用</h3>
+<h3 id="docker-run-images-里面镜像每个命令的作用">docker run images 里面镜像每个命令的作用</h3>
+<pre tabindex="0"><code>gen-proto生成grpc和protobuf@即
+
+用法：gen proto-f my-service.proto-l go
+
+选项：
+-h、 --help显示帮助
+-f FILE要生成的原型源文件
+-d DIR扫描给定目录中的所有原始文件
+-l 要生成的语言（go ruby csharp java python objc gogo php node typescript web cpp descriptor_set scala）
+-o DIRECTORY生成文件的输出目录。将自动创建。
+-i 额外包括
+--lint CHECKS启用linting protoc lint（CHECKS是可选的-请参阅https://github.com/ckaznocha/protoc-gen-lint#optional-检查）
+--with gateway生成grpc网关文件（实验）。
+--使用文档FORMAT生成文档（FORMAT是可选的-请参阅https://github.com/pseudomuto/protoc-gen-doc#invoking-插件）
+--使用pyi生成mypy存根文件（.ppy文件）-请参阅https://github.com/nipunn1313/mypy-protobuf
+--使用rbi生成Sorbet类型声明文件（.rbi文件）-请参阅https://github.com/coinbase/protoc-gen-rbi
+--使用typescript生成typescript声明文件（.d.ts文件）-请参阅https://github.com/improbable-eng/ts-protoc-gen#readme
+--使用验证器为（gogogcppjavapython）生成验证-请参阅https://github.com/envoyproxy/protoc-gen-validate
+--validator source relative使protoc gen的输出目录验证“source relative”-请参阅https://github.com/envoyproxy/protoc-gen-validate#go
+--go source relative Make go导入路径“source_relative”-请参阅https://github.com/golang/protobuf#parameters
+--go模块前缀指定要从导入路径中删除的模块前缀-请参阅https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation
+--go包映射映射proto导入到go导入路径
+--go plugin micro用go micro替换go gRPC插件
+--go原型验证器生成go原型验证-请参阅https://github.com/mwitkow/go-proto-validators
+--go grpc需要未实现的服务器为未来的兼容性生成具有未实现服务器的go grpc服务-https://github.com/grpc/grpc-go/tree/master/cmd/protoc-gen-go-grpc#future-校对服务
+--不包括谷歌不包括谷歌原型
+--descr include imports当使用--descriptor_set_out时，还包括集合中输入文件的所有依赖项，以便集合是自包含的
+--descr include source info使用--descriptor_set_out时，不要从FileDescriptorProto中剥离SourceCodeInfo。这导致
+更大的描述符，包括关于源文件中每个decl的原始位置的信息
+作为周围的评论。
+--descr filename与-l descriptor_set一起使用时描述符proto的文件名。默认为descriptor_set.pb
+--csharp_opt传递给protoc以自定义csharp代码生成的选项。
+--scala_opt传递给protoc以自定义scala代码生成的选项。
+--with swagger json名称使用with--with gateway标志。生成的swagger文件将使用JSON名称而不是protobuf名称。
+（已弃用。请使用--with openapi json名称）
+--with openapi json name使用with--with gateway标志。生成的OpenAPI文件将使用JSON名称，而不是protobuf名称。
+--generate unbound methods与--with gateway标志一起使用。即使对于没有任何HttpRule注释的方法，也要生成HTTP映射。
+--js-out此选项覆盖grpc节点和grpc web代码生成中的“js_out=”参数。默认为&#39;import_style=commonjs&#39;。
+--grpc out此选项允许使用grpc节点和grpc web代码生成覆盖“grpc_out=”参数的左半部分（冒号之前）。选项为：generate_package_definition、grpc_js或grpc（自2021年4月起取消认证）。默认为grpc_js。
+--grpc web out此选项覆盖grpc web代码生成中的“grpc-web_out=”参数。默认为“import_style=typescript”。
+--ts_opt传递给protoc以自定义typescript代码生成的选项。看见https://github.com/stephenh/ts-proto#supported-选项--ts_opt useOptionals=消息将评估为--ts_proto_opt=useOptionals=messages
+</code></pre><h2 id="参考">参考</h2>
+<p><a href="https://www.cnblogs.com/woshimrf/p/make-docker.html">https://www.cnblogs.com/woshimrf/p/make-docker.html</a></p>
+<p><a href="https://www.ruanyifeng.com/blog/2015/02/make.html">https://www.ruanyifeng.com/blog/2015/02/make.html</a></p>
+<p><a href="https://blog.csdn.net/icycolawater/article/details/77921688">https://blog.csdn.net/icycolawater/article/details/77921688</a></p>
+
+    </main>
+  </section>
+
+  
+
+  
+  <div class="divider max-w-[65ch] mx-auto"></div>
+  
+
+  <section class="max-w-[65ch] mx-auto space-y-4">
+    
+
+    
+    <template x-if="['localhost', '127.0.0.1'].indexOf(window.location.hostname) == -1">
+      <article>
+        <script
+          src="https://utteranc.es/client.js"
+          repo="arnocat/arnocat.github.io"
+          issue-term="og:title"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </article>
+    </template>
+    
+
+    
+  </section>
+</div>
+
+
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>
+    © 2016 - 2024 Arno
+  </p>
+  
+
+  
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+              <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center h-[32px] px-2 gap-2 border border-base-300 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Cut out summary from your post content here.</p>
+<p>The remaining content of your post.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Copyright</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Cut out summary from your post content here.</p>
+<p>The remaining content of your post.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">社交链接</div>
+
+        <ul class="menu menu-horizontal flex-wrap w-full [&_ion-icon]:text-lg">
+  
+  <li>
+    <a href="mailto:q243284589@gmail.com" title="Email">
+      <ion-icon name="mail"></ion-icon>
+    </a>
+  </li>
+  
+
+  
+  <li>
+    <a href="https://github.com/g1eny0ung" target="_blank" title="GitHub">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://x.com/g1eny0ung" target="_blank" title="X">
+      <ion-icon name="logo-x"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.linkedin.com/in/g1eny0ung" target="_blank" title="Linkedin">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://stackoverflow.com/users/5676489/g1eny0ung" target="_blank" title="stack overflow">
+      <ion-icon name="logo-stackoverflow"></ion-icon>
+    </a>
+  </li>
+  
+</ul>
+
+      </div>
+    </article>
+  </div>
+  
+
+  
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+    
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
+  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
+  crossorigin="anonymous"
+></script>
+<script>
+  format()
+
+  function format() {
+    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
+      const date = el.textContent
+
+      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
+    })
+  }
+</script>
+
+
+
+<script>
+  window.customSyntaxHighlighting = {
+    light: "/css/syntax-light.min.css",
+    dark: "/css/syntax-dark.min.css"
+  }
+
+  document.addEventListener('alpine:initialized', () => {
+    var isDark = Alpine.store('darkMode').isDark()
+    var customSyntaxHighlightingUrl = isDark ? window.customSyntaxHighlighting.dark : window.customSyntaxHighlighting.light
+
+    document
+      .querySelector('link[data-custom-syntax-highlighting]')
+      .setAttribute('href', customSyntaxHighlightingUrl)
+  })
+</script>
+
+
+
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

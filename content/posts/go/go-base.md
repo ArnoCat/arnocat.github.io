@@ -12,7 +12,7 @@ series:
 ---
 
 
-## go基础知识
+## Go 每日一库之go基础
 
 ### 1. var _ Interface = (*Type)(nil)
 
