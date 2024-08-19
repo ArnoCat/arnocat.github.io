@@ -487,7 +487,17 @@ docker build -t ${APP}:${COMMIT_SHA} .</p>
 docker push ${REGISTRY}/${ENV}/${APP}:${COMMIT_SHA}</p>
 <p>.PHONY: help</p>
 <h2 id="help-prints-this-help-message-1">help: Prints this help message</h2>
-<p>help:
+<h3 id="回声">回声</h3>
+<p>正常情况下，make会打印每条命令，然后再执行，这就叫做回声（echoing）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TEXT" data-lang="TEXT"><span class="line"><span class="cl">test:
+</span></span><span class="line"><span class="cl">    # 这是测试
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">执行之后
+</span></span><span class="line"><span class="cl">$ make test
+</span></span><span class="line"><span class="cl"># 这是测试
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">加上@
+</span></span></code></pre></div><p>help:
 @echo &ldquo;Usage: \n&rdquo;
 @sed -n &rsquo;s/^##//p&rsquo; ${MAKEFILE_LIST} | column -t -s &lsquo;:&rsquo; |  sed -e &rsquo;s/^/ /&rsquo;
 Refer to:</p>

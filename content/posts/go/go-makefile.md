@@ -340,6 +340,21 @@ docker-push: check-environment docker-build
 
 ## help: Prints this help message
 
+### 回声
+
+正常情况下，make会打印每条命令，然后再执行，这就叫做回声（echoing）。
+
+```TEXT
+test:
+    # 这是测试
+
+执行之后
+$ make test
+# 这是测试
+
+加上@
+```
+
 help:
  @echo "Usage: \n"
  @sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'

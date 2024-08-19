@@ -6,8 +6,15 @@
     <description>Recent content in Archives on Arno</description>
     <generator>Hugo</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 11 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://arnocat.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go-env</title>
+      <link>https://arnocat.github.io/posts/go/go-env/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/go/go-env/</guid>
+      <description>Go env $ go env # 编译内核 GOARCH=&amp;#39;arm64&amp;#39; # 文件库设置 # 当CGO_ENABLED=1， 进行编译时， 会将文件中引用libc的库（比如常用的net包），以动态链接的</description>
+    </item>
     <item>
       <title>docker常用命令</title>
       <link>https://arnocat.github.io/posts/docker/docker-command/</link>
