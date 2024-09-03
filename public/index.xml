@@ -6,7 +6,7 @@
     <description>Recent content on Arno</description>
     <generator>Hugo</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://arnocat.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go-env</title>
@@ -58,6 +58,13 @@
       <description>实用工具 iTerm2 zsh ohmyzsh 参考 https://www.poloxue.com/posts/2023-10-16-zsh-themes-and-plugins/ 安装报错 [oh-my-zsh] plugin &amp;lsquo;zsh-syntax-highlighting&amp;rsquo; not found [oh-my-zsh] plugin &amp;lsquo;zsh-autosuggestions&amp;rsquo; not found 解决 cd 到 /.oh-my-zsh/plugins 然后 git clone zsh-syntax-hightlight 在那里 并确保 .zshrc 中提到的插件 我认为 .zshrc 中提到的每个插件都必须放在这个目录中：</description>
     </item>
     <item>
+      <title>restapi</title>
+      <link>https://arnocat.github.io/posts/restapi/restapi/</link>
+      <pubDate>Mon, 02 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/restapi/restapi/</guid>
+      <description>swagger gin stoplight 使用 安装 go get -u github.com/swaggo/swag/cmd/swag # 在macOS中安装 swag需要执行如下命令： mv $GOPATH/bin/swag /usr/local/go/bin 检测是否安装成功 swag -v swag version v1.16.3 安装gin-swagger扩展 go get -u -v github.com/swaggo/gin-swagger</description>
+    </item>
+    <item>
       <title>github-action</title>
       <link>https://arnocat.github.io/posts/github/github-action/</link>
       <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
@@ -98,6 +105,13 @@
       <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://arnocat.github.io/posts/linux/creating-general-command/</guid>
       <description>常用命令 git go $ go env $ env $ env | grep -i proxy GOPROXY=https://goproxy.cn,direct $ curl -I google.com HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Content-Security-Policy-Report-Only: object-src &amp;#39;none&amp;#39;;base-uri &amp;#39;self&amp;#39;;script-src &amp;#39;nonce-L_UKjT9Yze3yROlGcbG9pA&amp;#39; &amp;#39;strict-dynamic&amp;#39; &amp;#39;report-sample&amp;#39; &amp;#39;unsafe-eval&amp;#39; &amp;#39;unsafe-inline&amp;#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp Date: Mon, 08 Jul 2024 09:28:33 GMT 查看端口 Linux 查看端口占用情况可以使用 lsof 和 netstat</description>
+    </item>
+    <item>
+      <title>ssh</title>
+      <link>https://arnocat.github.io/posts/linux/ssh/</link>
+      <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/linux/ssh/</guid>
+      <description>ssh ssh-copy-id在服务器上安装SSH 密钥作为授权密钥。其目的是提供访问权限，而无需每次登录都输入密码。这有助于使用 SSH 协议实现自动、无</description>
     </item>
     <item>
       <title>docker</title>

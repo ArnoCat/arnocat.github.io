@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>restapi | Arno</title>
+
+    
+<link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="arno" />
+<meta name="description" content="swagger gin stoplight 使用 安装 go get -u github.com/swaggo/swag/cmd/swag # 在macOS中安装 swag需要执行如下命令： mv $GOPATH/bin/swag /usr/local/go/bin 检测是否安装成功 swag -v swag version v1.16.3 安装gin-swagger扩展 go get -u -v github.com/swaggo/gin-swagger" />
+
+
+<link rel="canonical" href="https://arnocat.github.io/posts/restapi/restapi/" />
+
+
+<meta property="og:url" content="https://arnocat.github.io/posts/restapi/restapi/">
+  <meta property="og:site_name" content="Arno">
+  <meta property="og:title" content="restapi">
+  <meta property="og:description" content="swagger gin stoplight 使用 安装 go get -u github.com/swaggo/swag/cmd/swag # 在macOS中安装 swag需要执行如下命令： mv $GOPATH/bin/swag /usr/local/go/bin 检测是否安装成功 swag -v swag version v1.16.3 安装gin-swagger扩展 go get -u -v github.com/swaggo/gin-swagger">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-02T00:00:00+00:00">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="restapi">
+  <meta name="twitter:description" content="swagger gin stoplight 使用 安装 go get -u github.com/swaggo/swag/cmd/swag # 在macOS中安装 swag需要执行如下命令： mv $GOPATH/bin/swag /usr/local/go/bin 检测是否安装成功 swag -v swag version v1.16.3 安装gin-swagger扩展 go get -u -v github.com/swaggo/gin-swagger">
+
+
+
+<meta name="generator" content="Hugo 0.128.2">
+
+<link rel="stylesheet" href="/css/output.css" />
+
+<style>
+
+#dream-global-bg {
+  background-image: url(/background.jpg);
+}
+
+
+
+</style>
+
+
+    
+
+
+<link rel="stylesheet" data-custom-syntax-highlighting />
+<style>
+  .chroma {
+    padding: 1em;
+    background-color: var(--dream-pre-bg, #f5f5f5);
+    border-radius: .5em;
+    overflow: auto;
+  }
+
+  html.dark .chroma {
+    background-color: var(--dream-pre-bg-dark, #262626);
+  }
+</style>
+
+
+
+
+
+
+    
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
+
+    
+<nav class="mt-4 lg:mt-8 pt-4 pb-4">
+
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="翻转！">
+        <div class="h-10 rounded-full">
+          <img src="/img/avatar.png" alt="arno cat home" />
+        </div>
+      </div>
+
+      
+      <div>
+        
+        <a href="https://arnocat.github.io/" class="text-lg font-semibold cursor-pointer">
+          arno cat home
+        </a>
+        
+        
+        <div class="text-base-content/60 text-sm">与其感慨路难行，不如马上出发</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square">
+        <ion-icon name="menu-outline" size="large"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="关于">
+    <ion-icon name="information-circle"></ion-icon>关于</div>
+</li>
+
+
+
+
+<li>
+  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="搜索">
+    <ion-icon name="search"></ion-icon>
+    搜索
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="归档">
+    <ion-icon name="archive"></ion-icon>
+    归档
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="所有分类">
+    <ion-icon name="grid"></ion-icon>
+    所有分类
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
+    <ion-icon name="pricetags"></ion-icon>
+    所有标签
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/index.xml" title="RSS">
+    <ion-icon name="logo-rss"></ion-icon>
+    RSS
+  </a>
+</li>
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="关于">关于</div>
+      
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="搜索">
+        <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="归档">
+        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="所有分类">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/index.xml" title="RSS">
+        <ion-icon class="group-hover:text-primary-content" name="logo-rss"></ion-icon>
+      </a>
+      
+    </section>
+  </div>
+</nav>
+
+
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <section class="front">
+          <div class="container">
+            
+<div class="mt-4 px-4">
+  <section class="mx-auto prose dark:prose-invert" id="dream-single-page">
+    <header>
+      <h1>restapi</h1>
+      <p class="text-sm">
+        
+          <span data-format="luxon">2024-09-02T00:00:00Z</span>
+        
+
+        | <span>2 分钟阅读</span>
+
+        
+        | <span>更新于
+          
+            <span data-format="luxon">2024-09-02T00:00:00Z</span>
+          </span>
+        
+      </p>
+      <div class="flex justify-between">
+        <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span>
+  
+    
+      arno
+    
+  
+  </span>
+</div>
+
+
+        <span class="flex items-center gap-2">
+  <a class="group inline-flex items-center p-2 text-sm rounded-full cursor-pointer hover:bg-primary" href="https://twitter.com/intent/tweet?text=restapi&url=https%3a%2f%2farnocat.github.io%2fposts%2frestapi%2frestapi%2f" title="Share on X">
+    <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+  </a>
+  <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2farnocat.github.io%2fposts%2frestapi%2frestapi%2f" title="Share on Facebook">
+    <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+  </a>
+</span>
+
+      </div>
+    </header>
+
+    <main>
+      
+
+      <h2 id="swagger-gin-stoplight-使用">swagger gin stoplight 使用</h2>
+<h3 id="安装">安装</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go get -u github.com/swaggo/swag/cmd/swag
+</span></span><span class="line"><span class="cl"><span class="c1"># 在macOS中安装 swag需要执行如下命令：</span>
+</span></span><span class="line"><span class="cl">mv <span class="nv">$GOPATH</span>/bin/swag /usr/local/go/bin
+</span></span></code></pre></div><h3 id="检测是否安装成功">检测是否安装成功</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">swag -v
+</span></span><span class="line"><span class="cl">swag version v1.16.3
+</span></span></code></pre></div><h3 id="安装gin-swagger扩展">安装gin-swagger扩展</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go get -u -v github.com/swaggo/gin-swagger
+</span></span><span class="line"><span class="cl">go get -u -v github.com/swaggo/files
+</span></span><span class="line"><span class="cl">go get -u -v github.com/alecthomas/template
+</span></span></code></pre></div><h3 id="使用">使用</h3>
+<ul>
+<li>
+<p>使用gin-swagger为你的代码自动生成接口文档，一般需要下面三个步骤：</p>
+<p>1.按照swagger要求给接口代码添加声明式注释。
+2.使用swag工具扫描代码自动生成api接口文档数据。
+3.使用gin-swagger渲染在线接口文档页面。</p>
+</li>
+</ul>
+<h4 id="1添加注释">1.添加注释</h4>
+<ul>
+<li>1.1先给main.go添加注释：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// @title    API 文档
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @version   0.0.7
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @description  swagger 文档示例
+</span></span></span><span class="line"><span class="cl"><span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @schemes   http
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @host    localhost:24724
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @BasePath   /livetranslator
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @tag.name   内部接口
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @tag.description 内部接口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">c</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">.</span><span class="nf">WithError</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nf">Panic</span><span class="p">(</span><span class="s">&#34;context setup failed.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">server</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">c</span><span class="p">).</span><span class="nf">Serve</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>1.2然后在api处添加swagger代码：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">setupCommonEndpoints</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Engine</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">ok</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span> <span class="nx">c</span><span class="p">.</span><span class="nf">Status</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="c1">// Kubernetes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/healthy&#34;</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/ready&#34;</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Swagger
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/swagger/*any&#34;</span><span class="p">,</span> <span class="nx">ginSwagger</span><span class="p">.</span><span class="nf">WrapHandler</span><span class="p">(</span><span class="nx">swaggerFiles</span><span class="p">.</span><span class="nx">Handler</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">log</span><span class="p">.</span><span class="nf">Infof</span><span class="p">(</span><span class="s">&#34;api-swagger: http://localhost:%s%s&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">Cfg</span><span class="p">.</span><span class="nx">Server</span><span class="p">.</span><span class="nx">Port</span><span class="p">,</span> <span class="s">&#34;/swagger/index.html&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="nx">api</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Group</span><span class="p">(</span><span class="s">&#34;/livetranslator&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="nf">setupGroupApiEndpoints</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">api</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">setupGroupApiEndpoints</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">api</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">RouterGroup</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">api</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/version&#34;</span><span class="p">,</span> <span class="nx">version</span><span class="p">.</span><span class="nf">GetVersion</span><span class="p">(</span><span class="nx">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">api</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/translate/text&#34;</span><span class="p">,</span> <span class="nx">translate</span><span class="p">.</span><span class="nf">TextTranslate</span><span class="p">(</span><span class="nx">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">api</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/moderate/image&#34;</span><span class="p">,</span> <span class="nx">moderation</span><span class="p">.</span><span class="nf">ImageModerate</span><span class="p">(</span><span class="nx">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">api</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/moderate/text&#34;</span><span class="p">,</span> <span class="nx">moderation</span><span class="p">.</span><span class="nf">TextModerate</span><span class="p">(</span><span class="nx">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">api</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/asa/sync&#34;</span><span class="p">,</span> <span class="nx">asa</span><span class="p">.</span><span class="nf">SyncQimaData</span><span class="p">(</span><span class="nx">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>1.3最后api上添加如下代码注释：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// @Summary  语种翻译
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Description 语种翻译
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @id    text-translate
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Tags   翻译
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Accept   json
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Produce  json
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Param   req body  translate.TextTranslateReq true &#34;语种翻译请求&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Success  200 {object} translate.TextTranslateResp
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Failure  400 {object} ugin.Response &#34;code 1000 , msg: Bad Request&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Failure  500 {object} ugin.Response &#34;code 1001 , msg: invoke error&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Router   /translate/text [post]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">TextTranslate</span><span class="p">(</span><span class="nx">cc</span> <span class="o">*</span><span class="nx">common</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">HandlerFunc</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">json</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">translate</span><span class="p">.</span><span class="nx">TextTranslateReq</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">api</span><span class="p">.</span><span class="nf">Bind</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">json</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">ugin</span><span class="p">.</span><span class="nf">BadRequestError</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">ugin</span><span class="p">.</span><span class="nx">ReqParamErr</span><span class="p">,</span> <span class="nx">ugin</span><span class="p">.</span><span class="nx">MsgReqParamErr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">From</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="nb">len</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">Content</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">ugin</span><span class="p">.</span><span class="nf">BadRequestError</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">ugin</span><span class="p">.</span><span class="nx">ReqParamErr</span><span class="p">,</span> <span class="nx">ugin</span><span class="p">.</span><span class="nx">MsgReqParamErr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">cc</span><span class="p">.</span><span class="nf">GetEveClient</span><span class="p">().</span><span class="nf">TextTranslate</span><span class="p">(</span><span class="s">&#34;microsoft&#34;</span><span class="p">,</span> <span class="nx">json</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">logrus</span><span class="p">.</span><span class="nf">WithError</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;invoke fail&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">ugin</span><span class="p">.</span><span class="nf">InternalError</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">ugin</span><span class="p">.</span><span class="nx">InvokeErr</span><span class="p">,</span> <span class="nx">ugin</span><span class="p">.</span><span class="nx">MsgInvokeErr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">ugin</span><span class="p">.</span><span class="nf">Success</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="2生成接口文档数据">2.生成接口文档数据</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">swag fmt
+</span></span><span class="line"><span class="cl">swag init
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果main.go 名字换了，这里也要换成 swag init -g xxx.go</span>
+</span></span><span class="line"><span class="cl"><span class="c1">### 特别注意: 最好是将这个main.go放在主目录下</span>
+</span></span></code></pre></div><h4 id="3渲染在线接口文档">3.渲染在线接口文档</h4>
+<p>然后在项目代码中注册路由的地方按如下方式引入gin-swagger相关内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34;github.com/swaggo/files&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">ginSwagger</span> <span class="s">&#34;github.com/swaggo/gin-swagger&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">_</span> <span class="s">&#34;xxx/xxx/swag/docs&#34;</span> <span class="c1">// 千万不要忘了导入把你上一步生成的docs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//添加swagger访问路由
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/swagger/*any&#34;</span><span class="p">,</span> <span class="nx">ginSwagger</span><span class="p">.</span><span class="nf">WrapHandler</span><span class="p">(</span><span class="nx">swaggerFiles</span><span class="p">.</span><span class="nx">Handler</span><span class="p">))</span>
+</span></span></code></pre></div><h4 id="4启动服务">4.启动服务</h4>
+<h4 id="5github安装自动将swagyml推送到stoplightio的hub上面去">5.github安装自动将swag.yml推送到stoplight.io的hub上面去</h4>
+<h2 id="参考">参考</h2>
+<h3 id="api-design">API Design</h3>
+<p>1.<a href="https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules">https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules</a>
+2.<a href="https://stoplight.io/api-style-guides-guidelines-and-best-practices?utm_source=github&amp;utm_medium=spectral&amp;utm_campaign=docs">https://stoplight.io/api-style-guides-guidelines-and-best-practices?utm_source=github&amp;utm_medium=spectral&amp;utm_campaign=docs</a>
+3.<a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-known-issues.html">https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-known-issues.html</a>
+4.<a href="https://apistylebook.stoplight.io/docs/url-guidelines">https://apistylebook.stoplight.io/docs/url-guidelines</a></p>
+<h3 id="design-first-vs-code-first">Design-First vs Code-First</h3>
+<p>1.<a href="https://blog.stoplight.io/api-first-api-design-first-or-code-first-which-should-you-choose">https://blog.stoplight.io/api-first-api-design-first-or-code-first-which-should-you-choose</a>
+2.<a href="https://swagger.io/blog/code-first-vs-design-first-api/">https://swagger.io/blog/code-first-vs-design-first-api/</a></p>
+<h3 id="restful-style">RESTful style</h3>
+<p>1.<a href="https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/">https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/</a>
+2.<a href="https://simi.studio/restful-api-best-practices/">https://simi.studio/restful-api-best-practices/</a>
+3.<a href="https://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html">https://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html</a></p>
+
+    </main>
+  </section>
+
+  
+
+  
+  <div class="divider max-w-[65ch] mx-auto"></div>
+  
+
+  <section class="max-w-[65ch] mx-auto space-y-4">
+    
+
+    
+    <template x-if="['localhost', '127.0.0.1'].indexOf(window.location.hostname) == -1">
+      <article>
+        <script
+          src="https://utteranc.es/client.js"
+          repo="arnocat/arnocat.github.io"
+          issue-term="og:title"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </article>
+    </template>
+    
+
+    
+  </section>
+</div>
+
+
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>
+    © 2016 - 2024 Arno
+  </p>
+  
+
+  
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+              <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center h-[32px] px-2 gap-2 border border-base-300 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Cut out summary from your post content here.</p>
+<p>The remaining content of your post.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Copyright</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Cut out summary from your post content here.</p>
+<p>The remaining content of your post.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+  
+  
+
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">社交链接</div>
+
+        <ul class="menu menu-horizontal flex-wrap w-full [&_ion-icon]:text-lg">
+  
+  <li>
+    <a href="mailto:q243284589@gmail.com" title="Email">
+      <ion-icon name="mail"></ion-icon>
+    </a>
+  </li>
+  
+
+  
+  <li>
+    <a href="https://github.com/g1eny0ung" target="_blank" title="GitHub">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://x.com/g1eny0ung" target="_blank" title="X">
+      <ion-icon name="logo-x"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.linkedin.com/in/g1eny0ung" target="_blank" title="Linkedin">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://stackoverflow.com/users/5676489/g1eny0ung" target="_blank" title="stack overflow">
+      <ion-icon name="logo-stackoverflow"></ion-icon>
+    </a>
+  </li>
+  
+</ul>
+
+      </div>
+    </article>
+  </div>
+  
+
+  
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+    
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
+  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
+  crossorigin="anonymous"
+></script>
+<script>
+  format()
+
+  function format() {
+    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
+      const date = el.textContent
+
+      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
+    })
+  }
+</script>
+
+
+
+<script>
+  window.customSyntaxHighlighting = {
+    light: "/css/syntax-light.min.css",
+    dark: "/css/syntax-dark.min.css"
+  }
+
+  document.addEventListener('alpine:initialized', () => {
+    var isDark = Alpine.store('darkMode').isDark()
+    var customSyntaxHighlightingUrl = isDark ? window.customSyntaxHighlighting.dark : window.customSyntaxHighlighting.light
+
+    document
+      .querySelector('link[data-custom-syntax-highlighting]')
+      .setAttribute('href', customSyntaxHighlightingUrl)
+  })
+</script>
+
+
+
+
+    
+
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
