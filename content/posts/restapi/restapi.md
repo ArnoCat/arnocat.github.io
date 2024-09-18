@@ -183,3 +183,4 @@ r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 1.<https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/>
 2.<https://simi.studio/restful-api-best-practices/>
 3.<https://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html>
+4.<https://apistylebook.stoplight.io/>
