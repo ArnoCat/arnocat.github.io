@@ -1,359 +1,531 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-	<meta name="generator" content="Hugo 0.128.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-        <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="">
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<meta name="theme-color" content="" />
-<link rel="canonical" href="http://localhost:1313/" />
+<html lang="zh"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页 | Arno</title>
 
-
-    <title>
-        
-            Hello Word NG  — Hello Word 
-        
-    </title>
-
-
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
-    type="text/css">
-
-
-
-<link rel="stylesheet" href="/main.d7ff2d2210fd0ab14f417c6d91d2931b4ecffab189943b30890ff820a24a57c9.css">
+    
+<link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 
 
 
+<meta name="author" content="Arno" />
+<meta name="description" content="Arno 的生活记录~" />
 
 
-<script src="https://kit.fontawesome.com/0ed5cec925.js" crossorigin="anonymous"></script>
+<link rel="canonical" href="https://arnocat.github.io/" />
 
 
-
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="msapplication-TileColor" content="">
-
-
-
-  <meta itemprop="name" content="Hello Word NG">
-  <meta itemprop="description" content="My new homepage or blog">
-  <meta itemprop="datePublished" content="2024-07-10T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-07-10T00:00:00+00:00">
-  <meta itemprop="image" content="http://localhost:1313/background.webp">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/background.webp">
-  <meta name="twitter:title" content="Hello Word NG">
-  <meta name="twitter:description" content="My new homepage or blog">
-
-
-
-    <meta property="og:url" content="http://localhost:1313/">
-  <meta property="og:site_name" content="Hello Word NG">
-  <meta property="og:title" content="Hello Word NG">
-  <meta property="og:description" content="My new homepage or blog">
-  <meta property="og:locale" content="en">
+<meta property="og:url" content="https://arnocat.github.io/">
+  <meta property="og:site_name" content="Arno">
+  <meta property="og:title" content="Arno">
+  <meta property="og:description" content="Arno 的生活记录~">
+  <meta property="og:locale" content="zh">
   <meta property="og:type" content="website">
-    <meta property="og:image" content="http://localhost:1313/background.webp">
 
 
 
 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Arno">
+  <meta name="twitter:description" content="Arno 的生活记录~">
 
 
 
+<meta name="generator" content="Hugo 0.128.2">
 
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Hello Word NG" />
+<link rel="stylesheet" href="/css/output.css" />
+
+<style>
+
+#dream-global-bg {
+  background-image: url(/background.jpg);
+}
 
 
 
+</style>
 
 
-
-
-    </head>
+     
 
     
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body x-data="{
+    flip: false,
+  }">
     
-    <body class=" bg" style="background-image: url('static/coolapso.webp');" >
-    
+    <div id="dream-global-bg"></div>
 
     
-        <div class="container">
-            <header class="header">
-    <span class="header__inner">
-        <a href="/" style="text-decoration: none;">
-    <div class="logo">
+<nav class="mt-4 lg:mt-8 pt-4 pb-4">
+
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="翻转！">
+        <div class="h-10 rounded-full">
+          <img src="/img/avatar.png" alt="arno cat home" />
+        </div>
+      </div>
+
+      
+      <div>
         
-            <span class="logo__mark">></span>
-            <span class="logo__text">hello word ng</span>
-            <span class="logo__cursor" style=
-                  "
-                   background-color:#ffffff;
-                   ">
-            </span>
+        <a href="https://arnocat.github.io/" class="text-lg font-semibold cursor-pointer">
+          arno cat home
+        </a>
         
+        
+        <div class="text-base-content/60 text-sm">gg bong</div>
+        
+      </div>
+      
+    </section>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square">
+        <ion-icon name="menu-outline" size="large"></ion-icon>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow">
+        
+
+
+<li>
+  <div role="link" tabindex="0" class="inline-flex items-center p-2 cursor-pointer" @click="flip = !flip" title="关于">
+    <ion-icon name="information-circle"></ion-icon>关于</div>
+</li>
+
+
+
+
+<li>
+  <a class="group inline-flex items-center p-2 cursor-pointer" href="/search" title="搜索">
+    <ion-icon name="search"></ion-icon>
+    搜索
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="归档">
+    <ion-icon name="archive"></ion-icon>
+    归档
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/categories" title="所有分类">
+    <ion-icon name="grid"></ion-icon>
+    所有分类
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/tags" title="所有标签">
+    <ion-icon name="pricetags"></ion-icon>
+    所有标签
+  </a>
+</li>
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/index.xml" title="RSS">
+    <ion-icon name="logo-rss"></ion-icon>
+    RSS
+  </a>
+</li>
+
+
+      </ul>
     </div>
-</a>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+      
+      
+      <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline" @click="flip = !flip" title="关于">关于</div>
+      
+      
 
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/search" title="搜索">
+        <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
+      </a>
+      
 
-        <span class="header__right">
-            
-                <nav class="menu">
-    <ul class="menu__inner">
-            
-            <div class="submenu">
-                <li class="dropdown">
-                    <a href="/posts">
-                        Posts
-                    </a>
-                </li>
-            </div>
-            
-        
-            
-            <div class="submenu">
-                <li class="dropdown">
-                    <a href="/#">
-                        About
-                    </a>
-                </li>
-            </div>
-            
-        
-            
-                <div class="submenu">
-                    <li class="dropdown">
-                        <a href="/projects">
-                            Projects
-                        </a>
-                        <div class="dropdown-content">
-                            
-                               <a title="Project 1" href="#">
-                                   Project 1
-                                </a>
-                            
-                        </div>
-                    </li>
-                </div>
-            
-        
-            
-                <div class="submenu">
-                    <li class="dropdown">
-                        <a href="">
-                            Tools
-                        </a>
-                        <div class="dropdown-content">
-                            
-                               <a title="tool1" href="#">
-                                   tool1
-                                </a>
-                            
-                               <a title="tool2" href="#">
-                                   tool2
-                                </a>
-                            
-                        </div>
-                    </li>
-                </div>
-            
-        
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="归档">
+        <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+      </a>
+      
 
-    
-    </ul>
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/categories" title="所有分类">
+        <ion-icon class="group-hover:text-primary-content" name="grid"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/tags" title="所有标签">
+        <ion-icon class="group-hover:text-primary-content" name="pricetags"></ion-icon>
+      </a>
+      
+
+      
+      <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/index.xml" title="RSS">
+        <ion-icon class="group-hover:text-primary-content" name="logo-rss"></ion-icon>
+      </a>
+      
+    </section>
+  </div>
 </nav>
 
-                <span class="menu-trigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                    </svg>
-                </span>
-            
-                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
- </svg></span>
-        </span>
-    </span>
-</header>
 
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <section class="front">
+          <div class="container">
+            
 
-            <div class="content">
-                
-    <main aria-role="main">
-        <div>
-            <h1></h1>
-            
-        
-        
-            
-            
-            
-            
-                
-            
-            
-            
-                <div class="posts">
-                
-                <div class="post on-list">
-                    <h1 class="post-title"><a href="http://localhost:1313/posts/docker/creating-docker-proto-image/">docker-proto</a></h1>
-                    <div class="post-meta">
-                    
-                        <span class="post-date">
-                        2024-07-08
-                        </span>
-                        
-                            
-
-
-
-                        
-                    
-                        <br>
-                    
-                        <i class="fa-solid fa-clock"></i>
-                        4 minutes
-                    
-                    </div>
-                    
-                        <span class="post-tags">
-                        
-                        </span>
-                    
-                    <div class="post-content">
-                        
-                            
-                                用go Makefile make -&gt; docker image 生成proto （容器化用法） 为什么使用Makefile 在学习docker命令的时候，发现有人使用Makefile来存储操作，叼爆了。
-因为最开始一个字一个字敲，因为这样会记住命令。但是熟悉了之后，每次想要做一些操作的时候就不得不 重复的输入以前的命令。当切换一个项目之后，又重复输入类似但又不完全相同的命令，仅仅通过history命令加速也比较慢。
-先看实战Makefile示例 编译多个语种的proto文件 .PHONY: compile go java BUILDER_CONTAINER=namely/protoc-all:1.51_2 compile: java go go: docker run --rm -t -w /proto \ -v ${PWD}:/proto ${BUILDER_CONTAINER} \ -l go -o . -d proto java: docker run --rm -t -w /proto \ -v ${PWD}:/proto ${BUILDER_CONTAINER} \ -l java -o java/ -d proto Makefile是什么 Makefile是make命令的规则配置文件。make命令是什么？
-先来看看make在哪里
-$ whereis make make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.1 可以看到make是bin下的以可执行文件。
-make 用户手册 MAKE(1) User Commands MAKE(1) NAME make - GNU make utility to maintain groups of programs SYNOPSIS make [OPTION].
-                            
-                        
-                    </div>
-                    
-                        
-                        <div> 
-                            <a class="read-more" href="/posts/docker/creating-docker-proto-image/">
-                                Read more ...
-                            </a>
-                        </div>
-                        
-                    
-                </div> 
-            
-                <div class="post on-list">
-                    <h1 class="post-title"><a href="http://localhost:1313/posts/linux/creating-general-command/">general-command</a></h1>
-                    <div class="post-meta">
-                    
-                        <span class="post-date">
-                        2024-07-08
-                        </span>
-                        
-                            
-
-
-
-                        
-                    
-                        <br>
-                    
-                        <i class="fa-solid fa-clock"></i>
-                        One minute
-                    
-                    </div>
-                    
-                        <span class="post-tags">
-                        
-                        </span>
-                    
-                    <div class="post-content">
-                        
-                            
-                                常用命令 git go $ go env $ env $ env | grep -i proxy GOPROXY=https://goproxy.cn,direct $ curl -I google.com HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Content-Security-Policy-Report-Only: object-src &#39;none&#39;;base-uri &#39;self&#39;;script-src &#39;nonce-L_UKjT9Yze3yROlGcbG9pA&#39; &#39;strict-dynamic&#39; &#39;report-sample&#39; &#39;unsafe-eval&#39; &#39;unsafe-inline&#39; https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp Date: Mon, 08 Jul 2024 09:28:33 GMT 查看端口 Linux 查看端口占用情况可以使用 lsof 和 netstat 命令。
-lsof $ lsof -i:端口号 $ lsof -i:8080：查看8080端口占用 $ lsof abc.txt：显示开启文件abc.txt的进程 $ lsof -c abc：显示abc进程现在打开的文件 $ lsof -c -p 1234：列出进程号为1234的进程所打开的文件 $ lsof -g gid：显示归属gid的进程情况 $ lsof +d /usr/local/：显示目录下被进程开启的文件 $ lsof +D /usr/local/：同上，但是会搜索目录下的目录，时间较长 $ lsof -d 4：显示使用fd为4的进程 $ lsof -i -U：显示所有打开的端口和UNIX domain文件 netstat -tunlp 用于显示 tcp，udp 的端口和进程等相关情况。 -t (tcp) 仅显示tcp相关选项 -u (udp)仅显示udp相关选项 -n 拒绝显示别名，能显示数字的全部转化为数字 -l 仅列出在Listen(监听)的服务状态 -p 显示建立相关链接的程序名
-                            
-                        
-                    </div>
-                    
-                        
-                        <div> 
-                            <a class="read-more" href="/posts/linux/creating-general-command/">
-                                Read more ...
-                            </a>
-                        </div>
-                        
-                    
-                </div> 
-            
-        
-        
-        
-        
-        
-        </div>
-
-    </main>
-
-            </div>
-
-            
-                <footer class="footer">
+<div class="dream-grid">
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <a class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl cursor-pointer dark:border dark:border-base-content/30" href="/posts/go/go-test/">
+  <figure>
+  
     
     
-        <div class="footer__inner">
-            <ul class="icons">
-                
-                <li><a href="http://localhost:1313/posts/index.xml" target="_blank" title="rss" class="icon fa-solid fa-rss"></a></li>
-                
-            </ul>
-        </div>
+    <picture>
+      <source srcset="/images/default4_hu3d03a01dcc18bc5be0e67db3d8d209a6_32836_640x426_resize_q75_h2_box.webp" type="image/webp" />
+      <img src="/images/default4.jpg" alt="/images/default4.jpg" />
+    </picture>
+    
+  
+  </figure>
+
+  <div class="card-body">
+    <h2 class="card-title">go-test</h2>
+
+    <p class="date text-base-content/60">
+    
+      <span data-format="luxon">2024-07-18T14:44:54&#43;08:00</span>
+    
+    </p>
+
+    go基础之Testify单元测试 1. 简单使用 package main import ( &#34;testing&#34; &#34;github.com/stretchr/testify/assert&#34; ) func TestSomething(t *testing.T) { // assert equality assert.Equal(t, 123, 123, &#34;they should be equal&#34;) // assert inequality assert.NotEqual(t, 123, 456, &#34;they should not be equal&#34;) // assert for nil (good for errors) assert.Nil(t, object) // assert for not nil (good when you
+
+    <div class="card-actions justify-between items-center mt-4">
+      <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span>
+  
+    
+      Author Name
+    
+  
+  </span>
+</div>
+
+
+      <div class="inline-flex items-center">
+        <ion-icon name="time" class="mr-1"></ion-icon>
+        <span>2 分钟阅读</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <a class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl cursor-pointer dark:border dark:border-base-content/30" href="/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/">
+  <figure>
+  
     
     
-        <div class="footer__inner">
-            <span>&copy;2024</span>&nbsp;
-            <span><a href="http://localhost:1313/"></a></span>&nbsp;
-            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-        </div>
+    <picture>
+      <source srcset="/images/default3_hu3d03a01dcc18bc5be0e67db3d8d209a6_69593_640x421_resize_q75_h2_box.webp" type="image/webp" />
+      <img src="/images/default3.jpg" alt="/images/default3.jpg" />
+    </picture>
     
-        <div class="footer__inner">
-            <div class="footer__content">
-            
-            
-                <span>Powered by <a href="http://gohugo.io">Hugo</a></span><span>with <a href="https://github.com/coolapso/hugo-theme-hello-4s3ti">Hello-friend-4s3ti</a></span> 
-            </div>
-          
+  
+  </figure>
+
+  <div class="card-body">
+    <h2 class="card-title">新建一个hugo博客</h2>
+
+    <p class="date text-base-content/60">
+    
+      <span data-format="luxon">2022-07-05T00:00:00Z</span>
+    
+    </p>
+
+    Introduction 从零开始创建一个hugo项目并且部署到github 环境要求： 下载go 和 git 创建github库 打开github，创建一个库 输入项目名，要与 Github 用
+
+    <div class="card-actions justify-between items-center mt-4">
+      <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span>
+  
+    Arno
+  
+  </span>
+</div>
+
+
+      <div class="inline-flex items-center">
+        <ion-icon name="time" class="mr-1"></ion-icon>
+        <span>2 分钟阅读</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+  </div>
+  
+</div>
+<div class="flex justify-center mt-8">
+  <div class="join grid grid-cols-2">
+  
+  <a href="/page/2/" title=上一页 class="join-item btn btn-outline btn-sm">
+    上一页
+  </a>
+  
+  
+  <button class="join-item btn btn-outline btn-sm" disabled>
+    下一页
+  </button>
+  
+</div>
+
+</div>
+
+
+
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>
+    © 2016 - 2025 Arno
+  </p>
+  
+
+  
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
+</div>
+
+              <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center h-[32px] px-2 gap-2 border border-base-300 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
+  
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">About Me</div>
+
+        <div class="prose dark:prose-invert">
+          <p>Cut out summary from your post content here.</p>
+<p>The remaining content of your post.</p>
         </div>
-</footer>
+      </div>
+    </article>
+  </div>
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">Copyright</div>
 
-            
+        <div class="prose dark:prose-invert">
+          <p>Cut out summary from your post content here.</p>
+<p>The remaining content of your post.</p>
         </div>
+      </div>
+    </article>
+  </div>
+  
+  
 
-        
+  
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+    <article
+      class="card card-compact bg-base-100 hover:bg-base-content/10 shadow-xl dark:border dark:border-base-content/30"
+    >
+      <div class="card-body">
+        <div class="card-title">社交链接</div>
+
+        <ul class="menu menu-horizontal flex-wrap w-full [&_ion-icon]:text-lg">
+  
+  <li>
+    <a href="mailto:q243284589@gmail.com" title="Email">
+      <ion-icon name="mail"></ion-icon>
+    </a>
+  </li>
+  
+
+  
+  <li>
+    <a href="https://github.com/g1eny0ung" target="_blank" title="GitHub">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://x.com/g1eny0ung" target="_blank" title="X">
+      <ion-icon name="logo-x"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://www.linkedin.com/in/g1eny0ung" target="_blank" title="Linkedin">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://stackoverflow.com/users/5676489/g1eny0ung" target="_blank" title="stack overflow">
+      <ion-icon name="logo-stackoverflow"></ion-icon>
+    </a>
+  </li>
+  
+</ul>
+
+      </div>
+    </article>
+  </div>
+  
+
+  
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+  window.lightTheme = "emerald"
+  window.darkTheme = "forest"
+
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+    
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
+  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
+  crossorigin="anonymous"
+></script>
+<script>
+  format()
+
+  function format() {
+    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
+      const date = el.textContent
+
+      el.textContent = luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日")
+    })
+  }
+</script>
 
 
 
-<script type="text/javascript" src="/bundle.min.2e6d0581b853da65f0bd9b01de835eeb79848503bed0b8bd7312a226e78dabe287bb10019762e5f1c0ed9ce5a4cb42c9ca1ea886892ae353d908d7abfbcd4256.js" integrity="sha512-Lm0FgbhT2mXwvZsB3oNe63mEhQO&#43;0Li9cxKiJueNq&#43;KHuxABl2Ll8cDtnOWky0LJyh6ohokq41PZCNer&#43;81CVg=="></script>
 
 
+    
 
-    </body>
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
 </html>

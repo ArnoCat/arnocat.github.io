@@ -23,6 +23,13 @@
       <description>docker常用命令 # docker拉取镜像 $ docker pull xxx # docker 查看镜像 $ docker images # 查找镜像 $ docker search xxx # 删除镜像 $ docker rmi xxx # 查看我们正在运行的容器 $ docker ps # 查看</description>
     </item>
     <item>
+      <title>docker网络异常排查</title>
+      <link>https://arnocat.github.io/posts/docker/docker-network/</link>
+      <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/docker/docker-network/</guid>
+      <description>docker网络异常排查 $ docker pull ubuntu:22.04 Error response from daemon: Get &amp;#34;https://registry-1.docker.io/v2/&amp;#34;: EOF 这是一个docker的网络异常,需要检查一下网络是否正常 先用ping检测一下 $ ping registry-1.docker.io # 测试网络可</description>
+    </item>
+    <item>
       <title>go-grpc</title>
       <link>https://arnocat.github.io/posts/go/go-grpc/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate>
@@ -49,6 +56,13 @@
       <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://arnocat.github.io/posts/go/go-gin/</guid>
       <description>Go 每日一库之 gin</description>
+    </item>
+    <item>
+      <title>vad</title>
+      <link>https://arnocat.github.io/posts/vad/vad/</link>
+      <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://arnocat.github.io/posts/vad/vad/</guid>
+      <description>VAD https://github.com/kyutai-labs/hibiki https://github.com/pirxus/personalVAD https://github.com/gkonovalov/android-vad</description>
     </item>
     <item>
       <title>zsh</title>
