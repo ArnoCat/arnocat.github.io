@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Vad on ArnoCat</title>
+    <link>http://localhost:1313/categories/vad/</link>
+    <description>Recent content in Vad on ArnoCat</description>
+    <image>
+      <title>ArnoCat</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 10 Aug 2024 11:30:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/vad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vad</title>
+      <link>http://localhost:1313/posts/vad/vad/</link>
+      <pubDate>Sat, 10 Aug 2024 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vad/vad/</guid>
+      <description>&lt;h2 id=&#34;vad&#34;&gt;VAD&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/kyutai-labs/hibiki&#34;&gt;https://github.com/kyutai-labs/hibiki&lt;/a&gt;
+&lt;a href=&#34;https://github.com/pirxus/personalVAD&#34;&gt;https://github.com/pirxus/personalVAD&lt;/a&gt;
+&lt;a href=&#34;https://github.com/gkonovalov/android-vad&#34;&gt;https://github.com/gkonovalov/android-vad&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

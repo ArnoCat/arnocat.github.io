@@ -4,6 +4,31 @@ pagination:
   pagerSize: 10
 theme: PaperMod
 
+outputFormats:
+  JSON:
+    name: "json"
+    mediaType: "application/json"
+    baseName: "index"
+    isPlainText: true
+    notAlternative: false
+
+outputs:
+  home:
+    - HTML
+    - JSON
+    - RSS
+
+defaultContentLanguage: "zh"
+defaultContentLanguageInSubdir: false
+
+languages:
+  zh:
+    languageName: "中文"
+    weight: 1
+    title: "ArnoCat"
+    params:
+      title: "ArnoCat"
+
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
@@ -51,9 +76,11 @@ params:
     safari_pinned_tab: "<link / abs url>"
 
   label:
-    text: "Home"
+    text: "ArnoCat"
     icon: /apple-touch-icon.png
     iconHeight: 35
+  disableLangToggle: true
+  displayFullLangName: false
 
   # profile-mode
   profileMode:
@@ -76,12 +103,18 @@ params:
     Content: Welcome to my blog
 
   socialIcons:
-    - name: x
-      url: "https://x.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
     - name: github
       url: "https://github.com/"
+      title: "GitHub"
+    - name: email
+      url: "mailto:your-email@example.com"
+      title: "Email"
+    - name: x
+      url: "https://x.com/"
+      title: "X (Twitter)"
+    - name: stackoverflow
+      url: "https://stackoverflow.com"
+      title: "Stack Overflow"
 
   analytics:
     google:
@@ -122,10 +155,14 @@ menu:
       name: tags
       url: /tags/
       weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
-      weight: 30
+    - identifier: about
+      name: about
+      url: /about/me/
+      weight: 15
+    - identifier: search
+      name: search
+      url: /search/
+      weight: 25
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:

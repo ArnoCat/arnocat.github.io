@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Zsh on ArnoCat</title>
+    <link>http://localhost:1313/tags/zsh/</link>
+    <description>Recent content in Zsh on ArnoCat</description>
+    <image>
+      <title>ArnoCat</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 25 Jul 2024 11:30:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>zsh</title>
+      <link>http://localhost:1313/posts/zsh/zsh/</link>
+      <pubDate>Thu, 25 Jul 2024 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/zsh/zsh/</guid>
+      <description>&lt;h2 id=&#34;实用工具&#34;&gt;实用工具&lt;/h2&gt;
+&lt;p&gt;iTerm2  zsh   ohmyzsh
+参考 &lt;a href=&#34;https://www.poloxue.com/posts/2023-10-16-zsh-themes-and-plugins/&#34;&gt;https://www.poloxue.com/posts/2023-10-16-zsh-themes-and-plugins/&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;安装报错
+[oh-my-zsh] plugin &amp;lsquo;zsh-syntax-highlighting&amp;rsquo; not found
+[oh-my-zsh] plugin &amp;lsquo;zsh-autosuggestions&amp;rsquo; not found&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解决
+cd 到 &lt;del&gt;/.oh-my-zsh/plugins
+然后 git clone zsh-syntax-hightlight 在那里
+并确保 .zshrc 中提到的插件
+我认为 .zshrc 中提到的每个插件都必须放在这个目录中：&lt;/del&gt;/.oh-my-zsh/plugins&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone &amp;lt;https://github.com/zsh-users/zsh-autosuggestions&amp;gt; ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone &amp;lt;https://github.com/zsh-users/zsh-syntax-highlighting.git&amp;gt; ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;autojump 是用来在 terminal 里跳转目录的&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install autojump
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;注意，安装好后，仔细看提示的内容&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Add the following line to your ~/.bash_profile or ~/.zshrc file:
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] &amp;amp;&amp;amp; . /opt/homebrew/etc/profile.d/autojump.sh&lt;/p&gt;
+&lt;p&gt;If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
+[ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
+编辑配置文件[将下方的命令粘进去]&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

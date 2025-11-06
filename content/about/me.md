@@ -1,11 +1,12 @@
 ---
-title: About Me
+title: "About Me"
 date: 2024-07-17T23:57:54+08:00
-draft: true
+draft: false
+type: page
 ---
 
-Cut out summary from your post content here.
+## Contact
 
-<!--more-->
+You can reach me through the following channels:
 
-The remaining content of your post.
+{{- partial "social_icons.html" (dict "align" "left") -}}

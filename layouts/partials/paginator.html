@@ -1,0 +1,63 @@
+{{- $p := .paginator -}}
+{{- if and $p (gt $p.TotalPages 1) }}
+<footer class="page-footer">
+  <nav class="pagination" role="navigation" aria-label="Pagination">
+    {{- if $p.HasPrev }}
+    <a class="prev" href="{{ $p.Prev.URL | absURL }}" rel="prev">
+      «&nbsp;{{ i18n "prev_page" | default "Newer" }}
+    </a>
+    {{- end }}
+    
+    {{- $currentPage := $p.PageNumber }}
+    {{- $totalPages := $p.TotalPages }}
+    {{- $showPages := 5 }}
+    {{- $halfShow := div $showPages 2 }}
+    
+    {{- $startPage := sub $currentPage $halfShow }}
+    {{- if lt $startPage 1 }}
+      {{- $startPage = 1 }}
+    {{- end }}
+    
+    {{- $endPage := add $currentPage $halfShow }}
+    {{- if gt $endPage $totalPages }}
+      {{- $endPage = $totalPages }}
+      {{- $startPage = sub $endPage (sub $showPages 1) }}
+      {{- if lt $startPage 1 }}
+        {{- $startPage = 1 }}
+      {{- end }}
+    {{- end }}
+    
+    {{- if gt $startPage 1 }}
+    <a href="{{ (index $p.Pagers 0).URL | absURL }}">1</a>
+    {{- if gt $startPage 2 }}
+    <span style="color: var(--secondary); padding: 0 8px;">...</span>
+    {{- end }}
+    {{- end }}
+    
+    {{- range $i := (seq $startPage $endPage) }}
+      {{- $pageNum := $i }}
+      {{- $pager := index $p.Pagers (sub $pageNum 1) }}
+      {{- if eq $pageNum $currentPage }}
+      <span style="color: var(--primary); font-weight: 500; padding: 0 8px; background: var(--tertiary); border-radius: calc(36px / 2);">{{ $pageNum }}</span>
+      {{- else }}
+      <a href="{{ $pager.URL | absURL }}" style="margin: 0 2px;">{{ $pageNum }}</a>
+      {{- end }}
+    {{- end }}
+    
+    {{- if lt $endPage $totalPages }}
+    {{- if lt $endPage (sub $totalPages 1) }}
+    <span style="color: var(--secondary); padding: 0 8px;">...</span>
+    {{- end }}
+    <a href="{{ (index $p.Pagers (sub $totalPages 1)).URL | absURL }}">{{ $totalPages }}</a>
+    {{- end }}
+    
+    {{- if $p.HasNext }}
+    <a class="next" href="{{ $p.Next.URL | absURL }}" rel="next">
+      {{ i18n "next_page" | default "Older" }}&nbsp;»
+    </a>
+    {{- end }}
+  </nav>
+</footer>
+{{- end }}
+
+

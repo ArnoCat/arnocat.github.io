@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ai on ArnoCat</title>
+    <link>http://localhost:1313/categories/ai/</link>
+    <description>Recent content in Ai on ArnoCat</description>
+    <image>
+      <title>ArnoCat</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ai</title>
+      <link>http://localhost:1313/posts/ai/ai/</link>
+      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ai/ai/</guid>
+      <description>&lt;p&gt;有很多球友对 AI 大模型应用开发感兴趣，这里简单分享一下相对具体的学习资料，从入门到实战。&lt;/p&gt;
+&lt;p&gt;👉 大模型应用开发基础&lt;/p&gt;
+&lt;p&gt;大模型应用开发的门槛其实不高，即使没有 AI 相关背景也没关系。大模型应用开发的首要任务是理解你将要使用的“工具”是什么。不必深入研究复杂的神经网络，但需要掌握以下核心概念：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;什么是大语言模型 (LLM)？ 了解其基本工作方式（输入 Prompt -&amp;gt; 输出 Completion）、主要能力（文本生成、理解、摘要、翻译、问答等）以及局限性（知识截止、幻觉等）。&lt;/li&gt;
+&lt;li&gt;提示工程 (Prompt Engineering) 基础： 学习如何设计有效的 Prompt 来引导模型产生期望的输出。掌握基本技巧，如提供清晰指令、上下文、示例（Few-shot Learning）。这是应用开发中最直接、最高频的交互方式。&lt;/li&gt;
+&lt;li&gt;嵌入 (Embeddings) 与向量数据库 (Vector Databases)： 理解文本如何被转换为向量（Embeddings），以及向量数据库（如 Milvus, Chroma, Weaviate, Pinecone, ES 向量搜索）在相似性搜索中的作用。这是实现 RAG 的关键技术。&lt;/li&gt;
+&lt;li&gt;检索增强生成 (RAG - Retrieval-Augmented Generation)： 掌握 RAG 的核心思想——结合外部知识库（通过向量检索）来弥补 LLM 自身知识的不足或实现基于私有数据的问答。这是目前最主流的大模型应用模式之一。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;推荐入门阅读（里面的概念不需要都搞懂）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;技术人的大模型应用初学指南 - 淘宝：技术人的大模型应用初学指南&lt;/li&gt;
+&lt;li&gt;只是文档灌 Dify？RAG 发展一篇文就入门！ - 腾讯：只是文档灌Dify？RAG发展一篇文就入门！&lt;/li&gt;
+&lt;li&gt;一文讲透大模型应用开发 - 腾讯：一文讲透大模型应用开发：新时代技术核心竞争力人人都能掌握！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;👉 Java 生态的 AI 开发框架&lt;/p&gt;
+&lt;p&gt;对于 Java 程序员， 重点学习 LangChain4j 和 Spring AI 这两个框架即可。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

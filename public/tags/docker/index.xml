@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Docker on ArnoCat</title>
+    <link>http://localhost:1313/tags/docker/</link>
+    <description>Recent content in Docker on ArnoCat</description>
+    <image>
+      <title>ArnoCat</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 11 Aug 2024 11:30:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker常用命令</title>
+      <link>http://localhost:1313/posts/docker/docker-command/</link>
+      <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/docker/docker-command/</guid>
+      <description>&lt;h2 id=&#34;docker常用命令&#34;&gt;docker常用命令&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# docker拉取镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker pull xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# docker 查看镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker images
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查找镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker search xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 删除镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker rmi xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看我们正在运行的容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker ps
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看所有的容器命令如下:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker ps -a
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 使用 ubuntu 镜像启动一个容器，并且以命令行模式进入该容器:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -i: 交互式操作。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -t: 终端。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# /bin/bash：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 /bin/bash。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker run -it ubuntu /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -d 指定容器的运行模式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker run -itd --name ubuntu-test ubuntu /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# docker start 启动一个已停止的容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker start b750bbbcfd88
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 停止一个容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker stop &amp;lt;容器 ID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 进入容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# docker attach 不推荐&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# docker exec：推荐大家使用 docker exec 命令，因为此命令会退出容器终端，但不会导致容器的停止&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it 243c32535da7 /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 删除容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker rm &amp;lt;容器ID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>docker网络异常排查</title>
+      <link>http://localhost:1313/posts/docker/docker-network/</link>
+      <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/docker/docker-network/</guid>
+      <description>&lt;h2 id=&#34;docker网络异常排查&#34;&gt;docker网络异常排查&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    $ docker pull ubuntu:22.04
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Error response from daemon: Get &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://registry-1.docker.io/v2/&amp;#34;&lt;/span&gt;: EOF
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是一个docker的网络异常,需要检查一下网络是否正常&lt;/p&gt;
+&lt;p&gt;先用ping检测一下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    $ ping registry-1.docker.io  &lt;span class=&#34;c1&#34;&gt;# 测试网络可达性&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    PING registry-1.docker.io &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;3.94.224.37&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: &lt;span class=&#34;m&#34;&gt;56&lt;/span&gt; data bytes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bytes from 3.94.224.37: &lt;span class=&#34;nv&#34;&gt;icmp_seq&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ttl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;0.174 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bytes from 3.94.224.37: &lt;span class=&#34;nv&#34;&gt;icmp_seq&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ttl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;0.226 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bytes from 3.94.224.37: &lt;span class=&#34;nv&#34;&gt;icmp_seq&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ttl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;0.216 ms
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;再用curl检测一下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    $ curl -Iv https://registry-1.docker.io/v2/  &lt;span class=&#34;c1&#34;&gt;# 检查 HTTPS 握手与证书&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * Uses proxy env variable &lt;span class=&#34;nv&#34;&gt;https_proxy&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;http://127.0.0.1:7890&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    *   Trying 127.0.0.1:7890...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * CONNECT tunnel: HTTP/1.1 negotiated
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * allocate connect buffer
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * Establish HTTP proxy tunnel to registry-1.docker.io:443
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;gt; CONNECT registry-1.docker.io:443 HTTP/1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;gt; Host: registry-1.docker.io:443
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;gt; User-Agent: curl/8.12.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;gt; Proxy-Connection: Keep-Alive
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt; HTTP/1.1 &lt;span class=&#34;m&#34;&gt;200&lt;/span&gt; Connection established
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    HTTP/1.1 &lt;span class=&#34;m&#34;&gt;200&lt;/span&gt; Connection established
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;lt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * CONNECT phase completed
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * CONNECT tunnel established, response &lt;span class=&#34;m&#34;&gt;200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * ALPN: curl offers h2,http/1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * TLSv1.3 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;OUT&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, TLS handshake, Client hello &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;1&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * Recv failure: Connection reset by peer
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * TLS connect error: error:00000000:lib&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;0&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;::reason&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;0&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * OpenSSL SSL_connect: Connection reset by peer in connection to registry-1.docker.io:443
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * closing connection &lt;span class=&#34;c1&#34;&gt;#0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    curl: &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;35&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; Recv failure: Connection reset by peer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    $ env &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep -i proxy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;https_proxy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;http_proxy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    $ &lt;span class=&#34;nb&#34;&gt;unset&lt;/span&gt; all_proxy http_proxy https_proxy  &lt;span class=&#34;c1&#34;&gt;#  禁用所有代理环境变量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    $ curl -v https://registry-1.docker.io/v2/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * Host registry-1.docker.io:443 was resolved.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * IPv6: &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;none&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * IPv4: 198.18.8.227
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    *   Trying 198.18.8.227:443...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * ALPN: curl offers h2,http/1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * TLSv1.3 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;OUT&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, TLS handshake, Client hello &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;1&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * Recv failure: Connection reset by peer
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * TLS connect error: error:00000000:lib&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;0&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;::reason&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;0&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * OpenSSL SSL_connect: Connection reset by peer in connection to registry-1.docker.io:443
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    * closing connection &lt;span class=&#34;c1&#34;&gt;#0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    curl: &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;35&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; Recv failure: Connection reset by peer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;发现IP是198.18.8.227，dns不对&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>docker-proto</title>
+      <link>http://localhost:1313/posts/docker/docker-proto-image/</link>
+      <pubDate>Mon, 08 Jul 2024 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/docker/docker-proto-image/</guid>
+      <description>&lt;h2 id=&#34;用go-makefile-make---docker-image-生成proto-容器化用法&#34;&gt;用go Makefile make -&amp;gt; docker image 生成proto （容器化用法）&lt;/h2&gt;
+&lt;h3 id=&#34;为什么使用makefile&#34;&gt;为什么使用Makefile&lt;/h3&gt;
+&lt;p&gt;在学习docker命令的时候，发现有人使用Makefile来存储操作，叼爆了。&lt;/p&gt;
+&lt;p&gt;因为最开始一个字一个字敲，因为这样会记住命令。但是熟悉了之后，每次想要做一些操作的时候就不得不
+重复的输入以前的命令。当切换一个项目之后，又重复输入类似但又不完全相同的命令，仅仅通过history命令加速也比较慢。&lt;/p&gt;
+&lt;h3 id=&#34;先看实战makefile示例-编译多个语种的proto文件&#34;&gt;先看实战Makefile示例 编译多个语种的proto文件&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;.PHONY: compile go java
+
+BUILDER_CONTAINER=namely/protoc-all:1.51_2
+
+compile: java go
+
+go:
+	docker run --rm -t -w /proto \
+		-v ${PWD}:/proto ${BUILDER_CONTAINER} \
+		-l go -o . -d proto
+
+java:
+	docker run --rm -t -w /proto \
+		-v ${PWD}:/proto ${BUILDER_CONTAINER} \
+		-l java -o java/ -d proto
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;makefile是什么&#34;&gt;Makefile是什么&lt;/h2&gt;
+&lt;p&gt;Makefile是make命令的规则配置文件。make命令是什么？&lt;/p&gt;
+&lt;p&gt;先来看看make在哪里&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ whereis make
+make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以看到make是bin下的以可执行文件。&lt;/p&gt;
+&lt;h4 id=&#34;make-用户手册&#34;&gt;make 用户手册&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;MAKE(1)                                                          User Commands                                                         MAKE(1)
+
+NAME
+       make - GNU make utility to maintain groups of programs
+
+SYNOPSIS
+       make [OPTION]... [TARGET]...
+
+DESCRIPTION
+       The  make  utility will determine automatically which pieces of a large program need to be recompiled, and issue the commands to recom‐
+       pile them.  The manual describes the GNU implementation of make, which was written by Richard Stallman and Roland McGrath, and is  cur‐
+       rently  maintained  by Paul Smith.  Our examples show C programs, since they are very common, but you can use make with any programming
+       language whose compiler can be run with a shell command.  In fact, make is not limited to programs.  You can use  it  to  describe  any
+       task where some files must be updated automatically from others whenever the others change.
+
+       To prepare to use make, you must write a file called the makefile that describes the relationships among files in your program, and the
+       states the commands for updating each file.  In a program, typically the executable file is updated from object  files,  which  are  in
+       turn made by compiling source files.
+
+       Once a suitable makefile exists, each time you change some source files, this simple shell command:
+
+              make
+
+       suffices  to  perform  all necessary recompilations.  The make program uses the makefile description and the last-modification times of
+       the files to decide which of the files need to be updated.  For each of those files, it issues the commands recorded in the makefile.
+
+       make executes commands in the makefile to update one or more target names, where name is typically a  program.   If  no  -f  option  is
+       present, make will look for the makefiles GNUmakefile, makefile, and Makefile, in that order.
+
+       Normally  you  should  call  your makefile either makefile or Makefile.  (We recommend Makefile because it appears prominently near the
+       beginning of a directory listing, right near other important files such as README.)  The first name checked, GNUmakefile, is not recom‐
+       mended for most makefiles.  You should use this name if you have a makefile that is specific to GNU make, and will not be understood by
+       other versions of make.  If makefile is &amp;#39;-&amp;#39;, the standard input is read.
+
+       make updates a target if it depends on prerequisite files that have been modified since the target was last modified, or if the  target
+       does not exist.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;大致是说make是GNU中维护和组织程序的。比如我们的C语言编译， 再比如源码安装某些软件，比如nginx的时候。那么GNU是什么鬼？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>docker</title>
+      <link>http://localhost:1313/posts/docker/docker-dockerfile/</link>
+      <pubDate>Sun, 07 Jul 2024 11:30:03 +0000</pubDate>
+      <guid>http://localhost:1313/posts/docker/docker-dockerfile/</guid>
+      <description>&lt;h2 id=&#34;dockerfile编写&#34;&gt;DockerFile编写&lt;/h2&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/AkiraNicky/article/details/85775076&#34;&gt;https://blog.csdn.net/AkiraNicky/article/details/85775076&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Docker官方网址: &lt;a href=&#34;https://docs.docker.com/&#34;&gt;https://docs.docker.com/&lt;/a&gt;  英文地址&lt;/p&gt;
+&lt;p&gt;Docker中文网址: &lt;a href=&#34;http://www.docker.org.cn/&#34;&gt;http://www.docker.org.cn/&lt;/a&gt; 中文地址&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

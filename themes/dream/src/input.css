@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#dream-global-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}
+
+/* 统一卡片高度 - 让卡片高度一致，保持 Masonry 布局 */
+.dream-column {
+  display: flex;
+  flex-direction: column;
+  height: 480px !important; /* 固定列高度，让 Masonry 使用统一高度 */
+  min-height: 480px !important;
+  max-height: 480px !important;
+}
+
+.dream-column .card,
+.dream-grid .dream-column .card,
+.dream-grid .dream-column a.card,
+a.card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important; /* 填满父容器 */
+  min-height: 480px !important;
+  max-height: 480px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+/* 统一卡片中的图片尺寸 */
+.card figure {
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0; /* 防止图片被压缩 */
+}
+
+.card figure img,
+.card figure picture img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+/* 卡片内容区域自适应 */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0; /* 允许内容区域收缩 */
+}
+
+/* 限制摘要文本行数，超出部分显示省略号 */
+.card-body .card-title {
+  flex-shrink: 0;
+}
+
+.card-body .date {
+  flex-shrink: 0;
+}
+
+/* 摘要内容区域 - 创建一个包装器来限制高度 */
+.card-body > *:not(.card-title):not(.date):not(.card-actions) {
+  flex: 1;
+  min-height: 0;
+  max-height: 100px; /* 限制最大高度，大约3-4行文本 */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* 最多显示4行 */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+
+/* 如果摘要内容包含多个段落，限制显示 */
+.card-body p:not(.date):not(.card-title) {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* 确保卡片底部操作区域始终在底部 */
+.card-actions {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+/* 统一文章内容中的图片尺寸 */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prose picture img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flip-container {
+  width: 100vw;
+  height: 100vh;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+
+  &.flip-it {
+    .flipper {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: all 0.75s ease;
+  }
+
+  .front,
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .front {
+    transform: rotateY(0deg);
+  }
+
+  .back {
+    transform: rotateY(180deg);
+  }
+}
