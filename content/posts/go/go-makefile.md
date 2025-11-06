@@ -8,7 +8,6 @@ weight: 11
 type:
 - post
 - posts/go
-title: go-makefile
 # avatar: /img/author.jpg
 # authorlink: https://author.site
 # cover: /img/cover.jpg

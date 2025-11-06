@@ -5,7 +5,6 @@ linktitle: go-微服务
 type:
 - post
 - posts/go
-title: go-微服务
 weight: 1
 series:
 - Hugo 101

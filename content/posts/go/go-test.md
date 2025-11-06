@@ -7,8 +7,6 @@ linktitle: go-test
 type:
 - post
 - posts/go
-title: go-test
-# avatar: /img/author.jpg
 # authorlink: https://author.site
 # cover: /img/cover.jpg
 # images:
