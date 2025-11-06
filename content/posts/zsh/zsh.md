@@ -65,7 +65,7 @@ autojump 是用来在 terminal 里跳转目录的
 brew install autojump
 ```
 
-2. 注意，安装好后，仔细看提示的内容
+1. 注意，安装好后，仔细看提示的内容
 
 Add the following line to your ~/.bash_profile or ~/.zshrc file:
   [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
@@ -86,15 +86,13 @@ plugins=(
 
 ```
 
-3. 安装成功后，
-
-## source 在当前bash环境下读取并执行FileName(zshrc)中的命令
+1. 安装成功后，source 在当前bash环境下读取并执行FileName(zshrc)中的命令：
 
 ```bash
 source ~/.zshrc
 ```
 
-4. j --stat 显示数据库条目及其关键权重(show database entries and their key weights)
+1. j --stat 显示数据库条目及其关键权重(show database entries and their key weights)
 
 只有使用过的目录，才可以直接跳转，或者在数据库条目中的目录，才可以直接用j+目录
 add DIRECTORY 添加目录到数据库
