@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Category1 on ExampleSite</title>
-    <link>http://localhost:1313/categories/category1/</link>
+    <link>https://examplesite.com/categories/category1/</link>
     <description>Recent content in Category1 on ExampleSite</description>
     <image>
       <title>ExampleSite</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
     <lastBuildDate>Thu, 18 Jul 2024 16:44:54 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/category1/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://examplesite.com/categories/category1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Article Title</title>
-      <link>http://localhost:1313/posts/go/go-makefile/</link>
+      <link>https://examplesite.com/posts/go/go-makefile/</link>
       <pubDate>Thu, 18 Jul 2024 16:44:54 +0800</pubDate>
-      <guid>http://localhost:1313/posts/go/go-makefile/</guid>
+      <guid>https://examplesite.com/posts/go/go-makefile/</guid>
       <description>&lt;h2 id=&#34;using-makefile-for-go---go语言项目如何正确使用makefile&#34;&gt;Using Makefile for Go - Go语言项目如何正确使用Makefile&lt;/h2&gt;
 &lt;p&gt;我们一直在用Go语言编写的HackerRank项目中的一个项目使用make作为构建工具，并且效果良好。在这篇文章中，我将指出我们使用的GNU Make的一些功能和复杂性，这些功能和复杂性最终提高了我们团队成员的整体生产力。&lt;/p&gt;
 &lt;p&gt;前言
@@ -50,9 +50,9 @@ go run -race main.go&lt;/p&gt;</description>
     </item>
     <item>
       <title>Article Title</title>
-      <link>http://localhost:1313/posts/go/go-test/</link>
+      <link>https://examplesite.com/posts/go/go-test/</link>
       <pubDate>Thu, 18 Jul 2024 14:44:54 +0800</pubDate>
-      <guid>http://localhost:1313/posts/go/go-test/</guid>
+      <guid>https://examplesite.com/posts/go/go-test/</guid>
       <description>&lt;h2 id=&#34;go基础之testify单元测试&#34;&gt;go基础之Testify单元测试&lt;/h2&gt;
 &lt;h3 id=&#34;1-简单使用&#34;&gt;1. 简单使用&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;

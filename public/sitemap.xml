@@ -2,107 +2,107 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/go/go-env/</loc>
+    <loc>https://examplesite.com/posts/go/go-env/</loc>
     <lastmod>2024-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/go/go-escape-analysis/</loc>
+    <loc>https://examplesite.com/posts/go/go-escape-analysis/</loc>
     <lastmod>2024-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/docker-command/</loc>
+    <loc>https://examplesite.com/posts/docker/docker-command/</loc>
     <lastmod>2024-08-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/docker-network/</loc>
+    <loc>https://examplesite.com/posts/docker/docker-network/</loc>
     <lastmod>2024-08-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/go/go-grpc/</loc>
+    <loc>https://examplesite.com/posts/go/go-grpc/</loc>
     <lastmod>2024-08-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/go/go-sync/</loc>
+    <loc>https://examplesite.com/posts/go/go-sync/</loc>
     <lastmod>2024-08-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/go/go-%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
+    <loc>https://examplesite.com/posts/go/go-%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
     <lastmod>2024-08-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/go/go-gin/</loc>
+    <loc>https://examplesite.com/posts/go/go-gin/</loc>
     <lastmod>2024-08-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/vad/vad/</loc>
+    <loc>https://examplesite.com/posts/vad/vad/</loc>
     <lastmod>2024-08-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/zsh/zsh/</loc>
+    <loc>https://examplesite.com/posts/zsh/zsh/</loc>
     <lastmod>2024-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/restapi/restapi/</loc>
+    <loc>https://examplesite.com/posts/restapi/restapi/</loc>
     <lastmod>2024-09-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/github/github-action/</loc>
+    <loc>https://examplesite.com/posts/github/github-action/</loc>
     <lastmod>2024-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/go/go-viper/</loc>
+    <loc>https://examplesite.com/posts/go/go-viper/</loc>
     <lastmod>2024-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/github/ssh-copy-id/</loc>
+    <loc>https://examplesite.com/posts/github/ssh-copy-id/</loc>
     <lastmod>2024-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/vscode/creating-vscode/</loc>
+    <loc>https://examplesite.com/posts/vscode/creating-vscode/</loc>
     <lastmod>2024-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/go/go-defer/</loc>
+    <loc>https://examplesite.com/posts/go/go-defer/</loc>
     <lastmod>2024-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/go/go-base/</loc>
+    <loc>https://examplesite.com/posts/go/go-base/</loc>
     <lastmod>2024-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/docker-proto-image/</loc>
+    <loc>https://examplesite.com/posts/docker/docker-proto-image/</loc>
     <lastmod>2024-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/linux/creating-general-command/</loc>
+    <loc>https://examplesite.com/posts/linux/creating-general-command/</loc>
     <lastmod>2024-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/default/</loc>
+    <loc>https://examplesite.com/posts/default/</loc>
     <lastmod>2024-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker/docker-dockerfile/</loc>
+    <loc>https://examplesite.com/posts/docker/docker-dockerfile/</loc>
     <lastmod>2024-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/go/go-makefile/</loc>
+    <loc>https://examplesite.com/posts/go/go-makefile/</loc>
     <lastmod>2024-07-18T16:44:54+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://examplesite.com/posts/</loc>
     <lastmod>2024-09-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://examplesite.com/</loc>
     <lastmod>2024-09-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://examplesite.com/categories/</loc>
     <lastmod>2024-07-18T16:44:54+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/category1/</loc>
+    <loc>https://examplesite.com/categories/category1/</loc>
     <lastmod>2024-07-18T16:44:54+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tag1/</loc>
+    <loc>https://examplesite.com/tags/tag1/</loc>
     <lastmod>2024-07-18T16:44:54+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tag2/</loc>
+    <loc>https://examplesite.com/tags/tag2/</loc>
     <lastmod>2024-07-18T16:44:54+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://examplesite.com/tags/</loc>
     <lastmod>2024-07-18T16:44:54+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/go/go-test/</loc>
+    <loc>https://examplesite.com/posts/go/go-test/</loc>
     <lastmod>2024-07-18T14:44:54+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/hugo/</loc>
+    <loc>https://examplesite.com/categories/hugo/</loc>
     <lastmod>2022-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://examplesite.com/posts/blog/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAhugo%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://examplesite.com/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/ai/ai/</loc>
+    <loc>https://examplesite.com/posts/ai/ai/</loc>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>https://examplesite.com/search/</loc>
   </url>
 </urlset>
