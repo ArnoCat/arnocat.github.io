@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Go on ArnoCat</title>
-    <link>http://localhost:1313/tags/go/</link>
+    <link>https://arnocat.github.io/tags/go/</link>
     <description>Recent content in Go on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 19 Aug 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go-env</title>
-      <link>http://localhost:1313/posts/go/go-env/</link>
+      <link>https://arnocat.github.io/posts/go/go-env/</link>
       <pubDate>Mon, 19 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/go/go-env/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-env/</guid>
       <description>&lt;h2 id=&#34;go-env&#34;&gt;Go env&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ go env
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 编译内核&lt;/span&gt;
@@ -54,9 +54,9 @@
     </item>
     <item>
       <title>go-escape-analysis</title>
-      <link>http://localhost:1313/posts/go/go-escape-analysis/</link>
+      <link>https://arnocat.github.io/posts/go/go-escape-analysis/</link>
       <pubDate>Mon, 19 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/go/go-escape-analysis/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-escape-analysis/</guid>
       <description>&lt;h2 id=&#34;go-escape-analysis&#34;&gt;Go escape analysis&lt;/h2&gt;
 &lt;h3 id=&#34;什么叫逃逸分析&#34;&gt;什么叫逃逸分析&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;在 C 语言中，可以使用 malloc 和 free 手动在堆上分配和回收内存。Go 语言中，堆内存是通过垃圾回收机制自动管理的，无需开发者指定。那么，Go 编译器怎么知道某个变量需要分配在栈上，还是堆上呢？编译器决定内存分配位置的方式，就称之为逃逸分析(escape analysis)。逃逸分析由编译器完成，作用于编译阶段。
@@ -76,37 +76,37 @@
     </item>
     <item>
       <title>go-grpc</title>
-      <link>http://localhost:1313/posts/go/go-grpc/</link>
+      <link>https://arnocat.github.io/posts/go/go-grpc/</link>
       <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/go/go-grpc/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-grpc/</guid>
       <description>&lt;h2 id=&#34;go-每日一库之-grpc&#34;&gt;Go 每日一库之 grpc&lt;/h2&gt;</description>
     </item>
     <item>
       <title>go-并发</title>
-      <link>http://localhost:1313/posts/go/go-sync/</link>
+      <link>https://arnocat.github.io/posts/go/go-sync/</link>
       <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/go/go-sync/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-sync/</guid>
       <description>&lt;h2 id=&#34;go-每日一库之-go并发&#34;&gt;Go 每日一库之 go并发&lt;/h2&gt;</description>
     </item>
     <item>
       <title>go-微服务</title>
-      <link>http://localhost:1313/posts/go/go-%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://arnocat.github.io/posts/go/go-%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/go/go-%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;h2 id=&#34;go-每日一库之go微服务&#34;&gt;Go 每日一库之go微服务&lt;/h2&gt;</description>
     </item>
     <item>
       <title>go-gin</title>
-      <link>http://localhost:1313/posts/go/go-gin/</link>
+      <link>https://arnocat.github.io/posts/go/go-gin/</link>
       <pubDate>Sat, 10 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/go/go-gin/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-gin/</guid>
       <description>&lt;h2 id=&#34;go-每日一库之-gin&#34;&gt;Go 每日一库之 gin&lt;/h2&gt;</description>
     </item>
     <item>
       <title>go-makefile</title>
-      <link>http://localhost:1313/posts/go/go-makefile/</link>
+      <link>https://arnocat.github.io/posts/go/go-makefile/</link>
       <pubDate>Thu, 18 Jul 2024 16:44:54 +0800</pubDate>
-      <guid>http://localhost:1313/posts/go/go-makefile/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-makefile/</guid>
       <description>&lt;h2 id=&#34;using-makefile-for-go---go语言项目如何正确使用makefile&#34;&gt;Using Makefile for Go - Go语言项目如何正确使用Makefile&lt;/h2&gt;
 &lt;p&gt;我们一直在用Go语言编写的HackerRank项目中的一个项目使用make作为构建工具，并且效果良好。在这篇文章中，我将指出我们使用的GNU Make的一些功能和复杂性，这些功能和复杂性最终提高了我们团队成员的整体生产力。&lt;/p&gt;
 &lt;p&gt;前言
@@ -139,9 +139,9 @@ go run -race main.go&lt;/p&gt;</description>
     </item>
     <item>
       <title>go-test</title>
-      <link>http://localhost:1313/posts/go/go-test/</link>
+      <link>https://arnocat.github.io/posts/go/go-test/</link>
       <pubDate>Thu, 18 Jul 2024 14:44:54 +0800</pubDate>
-      <guid>http://localhost:1313/posts/go/go-test/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-test/</guid>
       <description>&lt;h2 id=&#34;go基础之testify单元测试&#34;&gt;go基础之Testify单元测试&lt;/h2&gt;
 &lt;h3 id=&#34;1-简单使用&#34;&gt;1. 简单使用&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -201,9 +201,9 @@ ts := httptest.NewTLSServer()&lt;/p&gt;</description>
     </item>
     <item>
       <title>go-viper</title>
-      <link>http://localhost:1313/posts/go/go-viper/</link>
+      <link>https://arnocat.github.io/posts/go/go-viper/</link>
       <pubDate>Wed, 10 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/go/go-viper/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-viper/</guid>
       <description>&lt;h2 id=&#34;go-每日一库之-viper&#34;&gt;Go 每日一库之 viper&lt;/h2&gt;
 &lt;p&gt;viper 是一个配置解决方案，拥有丰富的特性：&lt;/p&gt;
 &lt;p&gt;支持 JSON/TOML/YAML/HCL/envfile/Java properties 等多种格式的配置文件；
@@ -253,9 +253,9 @@ ts := httptest.NewTLSServer()&lt;/p&gt;</description>
     </item>
     <item>
       <title>GO-defer</title>
-      <link>http://localhost:1313/posts/go/go-defer/</link>
+      <link>https://arnocat.github.io/posts/go/go-defer/</link>
       <pubDate>Tue, 09 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/go/go-defer/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-defer/</guid>
       <description>&lt;h2 id=&#34;go-每日一库之-defer&#34;&gt;Go 每日一库之 defer&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;f1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -291,9 +291,9 @@ ts := httptest.NewTLSServer()&lt;/p&gt;</description>
     </item>
     <item>
       <title>GO每日一库之go基础</title>
-      <link>http://localhost:1313/posts/go/go-base/</link>
+      <link>https://arnocat.github.io/posts/go/go-base/</link>
       <pubDate>Tue, 09 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/go/go-base/</guid>
+      <guid>https://arnocat.github.io/posts/go/go-base/</guid>
       <description>&lt;h2 id=&#34;go-每日一库之go基础&#34;&gt;Go 每日一库之go基础&lt;/h2&gt;
 &lt;h3 id=&#34;1-var-_-interface--typenil&#34;&gt;1. var _ Interface = (*Type)(nil)&lt;/h3&gt;
 &lt;p&gt;在Go语言中，var _ Interface = (*Type)(nil) 是一种常见的惯用法，用于确保某个类型 (Type) 实现了某个接口 (Interface)。它的作用是，在编译时强制检查类型实现接口的情况。&lt;/p&gt;

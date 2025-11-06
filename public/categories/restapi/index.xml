@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Restapi on ArnoCat</title>
-    <link>http://localhost:1313/categories/restapi/</link>
+    <link>https://arnocat.github.io/categories/restapi/</link>
     <description>Recent content in Restapi on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 02 Sep 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/restapi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/categories/restapi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>restapi</title>
-      <link>http://localhost:1313/posts/restapi/restapi/</link>
+      <link>https://arnocat.github.io/posts/restapi/restapi/</link>
       <pubDate>Mon, 02 Sep 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/restapi/restapi/</guid>
+      <guid>https://arnocat.github.io/posts/restapi/restapi/</guid>
       <description>&lt;h2 id=&#34;swagger-gin-stoplight-使用&#34;&gt;swagger gin stoplight 使用&lt;/h2&gt;
 &lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go get -u github.com/swaggo/swag/cmd/swag

@@ -3,6 +3,7 @@ title: ExampleSite
 pagination:
   pagerSize: 10
 theme: PaperMod
+publishDir: "docs"
 
 outputFormats:
   JSON:

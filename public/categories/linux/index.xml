@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Linux on ArnoCat</title>
-    <link>http://localhost:1313/categories/linux/</link>
+    <link>https://arnocat.github.io/categories/linux/</link>
     <description>Recent content in Linux on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 08 Jul 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>general-command</title>
-      <link>http://localhost:1313/posts/linux/creating-general-command/</link>
+      <link>https://arnocat.github.io/posts/linux/creating-general-command/</link>
       <pubDate>Mon, 08 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/linux/creating-general-command/</guid>
+      <guid>https://arnocat.github.io/posts/linux/creating-general-command/</guid>
       <description>&lt;h2 id=&#34;常用命令&#34;&gt;常用命令&lt;/h2&gt;
 &lt;h3 id=&#34;git&#34;&gt;git&lt;/h3&gt;
 &lt;h3 id=&#34;go&#34;&gt;go&lt;/h3&gt;

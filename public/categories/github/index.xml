@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Github on ArnoCat</title>
-    <link>http://localhost:1313/categories/github/</link>
+    <link>https://arnocat.github.io/categories/github/</link>
     <description>Recent content in Github on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 10 Jul 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/github/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/categories/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>github-action</title>
-      <link>http://localhost:1313/posts/github/github-action/</link>
+      <link>https://arnocat.github.io/posts/github/github-action/</link>
       <pubDate>Wed, 10 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/github/github-action/</guid>
+      <guid>https://arnocat.github.io/posts/github/github-action/</guid>
       <description>&lt;h2 id=&#34;git命令&#34;&gt;git命令&lt;/h2&gt;
 &lt;h3 id=&#34;不应用当前分支的修改单纯地切换分支&#34;&gt;不应用当前分支的修改，单纯地切换分支&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 保存dev分支的修改到堆栈中&lt;/span&gt;
@@ -56,9 +56,9 @@
     </item>
     <item>
       <title>ssh-copy-id</title>
-      <link>http://localhost:1313/posts/github/ssh-copy-id/</link>
+      <link>https://arnocat.github.io/posts/github/ssh-copy-id/</link>
       <pubDate>Wed, 10 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/github/ssh-copy-id/</guid>
+      <guid>https://arnocat.github.io/posts/github/ssh-copy-id/</guid>
       <description>&lt;h2 id=&#34;ssh-copy-id&#34;&gt;ssh-copy-id&lt;/h2&gt;
 &lt;p&gt;ssh-copy-id在服务器上安装SSH 密钥作为授权密钥。其目的是提供访问权限，而无需每次登录都输入密码。这有助于使用 SSH 协议实现自动、无密码登录和单点登录。&lt;/p&gt;
 &lt;h3 id=&#34;1-生成密钥并添加到-ssh-服务器&#34;&gt;1. 生成密钥,并添加到 SSH 服务器&lt;/h3&gt;

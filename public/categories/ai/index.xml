@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ai on ArnoCat</title>
-    <link>http://localhost:1313/categories/ai/</link>
+    <link>https://arnocat.github.io/categories/ai/</link>
     <description>Recent content in Ai on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/ai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/categories/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ai</title>
-      <link>http://localhost:1313/posts/ai/ai/</link>
+      <link>https://arnocat.github.io/posts/ai/ai/</link>
       <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/ai/ai/</guid>
+      <guid>https://arnocat.github.io/posts/ai/ai/</guid>
       <description>&lt;p&gt;有很多球友对 AI 大模型应用开发感兴趣，这里简单分享一下相对具体的学习资料，从入门到实战。&lt;/p&gt;
 &lt;p&gt;👉 大模型应用开发基础&lt;/p&gt;
 &lt;p&gt;大模型应用开发的门槛其实不高，即使没有 AI 相关背景也没关系。大模型应用开发的首要任务是理解你将要使用的“工具”是什么。不必深入研究复杂的神经网络，但需要掌握以下核心概念：&lt;/p&gt;

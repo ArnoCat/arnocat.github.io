@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Vscode on ArnoCat</title>
-    <link>http://localhost:1313/categories/vscode/</link>
+    <link>https://arnocat.github.io/categories/vscode/</link>
     <description>Recent content in Vscode on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 10 Jul 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/categories/vscode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>vscode实用功能</title>
-      <link>http://localhost:1313/posts/vscode/creating-vscode/</link>
+      <link>https://arnocat.github.io/posts/vscode/creating-vscode/</link>
       <pubDate>Wed, 10 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/vscode/creating-vscode/</guid>
+      <guid>https://arnocat.github.io/posts/vscode/creating-vscode/</guid>
       <description>&lt;h2 id=&#34;vscode-实用功能&#34;&gt;vscode 实用功能&lt;/h2&gt;
 &lt;h3 id=&#34;vscode测试获取go的环境变量&#34;&gt;vscode测试获取go的环境变量&lt;/h3&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-TXT&#34; data-lang=&#34;TXT&#34;&gt;  1.创建launch.json文件
