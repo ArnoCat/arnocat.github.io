@@ -39,6 +39,7 @@ editPost:
 ## 用go Makefile make -> docker image 生成proto （容器化用法）
 
 ### 为什么使用Makefile
+
 在学习docker命令的时候，发现有人使用Makefile来存储操作，叼爆了。
 
 因为最开始一个字一个字敲，因为这样会记住命令。但是熟悉了之后，每次想要做一些操作的时候就不得不
@@ -46,7 +47,7 @@ editPost:
 
 ### 先看实战Makefile示例 编译多个语种的proto文件
 
-```
+```makefile
 .PHONY: compile go java
 
 BUILDER_CONTAINER=namely/protoc-all:1.51_2
@@ -54,23 +55,24 @@ BUILDER_CONTAINER=namely/protoc-all:1.51_2
 compile: java go
 
 go:
-	docker run --rm -t -w /proto \
-		-v ${PWD}:/proto ${BUILDER_CONTAINER} \
-		-l go -o . -d proto
+    docker run --rm -t -w /proto \
+        -v ${PWD}:/proto ${BUILDER_CONTAINER} \
+        -l go -o . -d proto
 
 java:
-	docker run --rm -t -w /proto \
-		-v ${PWD}:/proto ${BUILDER_CONTAINER} \
-		-l java -o java/ -d proto
+    docker run --rm -t -w /proto \
+        -v ${PWD}:/proto ${BUILDER_CONTAINER} \
+        -l java -o java/ -d proto
 
 ```
 
 ## Makefile是什么
+
 Makefile是make命令的规则配置文件。make命令是什么？
 
 先来看看make在哪里
 
-```
+```bash
 $ whereis make
 make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.1
 
@@ -78,8 +80,9 @@ make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.
 
 可以看到make是bin下的以可执行文件。
 
-#### make 用户手册
-```
+### make 用户手册
+
+```text
 MAKE(1)                                                          User Commands                                                         MAKE(1)
 
 NAME
@@ -117,12 +120,13 @@ DESCRIPTION
        make updates a target if it depends on prerequisite files that have been modified since the target was last modified, or if the  target
        does not exist.
 ```
+
 大致是说make是GNU中维护和组织程序的。比如我们的C语言编译， 再比如源码安装某些软件，比如nginx的时候。那么GNU是什么鬼？
 
 GNU(GNU's Not Unix)是一个类Unix系统， 目标是创建一套完全自由的操作系统。在Linux出现之前，GNU已经完成了除了内核之外大部分的软件。Linux出现之后，与GNU结合变成GNU/Linux。
 严格的说，Linux只代表Linux内核，其他Linux软件称为Linux发行版。但由于商业发行商坚持称呼Linux, 虽然已经更名为GNU/Linux, 但大家依然叫Linux.
 
-```
+```bash
 ## 比如我的本机Ubuntu
 ~ ❯ uname
 Linux
@@ -141,10 +145,10 @@ Linux data-docker001 3.10.0-693.2.2.el7.x86_64 #1 SMP Tue Sep 12 22:26:13 UTC 20
 
 ```
 
-#### make 基本用法
-```
-make target
+### make 基本用法
 
+```bash
+make target
 ```
 
 ### Makefile基本语法
@@ -154,16 +158,20 @@ make target
 #### 声明变量
 
 简单的变量赋值，比如声明name
-```
+
+```bash
 $ name=arno
 ```
+
 #### 声明规则Rule
+
 Makefile文件由一系列规则（rules）构成。每条规则的形式如下。
-```
+
+```makefile
 <target> : <prerequisites>
 [tab]  <commands>
-
 ```
+
 target 目标
 prerequisites 前置条件
 tab command必须由tab隔开
@@ -172,13 +180,16 @@ commands 只能有一行的shell
 #### 防止target和文件名一样
 
 当我们设置的target和当前目录下的文件名一样的话，target会被忽略，所以，通常，我们把target都用做phony target。
-```
+
+```makefile
 .PHONY: build start push
 ```
+
 表示， build start push 这3个target，不检查当前目录下的文件，直接执行命令。
 
 #### Docker构建用的指令
-```
+
+```makefile
 NAME = ryan/airflow
 VERSION = 1.10.4
 
@@ -200,10 +211,12 @@ push:   build-version tag-latest
 ```
 
 make build && make start && make push
+
 ### Makefile的每个命令的作用
 
 ### docker run images 里面镜像每个命令的作用
-```
+
+```text
 gen-proto生成grpc和protobuf@即
 
 用法：gen proto-f my-service.proto-l go

@@ -125,65 +125,65 @@
 &lt;p&gt;因为最开始一个字一个字敲，因为这样会记住命令。但是熟悉了之后，每次想要做一些操作的时候就不得不
 重复的输入以前的命令。当切换一个项目之后，又重复输入类似但又不完全相同的命令，仅仅通过history命令加速也比较慢。&lt;/p&gt;
 &lt;h3 id=&#34;先看实战makefile示例-编译多个语种的proto文件&#34;&gt;先看实战Makefile示例 编译多个语种的proto文件&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;.PHONY: compile go java
-
-BUILDER_CONTAINER=namely/protoc-all:1.51_2
-
-compile: java go
-
-go:
-	docker run --rm -t -w /proto \
-		-v ${PWD}:/proto ${BUILDER_CONTAINER} \
-		-l go -o . -d proto
-
-java:
-	docker run --rm -t -w /proto \
-		-v ${PWD}:/proto ${BUILDER_CONTAINER} \
-		-l java -o java/ -d proto
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;makefile是什么&#34;&gt;Makefile是什么&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-makefile&#34; data-lang=&#34;makefile&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;.PHONY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;compile&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;go&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;java&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;BUILDER_CONTAINER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;namely/protoc-all:1.51_2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;compile&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;java&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;go&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;go&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    docker run --rm -t -w /proto &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        -v &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PWD&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;:/proto &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;BUILDER_CONTAINER&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        -l go -o . -d proto
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;java&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    docker run --rm -t -w /proto &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        -v &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;PWD&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;:/proto &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;BUILDER_CONTAINER&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        -l java -o java/ -d proto
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;makefile是什么&#34;&gt;Makefile是什么&lt;/h2&gt;
 &lt;p&gt;Makefile是make命令的规则配置文件。make命令是什么？&lt;/p&gt;
 &lt;p&gt;先来看看make在哪里&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ whereis make
-make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.1
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以看到make是bin下的以可执行文件。&lt;/p&gt;
-&lt;h4 id=&#34;make-用户手册&#34;&gt;make 用户手册&lt;/h4&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;MAKE(1)                                                          User Commands                                                         MAKE(1)
-
-NAME
-       make - GNU make utility to maintain groups of programs
-
-SYNOPSIS
-       make [OPTION]... [TARGET]...
-
-DESCRIPTION
-       The  make  utility will determine automatically which pieces of a large program need to be recompiled, and issue the commands to recom‐
-       pile them.  The manual describes the GNU implementation of make, which was written by Richard Stallman and Roland McGrath, and is  cur‐
-       rently  maintained  by Paul Smith.  Our examples show C programs, since they are very common, but you can use make with any programming
-       language whose compiler can be run with a shell command.  In fact, make is not limited to programs.  You can use  it  to  describe  any
-       task where some files must be updated automatically from others whenever the others change.
-
-       To prepare to use make, you must write a file called the makefile that describes the relationships among files in your program, and the
-       states the commands for updating each file.  In a program, typically the executable file is updated from object  files,  which  are  in
-       turn made by compiling source files.
-
-       Once a suitable makefile exists, each time you change some source files, this simple shell command:
-
-              make
-
-       suffices  to  perform  all necessary recompilations.  The make program uses the makefile description and the last-modification times of
-       the files to decide which of the files need to be updated.  For each of those files, it issues the commands recorded in the makefile.
-
-       make executes commands in the makefile to update one or more target names, where name is typically a  program.   If  no  -f  option  is
-       present, make will look for the makefiles GNUmakefile, makefile, and Makefile, in that order.
-
-       Normally  you  should  call  your makefile either makefile or Makefile.  (We recommend Makefile because it appears prominently near the
-       beginning of a directory listing, right near other important files such as README.)  The first name checked, GNUmakefile, is not recom‐
-       mended for most makefiles.  You should use this name if you have a makefile that is specific to GNU make, and will not be understood by
-       other versions of make.  If makefile is &amp;#39;-&amp;#39;, the standard input is read.
-
-       make updates a target if it depends on prerequisite files that have been modified since the target was last modified, or if the  target
-       does not exist.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;大致是说make是GNU中维护和组织程序的。比如我们的C语言编译， 再比如源码安装某些软件，比如nginx的时候。那么GNU是什么鬼？&lt;/p&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ whereis make
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make: /usr/bin/make /Library/Developer/CommandLineTools/usr/share/man/man1/make.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以看到make是bin下的以可执行文件。&lt;/p&gt;
+&lt;h3 id=&#34;make-用户手册&#34;&gt;make 用户手册&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;MAKE(1)                                                          User Commands                                                         MAKE(1)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NAME
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       make - GNU make utility to maintain groups of programs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SYNOPSIS
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       make [OPTION]... [TARGET]...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;DESCRIPTION
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       The  make  utility will determine automatically which pieces of a large program need to be recompiled, and issue the commands to recom‐
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       pile them.  The manual describes the GNU implementation of make, which was written by Richard Stallman and Roland McGrath, and is  cur‐
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       rently  maintained  by Paul Smith.  Our examples show C programs, since they are very common, but you can use make with any programming
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       language whose compiler can be run with a shell command.  In fact, make is not limited to programs.  You can use  it  to  describe  any
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       task where some files must be updated automatically from others whenever the others change.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       To prepare to use make, you must write a file called the makefile that describes the relationships among files in your program, and the
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       states the commands for updating each file.  In a program, typically the executable file is updated from object  files,  which  are  in
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       turn made by compiling source files.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       Once a suitable makefile exists, each time you change some source files, this simple shell command:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              make
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       suffices  to  perform  all necessary recompilations.  The make program uses the makefile description and the last-modification times of
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       the files to decide which of the files need to be updated.  For each of those files, it issues the commands recorded in the makefile.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       make executes commands in the makefile to update one or more target names, where name is typically a  program.   If  no  -f  option  is
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       present, make will look for the makefiles GNUmakefile, makefile, and Makefile, in that order.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       Normally  you  should  call  your makefile either makefile or Makefile.  (We recommend Makefile because it appears prominently near the
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       beginning of a directory listing, right near other important files such as README.)  The first name checked, GNUmakefile, is not recom‐
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       mended for most makefiles.  You should use this name if you have a makefile that is specific to GNU make, and will not be understood by
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       other versions of make.  If makefile is &amp;#39;-&amp;#39;, the standard input is read.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       make updates a target if it depends on prerequisite files that have been modified since the target was last modified, or if the  target
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       does not exist.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;大致是说make是GNU中维护和组织程序的。比如我们的C语言编译， 再比如源码安装某些软件，比如nginx的时候。那么GNU是什么鬼？&lt;/p&gt;</description>
     </item>
     <item>
       <title>docker</title>

@@ -96,7 +96,7 @@ resp := handler(w, req)
   }
   ```
 
-2. 真实创建HTTP测试服务，创建后就立马监听，通过http.Get(ts.URL)、http.Post(ts.URL)等发起真实HTTP请求
+1. 真实创建HTTP测试服务，创建后就立马监听，通过http.Get(ts.URL)、http.Post(ts.URL)等发起真实HTTP请求
 
 ts := httptest.NewServer()
 ts := httptest.NewTLSServer()

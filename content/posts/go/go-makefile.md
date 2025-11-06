@@ -127,15 +127,18 @@ Recursive Make targets
       └── Makefile
 很自然，某些时候我们也想build和test我们的tokenizer模块。由于它是一个独立的模块也可能是一个独立的项目，在它的目录有如下内容的一个Makefile是很有必要的：
 
-## ~/programming/stringifier/tokenizer/Makefile
+`~/programming/stringifier/tokenizer/Makefile`
 
+```makefile
 APP=tokenizer
 
 build:
  go build -o ${APP} main.go
+```
+
 现在只要您在stringifier项目的根目录中并且想要构建tokenizer应用程序，你不会想使用诸如cd tokenizer && make build && cd - 这样的易受攻击的命令行技巧，而具体的Makefiles的规则写在子目录中的方式。幸运的是，make可以帮助你解决这个问题。你可以使用-C标志和特殊的${NAME}变量在其他目录中调用make targets。下面是stringifies项目最初的Makefile:
 
-## ~/programming/stringifier/Makefile
+`~/programming/stringifier/Makefile`
 
 APP=stringifier
 
@@ -218,6 +221,7 @@ Success
 Help target
 一个新成员加入了该项目并想知道Makefile中所有规则的作用，为帮助它们您可以添加一个新目标(target)，该目标将打印所有目标名称以及它们作用的简短描述:
 
+```makefile
 .PHONY: build
 
 ## build: build the application
@@ -257,6 +261,8 @@ setup:
 help:
  @echo "Usage: \n"
  @sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
+```
+
 你先注意下最后一条规则，help 在这里，您只是使用一些sed魔术来解析和在命令行上打印。 但是要做到这一点，您必要在每条规则之前写了目标名称和简短描述作为注释。 注意另一个特殊变量$ {MAKEFILE_LIST}，它是您所引用的所有Makefile的列表，在本例中仅是Makefile。
 
 您会将文件Makefile作为输入传递给sed命令，该命令将解析所有帮助注释并以表格格式将其打印到stdout，以便于阅读。 上一个代码段的help目标的输出如下所示：
@@ -277,6 +283,7 @@ Make是一个简单但可高度配置的工具。 在本文中，您遍历了mak
 
 下面是完整的Makefile，其中添加了一些琐碎的规则和变量：
 
+```makefile
 GO111MODULES=on
 APP?=stringifier
 REGISTRY?=gcr.io/images
@@ -352,6 +359,7 @@ docker-push: check-environment docker-build
 .PHONY: help
 
 ## help: Prints this help message
+```
 
 ### 回声
 
