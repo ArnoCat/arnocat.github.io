@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Docker on ArnoCat</title>
-    <link>https://examplesite.com/categories/docker/</link>
+    <link>https://arnocat.github.io/categories/docker/</link>
     <description>Recent content in Docker on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 11 Aug 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="https://examplesite.com/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>docker常用命令</title>
-      <link>https://examplesite.com/posts/docker/docker-command/</link>
+      <link>https://arnocat.github.io/posts/docker/docker-command/</link>
       <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>https://examplesite.com/posts/docker/docker-command/</guid>
+      <guid>https://arnocat.github.io/posts/docker/docker-command/</guid>
       <description>&lt;h2 id=&#34;docker常用命令&#34;&gt;docker常用命令&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# docker拉取镜像&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ docker pull xxx
@@ -58,9 +58,9 @@
     </item>
     <item>
       <title>docker网络异常排查</title>
-      <link>https://examplesite.com/posts/docker/docker-network/</link>
+      <link>https://arnocat.github.io/posts/docker/docker-network/</link>
       <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>https://examplesite.com/posts/docker/docker-network/</guid>
+      <guid>https://arnocat.github.io/posts/docker/docker-network/</guid>
       <description>&lt;h2 id=&#34;docker网络异常排查&#34;&gt;docker网络异常排查&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    $ docker pull ubuntu:22.04
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Error response from daemon: Get &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://registry-1.docker.io/v2/&amp;#34;&lt;/span&gt;: EOF
@@ -116,9 +116,9 @@
     </item>
     <item>
       <title>docker-proto</title>
-      <link>https://examplesite.com/posts/docker/docker-proto-image/</link>
+      <link>https://arnocat.github.io/posts/docker/docker-proto-image/</link>
       <pubDate>Mon, 08 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>https://examplesite.com/posts/docker/docker-proto-image/</guid>
+      <guid>https://arnocat.github.io/posts/docker/docker-proto-image/</guid>
       <description>&lt;h2 id=&#34;用go-makefile-make---docker-image-生成proto-容器化用法&#34;&gt;用go Makefile make -&amp;gt; docker image 生成proto （容器化用法）&lt;/h2&gt;
 &lt;h3 id=&#34;为什么使用makefile&#34;&gt;为什么使用Makefile&lt;/h3&gt;
 &lt;p&gt;在学习docker命令的时候，发现有人使用Makefile来存储操作，叼爆了。&lt;/p&gt;
@@ -187,9 +187,9 @@
     </item>
     <item>
       <title>docker</title>
-      <link>https://examplesite.com/posts/docker/docker-dockerfile/</link>
+      <link>https://arnocat.github.io/posts/docker/docker-dockerfile/</link>
       <pubDate>Sun, 07 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>https://examplesite.com/posts/docker/docker-dockerfile/</guid>
+      <guid>https://arnocat.github.io/posts/docker/docker-dockerfile/</guid>
       <description>&lt;h2 id=&#34;dockerfile编写&#34;&gt;DockerFile编写&lt;/h2&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/AkiraNicky/article/details/85775076&#34;&gt;https://blog.csdn.net/AkiraNicky/article/details/85775076&lt;/a&gt;&lt;/p&gt;
