@@ -61,7 +61,7 @@ params:
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
-  comments: false
+  comments: true
   hidemeta: false
   hideSummary: false
   showtoc: false
@@ -146,6 +146,24 @@ params:
     minMatchCharLength: 0
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
+
+  # Gitalk 评论配置
+  gitalk:
+    enable: true
+    clientID: "Ov23ligZ8UeGxy64oWl6"  # GitHub OAuth App 的 Client ID
+    clientSecret: "44936bca1598631f63f202933282d91b92765d2b"  # GitHub OAuth App 的 Client Secret
+    repo: "arnocat.github.io"  # 用于存储评论的 GitHub 仓库名
+    owner: "arnocat"  # GitHub 用户名或组织名
+    admin: ["arnocat"]  # 管理员 GitHub 用户名列表
+    language: "zh-CN"  # 语言设置
+    perPage: 10  # 每页显示的评论数
+    distractionFreeMode: false  # 无干扰模式
+    createIssueManually: false  # 是否手动创建 Issue
+    pagerDirection: "last"  # 分页方向: last | first
+    enableHotKey: true  # 启用快捷键
+    # id: location.pathname  # 可选：自定义 ID 生成方式，默认使用 location.pathname
+    # title: document.title  # 可选：自定义标题，默认使用 document.title
+    # labels: ["Gitalk"]  # 可选：Issue 标签，默认为 ["Gitalk"]
 menu:
   main:
     - identifier: categories

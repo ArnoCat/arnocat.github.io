@@ -1,0 +1,46 @@
+{{- /* Gitalk Comments */ -}}
+{{- $gitalk := site.Params.gitalk -}}
+<div id="gitalk-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Gitalk !== 'undefined') {
+      const gitalk = new Gitalk({
+        clientID: '{{ $gitalk.clientID }}',
+        clientSecret: '{{ $gitalk.clientSecret }}',
+        repo: '{{ $gitalk.repo }}',
+        owner: '{{ $gitalk.owner }}',
+        admin: {{ $gitalk.admin | jsonify | safeJS }},
+        {{- if $gitalk.id }}
+        id: {{ $gitalk.id | jsonify }},
+        {{- else }}
+        id: location.pathname,
+        {{- end }}
+        {{- if $gitalk.title }}
+        title: {{ $gitalk.title | jsonify }},
+        {{- else }}
+        title: document.title,
+        {{- end }}
+        labels: {{ ($gitalk.labels | default (slice "Gitalk")) | jsonify | safeJS }},
+        {{- if $gitalk.body }}
+        body: {{ $gitalk.body | jsonify }},
+        {{- else }}
+        body: location.href,
+        {{- end }}
+        redirectURI: location.origin + '/',
+        language: {{ ($gitalk.language | default "zh-CN") | jsonify | safeJS }},
+        perPage: {{ $gitalk.perPage | default 10 }},
+        distractionFreeMode: {{ $gitalk.distractionFreeMode | default false }},
+        createIssueManually: {{ $gitalk.createIssueManually | default false }},
+        pagerDirection: {{ ($gitalk.pagerDirection | default "last") | jsonify | safeJS }},
+        enableHotKey: {{ $gitalk.enableHotKey | default true }}{{ if $gitalk.proxy }},
+        proxy: {{ $gitalk.proxy | jsonify | safeJS }}{{ end }}{{ if $gitalk.flipMoveOptions }},
+        flipMoveOptions: {{ $gitalk.flipMoveOptions | jsonify }}{{ end }}{{ if $gitalk.uploadImage }},
+        uploadImage: {{ $gitalk.uploadImage | jsonify }}{{ end }}
+      })
+      gitalk.render('gitalk-container')
+    } else {
+      console.error('Gitalk is not loaded. Please check if the script is included in the head section.')
+    }
+  })
+</script>
+
