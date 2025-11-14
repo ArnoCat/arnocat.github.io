@@ -470,7 +470,7 @@ ts := httptest.NewTLSServer()&lt;/p&gt;</description>
       <guid>https://arnocat.github.io/about/me/</guid>
       <description>&lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
 &lt;p&gt;You can reach me through the following channels:&lt;/p&gt;
-&lt;p&gt;{{- partial &amp;ldquo;social_icons.html&amp;rdquo; (dict &amp;ldquo;align&amp;rdquo; &amp;ldquo;left&amp;rdquo;) -}}&lt;/p&gt;</description>
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     <item>
       <title>github-action</title>
