@@ -1,8 +1,20 @@
 {{- define "main" }}
 
 <article class="post-single">
-  <header class="post-header">
+  <div class="post-article-shell">
+  <header class="post-header post-hero">
     {{ partial "breadcrumbs.html" . }}
+    {{- $categories := .GetTerms "categories" -}}
+    {{- if or $categories .ReadingTime -}}
+    <div class="post-eyebrow">
+      {{- range first 2 $categories }}
+      <a class="post-chip" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+      {{- end }}
+      {{- if .ReadingTime }}
+      <span class="post-chip subtle">{{ .ReadingTime }} min read</span>
+      {{- end }}
+    </div>
+    {{- end }}
     <h1 class="post-title entry-hint-parent">
       {{ .Title }}
       {{- if .Draft }}
@@ -23,37 +35,36 @@
     <div class="post-meta">
       {{- partial "post_meta.html" . -}}
       {{- partial "translation_list.html" . -}}
-      {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
     </div>
     {{- end }}
   </header>
-  {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
-  {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
-  {{- if (.Param "ShowToc") }}
-  {{- partial "toc.html" . }}
-  {{- end }}
-
-  {{- if .Content }}
-  <div class="post-content">
-    {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
+  <div class="post-body-shell">
+    {{- if .Content }}
+    <div class="post-content prose-shell">
+      {{- if (.Param "ShowToc") }}
+      {{- partial "toc.html" . }}
+      {{- end }}
+      {{- if not (.Param "disableAnchoredHeadings") }}
+      {{- partial "anchored_headings.html" .Content -}}
+      {{- else }}{{ .Content }}{{ end }}
+      {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+      <ul class="post-tags">
+        {{- range ($.GetTerms $tags) }}
+        <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+        {{- end }}
+      </ul>
+      {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
+      {{- partial "share_icons.html" . -}}
+      {{- end }}
+    </div>
+    {{- end }}
   </div>
-  {{- end }}
+  </div>
 
   <footer class="post-footer">
-    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-    <ul class="post-tags">
-      {{- range ($.GetTerms $tags) }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
-    {{- end }}
-    {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
-    {{- partial "share_icons.html" . -}}
     {{- end }}
   </footer>
 
@@ -68,4 +79,3 @@
 </article>
 
 {{- end }}{{/* end main */}}
-

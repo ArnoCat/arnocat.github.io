@@ -7,13 +7,14 @@ tags: ["docker"]
 categories: ["docker"]
 type: posts
 author: "arno"
+description: "整理 Dockerfile 编写时最基础的认识与参考资料，适合作为镜像构建入门索引。"
+summary: "从 Dockerfile 的基本概念切入，帮助快速建立镜像构建思路，并附上官方与中文资料入口。"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +25,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 ## DockerFile编写

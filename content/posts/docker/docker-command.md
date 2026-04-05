@@ -7,13 +7,14 @@ tags: ["docker"]
 categories: ["docker"]
 type: posts
 author: "arno"
+description: "整理 Docker 日常开发和排障里最常用的一组命令，适合作为快速速查表。"
+summary: "覆盖镜像拉取、容器查看、进入容器、启动停止与删除等常见操作，适合新手快速上手。"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +25,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 

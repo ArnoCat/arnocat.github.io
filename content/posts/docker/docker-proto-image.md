@@ -7,13 +7,14 @@ tags: ["docker"]
 categories: ["docker"]
 type: posts
 author: "arno"
+description: "记录如何结合 Makefile 与 Docker 容器批量生成多语言 proto 文件，减少重复命令操作。"
+summary: "通过一个容器化的 proto 编译示例，说明 Makefile 如何把重复的 Docker 命令收敛成更顺手的开发流程。"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +25,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 ## 用go Makefile make -> docker image 生成proto （容器化用法）
@@ -271,4 +262,3 @@ gen-proto生成grpc和protobuf@即
 - <https://www.cnblogs.com/woshimrf/p/make-docker.html>
 - <https://www.ruanyifeng.com/blog/2015/02/make.html>
 - <https://blog.csdn.net/icycolawater/article/details/77921688>
-

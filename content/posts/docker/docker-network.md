@@ -7,13 +7,15 @@ tags: ["docker"]
 categories: ["docker"]
 type: posts
 author: "arno"
+description: "从 Docker 拉取镜像失败出发，逐步定位代理、DNS 解析和 TLS 握手问题。"
+summary: "一次围绕 Docker EOF 报错的排障记录，覆盖代理变量、错误 DNS 返回、保留地址 198.18.0.0/15 与修复思路。"
+featured: true
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +26,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 ## docker网络异常排查

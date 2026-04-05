@@ -1,93 +1,100 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Categories on ArnoCat</title>
-    <link>https://arnocat.github.io/categories/</link>
-    <description>Recent content in Categories on ArnoCat</description>
+    <title>分类 on ArnoCat</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in 分类 on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/favicon.ico</url>
+      <link>http://localhost:1313/favicon.ico</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo -- 0.160.0</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 02 Sep 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="https://arnocat.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Apr 2026 10:30:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vibecoding</title>
+      <link>http://localhost:1313/categories/vibecoding/</link>
+      <pubDate>Sun, 05 Apr 2026 10:30:00 +0800</pubDate>
+      <guid>http://localhost:1313/categories/vibecoding/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Restapi</title>
-      <link>https://arnocat.github.io/categories/restapi/</link>
+      <link>http://localhost:1313/categories/restapi/</link>
       <pubDate>Mon, 02 Sep 2024 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/restapi/</guid>
+      <guid>http://localhost:1313/categories/restapi/</guid>
       <description></description>
     </item>
     <item>
       <title>Go</title>
-      <link>https://arnocat.github.io/categories/go/</link>
+      <link>http://localhost:1313/categories/go/</link>
       <pubDate>Mon, 19 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/go/</guid>
+      <guid>http://localhost:1313/categories/go/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>https://arnocat.github.io/categories/docker/</link>
+      <link>http://localhost:1313/categories/docker/</link>
       <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/docker/</guid>
+      <guid>http://localhost:1313/categories/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Vad</title>
-      <link>https://arnocat.github.io/categories/vad/</link>
+      <link>http://localhost:1313/categories/vad/</link>
       <pubDate>Sat, 10 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/vad/</guid>
+      <guid>http://localhost:1313/categories/vad/</guid>
       <description></description>
     </item>
     <item>
       <title>Zsh</title>
-      <link>https://arnocat.github.io/categories/zsh/</link>
+      <link>http://localhost:1313/categories/zsh/</link>
       <pubDate>Thu, 25 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/zsh/</guid>
+      <guid>http://localhost:1313/categories/zsh/</guid>
       <description></description>
     </item>
     <item>
       <title>Github</title>
-      <link>https://arnocat.github.io/categories/github/</link>
+      <link>http://localhost:1313/categories/github/</link>
       <pubDate>Wed, 10 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/github/</guid>
+      <guid>http://localhost:1313/categories/github/</guid>
       <description></description>
     </item>
     <item>
       <title>Vscode</title>
-      <link>https://arnocat.github.io/categories/vscode/</link>
+      <link>http://localhost:1313/categories/vscode/</link>
       <pubDate>Wed, 10 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/vscode/</guid>
+      <guid>http://localhost:1313/categories/vscode/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>https://arnocat.github.io/categories/linux/</link>
+      <link>http://localhost:1313/categories/linux/</link>
       <pubDate>Mon, 08 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/linux/</guid>
+      <guid>http://localhost:1313/categories/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>General</title>
-      <link>https://arnocat.github.io/categories/general/</link>
+      <link>http://localhost:1313/categories/general/</link>
       <pubDate>Sun, 07 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/general/</guid>
+      <guid>http://localhost:1313/categories/general/</guid>
       <description></description>
     </item>
     <item>
       <title>Blog</title>
-      <link>https://arnocat.github.io/categories/blog/</link>
+      <link>http://localhost:1313/categories/blog/</link>
       <pubDate>Tue, 05 Jul 2022 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/blog/</guid>
+      <guid>http://localhost:1313/categories/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Ai</title>
-      <link>https://arnocat.github.io/categories/ai/</link>
+      <link>http://localhost:1313/categories/ai/</link>
       <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/categories/ai/</guid>
+      <guid>http://localhost:1313/categories/ai/</guid>
       <description></description>
     </item>
   </channel>

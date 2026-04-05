@@ -1,0 +1,61 @@
+{{- define "main" }}
+
+{{- if not .IsHome | and .Title }}
+{{- $taxonomyLabel := cond (eq .Type "categories") "分类" (cond (eq .Type "tags") "标签" "专题") -}}
+{{- $kicker := cond (eq .Type "categories") "Browse Categories" (cond (eq .Type "tags") "Explore Tags" "Browse Collection") -}}
+{{- $defaultDescription := cond (eq .Type "categories")
+  (printf "这里聚合了 %s 分类下的文章与实践记录，方便按主题连续阅读。" .Title)
+  (cond (eq .Type "tags")
+    (printf "这里收录了与 %s 标签相关的文章，适合快速定位具体问题与工具用法。" .Title)
+    (printf "这里收录了与 %s 相关的文章与实践记录。" .Title)) -}}
+<section class="taxonomy-shell">
+  <header class="page-header taxonomy-header">
+    {{- partial "breadcrumbs.html" . }}
+    <div class="taxonomy-hero">
+      <div class="taxonomy-copy">
+        <p class="section-kicker">{{ $kicker }}</p>
+        <h1>
+          {{ .Title }}
+          {{- if and (or (eq .Kind `term`) (eq .Kind `section`)) (.Param "ShowRssButtonInSectionTermList") }}
+          {{- with .OutputFormats.Get "rss" }}
+          <a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" height="23">
+              <path d="M4 11a9 9 0 0 1 9 9" />
+              <path d="M4 4a16 16 0 0 1 16 16" />
+              <circle cx="5" cy="19" r="1" />
+            </svg>
+          </a>
+          {{- end }}
+          {{- end }}
+        </h1>
+      </div>
+      <div class="taxonomy-meta">
+        <p class="section-summary">
+          {{ .Description | default $defaultDescription }}
+        </p>
+        <div class="taxonomy-stats">
+          <span class="taxonomy-stat">{{ len .RegularPages }} 篇文章</span>
+          <span class="taxonomy-stat">{{ $taxonomyLabel }}归档</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{- $pages := union .RegularPages .Sections }}
+  {{- $paginator := .Paginate $pages }}
+  <div class="posts-grid taxonomy-grid">
+    {{- range $paginator.Pages }}
+    <div class="post-column">
+      {{ .Render "summary" }}
+    </div>
+    {{- end }}
+  </div>
+
+  <div class="post-pagination">
+    {{ partial "paginator.html" (dict "paginator" $paginator) }}
+  </div>
+</section>
+{{- end }}
+
+{{- end }}

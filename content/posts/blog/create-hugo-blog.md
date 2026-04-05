@@ -6,15 +6,16 @@ date: 2022-07-05T11:30:03+00:00
 tags: ["blog"]
 categories: ["blog"]
 type: posts
-author: "Me"
+author: "arno"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "新建一个hugo博客"
-canonicalURL: "https://canonical.url/to/page"
+description: "从零创建 Hugo 博客并发布到 GitHub Pages 的基础流程记录。"
+summary: "覆盖 GitHub 仓库创建、Hugo 安装、主题接入、本地预览和 `docs/` 发布等完整建站步骤。"
+featured: true
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -25,16 +26,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 ## Introduction

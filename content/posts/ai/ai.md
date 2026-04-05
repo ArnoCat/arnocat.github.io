@@ -1,19 +1,20 @@
 ---
-title: "ai"
+title: "AI 大模型应用开发入门资料"
 date: 2020-09-15T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
 tags: ["ai"]
 categories: ["ai"]
 type: posts
-author: "Me"
+author: "arno"
+description: "面向工程师整理的一份 AI 大模型应用开发学习路线，覆盖 LLM、Prompt、RAG 与 Java 生态框架。"
+summary: "从大模型基础概念到 LangChain4j、Spring AI 与一些可参考项目，帮助快速建立 AI 应用开发的学习地图。"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +25,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 有很多球友对 AI 大模型应用开发感兴趣，这里简单分享一下相对具体的学习资料，从入门到实战。

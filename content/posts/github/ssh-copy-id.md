@@ -7,13 +7,14 @@ tags: ["github"]
 categories: ["github"]
 type: posts
 author: "arno"
+description: "用 ssh-copy-id 快速完成免密登录配置，并顺手整理一份 SSH config 简化连接的用法。"
+summary: "覆盖 SSH 密钥生成、`ssh-copy-id` 安装公钥和 `~/.ssh/config` 简化主机别名配置这几个高频步骤。"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +25,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 

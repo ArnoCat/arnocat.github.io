@@ -1,7 +1,7 @@
 baseURL: "https://arnocat.github.io/"
-title: ExampleSite
+title: "ArnoCat"
 pagination:
-  pagerSize: 10
+  pagerSize: 9
 theme: PaperMod
 publishDir: "docs"
 
@@ -41,13 +41,13 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: Me
+  title: "ArnoCat"
+  description: "记录 Go、Docker、Linux、AI 与开发工作流的实践笔记。"
+  keywords: [Go, Docker, Linux, Hugo, AI, Workflow]
+  author: "arno"
   # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
-  DateFormat: "January 2, 2006"
+  images: ["/favicon.ico"]
+  DateFormat: "2006-01-02"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
@@ -55,13 +55,13 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
-  comments: true
+  comments: false
   hidemeta: false
   hideSummary: false
   showtoc: false
@@ -70,25 +70,25 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon.ico"
+    favicon32x32: "/favicon.ico"
+    apple_touch_icon: "/favicon.ico"
+    safari_pinned_tab: "/favicon.ico"
 
   label:
     text: "ArnoCat"
-    icon: /apple-touch-icon.png
-    iconHeight: 35
+    icon: /favicon.ico
+    iconHeight: 24
   disableLangToggle: true
   displayFullLangName: false
 
   # profile-mode
   profileMode:
     enabled: false # needs to be explicitly set
-    title: ExampleSite
-    subtitle: "This is subtitle"
-    imageUrl: "<img location>"
+    title: "ArnoCat"
+    subtitle: "Practical notes for engineers"
+    imageUrl: "/favicon.ico"
     imageWidth: 120
     imageHeight: 120
     imageTitle: my image
@@ -100,40 +100,21 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Title: "ArnoCat 的技术手记"
+    Content: "聚焦 Go、Docker、Linux、AI 和开发工作流，记录真实问题、排查过程与可复用经验。"
 
   socialIcons:
     - name: github
-      url: "https://github.com/"
+      url: "https://github.com/arnocat"
       title: "GitHub"
     - name: email
-      url: "mailto:g243284589@gmail.com"
+      url: "mailto:q243284589@gmail.com"
       title: "Email"
-    - name: x
-      url: "https://x.com/"
-      title: "X (Twitter)"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
-      title: "Stack Overflow"
-
-  analytics:
-    google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
 
   cover:
     hidden: true # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
-
-  editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 
   # for search
   # https://fusejs.io/api/options.html
@@ -147,39 +128,24 @@ params:
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
 
-  # Gitalk 评论配置
   gitalk:
-    enable: true
-    clientID: "Ov23ligZ8UeGxy64oWl6"  # GitHub OAuth App 的 Client ID
-    clientSecret: "44936bca1598631f63f202933282d91b92765d2b"  # GitHub OAuth App 的 Client Secret
-    repo: "arnocat.github.io"  # 用于存储评论的 GitHub 仓库名
-    owner: "arnocat"  # GitHub 用户名或组织名
-    admin: ["arnocat"]  # 管理员 GitHub 用户名列表
-    language: "zh-CN"  # 语言设置
-    perPage: 10  # 每页显示的评论数
-    distractionFreeMode: false  # 无干扰模式
-    createIssueManually: false  # 是否手动创建 Issue
-    pagerDirection: "last"  # 分页方向: last | first
-    enableHotKey: true  # 启用快捷键
-    # id: location.pathname  # 可选：自定义 ID 生成方式，默认使用 location.pathname
-    # title: document.title  # 可选：自定义标题，默认使用 document.title
-    # labels: ["Gitalk"]  # 可选：Issue 标签，默认为 ["Gitalk"]
+    enable: false
 menu:
   main:
     - identifier: categories
-      name: categories
+      name: 分类
       url: /categories/
       weight: 10
-    - identifier: tags
-      name: tags
-      url: /tags/
-      weight: 20
     - identifier: about
-      name: about
+      name: 关于
       url: /about/me/
       weight: 15
+    - identifier: tags
+      name: 标签
+      url: /tags/
+      weight: 20
     - identifier: search
-      name: search
+      name: 搜索
       url: /search/
       weight: 25
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma

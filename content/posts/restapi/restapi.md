@@ -1,5 +1,5 @@
 ---
-title: "restapi"
+title: "Gin 项目 Swagger / OpenAPI 接入"
 date: 2024-09-02T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
@@ -7,13 +7,15 @@ tags: ["restapi"]
 categories: ["restapi"]
 type: posts
 author: "arno"
+description: "使用 swag 和 gin-swagger 为 Gin 项目快速接入 Swagger / OpenAPI 文档。"
+summary: "从安装 swag 开始，到注释规范、命令生成和路由挂载，梳理一套更适合 Gin 项目的接口文档接入流程。"
+featured: true
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +26,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 ## swagger gin stoplight 使用

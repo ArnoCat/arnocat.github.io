@@ -6,14 +6,16 @@ date: 2024-07-18T14:44:54+08:00
 tags: ["go"]
 categories: ["go"]
 type: posts
-author: "Author Name"
+author: "arno"
+description: "整理 Go 单元测试里常用的 Testify 与 httptest 用法，适合作为快速入门笔记。"
+summary: "从 assert 断言到 httptest.NewRecorder 与测试服务创建，快速梳理 Go 常见测试写法和基础示例。"
+featured: true
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +26,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 

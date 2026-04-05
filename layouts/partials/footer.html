@@ -1,5 +1,5 @@
 {{- if not (.Param "hideFooter") }}
-<footer class="footer">
+<footer class="footer site-footer">
     {{- if not site.Params.footer.hideCopyright }}
         {{- if site.Copyright }}
         <span>{{ site.Copyright | markdownify }}</span>
@@ -14,7 +14,7 @@
         {{- print " · "}}
     {{- end }}
 
-    <span>
+    <span class="footer-credit">
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
@@ -116,6 +116,9 @@
 <script>
     document.querySelectorAll('pre > code').forEach((codeblock) => {
         const container = codeblock.parentNode.parentNode;
+        if (codeblock.dataset.lang && container.classList.contains("highlight")) {
+            container.dataset.lang = codeblock.dataset.lang;
+        }
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
@@ -161,4 +164,3 @@
     });
 </script>
 {{- end }}
-

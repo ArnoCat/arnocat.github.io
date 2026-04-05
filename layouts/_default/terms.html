@@ -1,0 +1,48 @@
+{{- define "main" }}
+
+{{- $taxonomyLabel := cond (eq .Type "categories") "分类" (cond (eq .Type "tags") "标签" .Title) -}}
+{{- $kicker := cond (eq .Type "categories") "Browse Categories" (cond (eq .Type "tags") "Explore Tags" "Explore Topics") -}}
+{{- $defaultDescription := cond (eq .Type "categories")
+  "按分类查看整站内容，适合系统性浏览某个技术方向。"
+  (cond (eq .Type "tags")
+    "按标签快速定位文章集合，适合围绕具体问题做针对性检索。"
+    "按主题快速浏览文章集合，找到更聚焦的技术内容。") -}}
+<section class="taxonomy-shell">
+  {{- if .Title }}
+  <header class="page-header taxonomy-header">
+    <div class="taxonomy-hero">
+      <div class="taxonomy-copy">
+        <p class="section-kicker">{{ $kicker }}</p>
+        <h1>{{ $taxonomyLabel }}</h1>
+      </div>
+      <div class="taxonomy-meta">
+        <p class="section-summary">
+          {{ .Description | default $defaultDescription }}
+        </p>
+        <div class="taxonomy-stats">
+          <span class="taxonomy-stat">{{ len .Data.Terms }} 个{{ $taxonomyLabel }}</span>
+          <span class="taxonomy-stat">{{ len site.RegularPages }} 篇文章</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  {{- end }}
+
+  <ul class="terms-tags taxonomy-tags">
+    {{- $type := .Type }}
+    {{- range $key, $value := .Data.Terms.ByCount }}
+    {{- $name := .Name }}
+    {{- $count := .Count }}
+    {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+    <li>
+      <a href="{{ .Permalink }}">
+        <span>{{ .LinkTitle }}</span>
+        <sup>{{ $count }}</sup>
+      </a>
+    </li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</section>
+
+{{- end }}

@@ -7,13 +7,14 @@ tags: ["go"]
 categories: ["go"]
 type: posts
 author: "arno"
+description: "围绕 Viper 的配置读取、默认值设置与结构体映射，整理一篇 Go 配置库入门笔记。"
+summary: "适合快速了解 Viper 的核心能力：配置文件加载、环境切换、默认值与 `Unmarshal` 到结构体的基本用法。"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +25,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 

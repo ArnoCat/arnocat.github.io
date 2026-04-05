@@ -6,14 +6,15 @@ date: 2024-07-18T16:44:54+08:00
 tags: ["go"]
 categories: ["go"]
 type: posts
-author: "Author Name"
+author: "arno"
+description: "结合 Go 项目实践，解释如何用 Makefile 统一 build、run、clean 和多模块任务。"
+summary: "从基础规则、`.PHONY` 到递归 target，帮助你把 Go 项目的常用命令整理成更稳定的 Makefile 工作流。"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +25,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 ## Using Makefile for Go - Go语言项目如何正确使用Makefile

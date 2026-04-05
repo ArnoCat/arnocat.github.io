@@ -7,13 +7,14 @@ tags: ["vscode"]
 categories: ["vscode"]
 type: posts
 author: "arno"
+description: "记录 VS Code 在 Go 开发中的一些实用能力，包括测试环境变量配置和常用插件。"
+summary: "适合新项目初始化时快速参考：如何给 Go 测试注入环境变量、组织 `.vscode` 配置以及补充常用插件。"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-canonicalURL: "https://canonical.url/to/page"
 disableHLJS: false # to disable highlightjs
 disableShare: false
 hideSummary: false
@@ -24,16 +25,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 
 

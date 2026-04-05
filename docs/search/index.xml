@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Search on ArnoCat</title>
-    <link>https://arnocat.github.io/search/</link>
-    <description>Recent content in Search on ArnoCat</description>
+    <title>搜索 on ArnoCat</title>
+    <link>http://localhost:1313/search/</link>
+    <description>Recent content in 搜索 on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/favicon.ico</url>
+      <link>http://localhost:1313/favicon.ico</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo -- 0.160.0</generator>
     <language>zh</language>
-    <atom:link href="https://arnocat.github.io/search/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/search/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

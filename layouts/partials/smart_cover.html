@@ -1,0 +1,26 @@
+{{- with .cxt -}}
+{{- if and .Params.cover.image (not $.isHidden) -}}
+  {{- partial "cover.html" (dict "cxt" . "IsSingle" $.IsSingle "isHidden" $.isHidden) -}}
+{{- else -}}
+  {{- $categories := .GetTerms "categories" -}}
+  {{- $primaryCategory := cond (gt (len $categories) 0) ((index $categories 0).LinkTitle) "Article" -}}
+  {{- $description := .Description | default (.Summary | plainify | htmlUnescape) -}}
+  <figure class="entry-cover entry-cover-generated{{ if $.IsSingle }} single-cover-generated{{ end }}">
+    <div class="generated-cover-surface">
+      <div class="generated-cover-meta">
+        {{- if $.IsSingle -}}
+        <span class="generated-cover-label">{{ $primaryCategory }}</span>
+        <span class="generated-cover-slug">{{ .Date | time.Format "2006-01-02" }}</span>
+        {{- else -}}
+        <span class="generated-cover-badge">{{ $primaryCategory }} · {{ .ReadingTime }} min</span>
+        {{- end -}}
+      </div>
+      <div class="generated-cover-body">
+        {{- if and $.IsSingle $description -}}
+        <p>{{ $description | truncate 110 }}</p>
+        {{- end -}}
+      </div>
+    </div>
+  </figure>
+{{- end -}}
+{{- end -}}

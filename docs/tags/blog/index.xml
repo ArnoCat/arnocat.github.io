@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blog on ArnoCat</title>
-    <link>https://arnocat.github.io/tags/blog/</link>
+    <link>http://localhost:1313/tags/blog/</link>
     <description>Recent content in Blog on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://arnocat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/favicon.ico</url>
+      <link>http://localhost:1313/favicon.ico</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo -- 0.160.0</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 05 Jul 2022 11:30:03 +0000</lastBuildDate>
-    <atom:link href="https://arnocat.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>新建一个hugo博客</title>
-      <link>https://arnocat.github.io/posts/blog/create-hugo-blog/</link>
+      <link>http://localhost:1313/posts/blog/create-hugo-blog/</link>
       <pubDate>Tue, 05 Jul 2022 11:30:03 +0000</pubDate>
-      <guid>https://arnocat.github.io/posts/blog/create-hugo-blog/</guid>
-      <description>新建一个hugo博客</description>
+      <guid>http://localhost:1313/posts/blog/create-hugo-blog/</guid>
+      <description>从零创建 Hugo 博客并发布到 GitHub Pages 的基础流程记录。</description>
     </item>
   </channel>
 </rss>
