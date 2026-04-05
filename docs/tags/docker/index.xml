@@ -2,43 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Docker on ArnoCat</title>
-    <link>http://localhost:1313/tags/docker/</link>
+    <link>https://arnocat.github.io/tags/docker/</link>
     <description>Recent content in Docker on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/favicon.ico</url>
-      <link>http://localhost:1313/favicon.ico</link>
+      <url>https://arnocat.github.io/favicon.ico</url>
+      <link>https://arnocat.github.io/favicon.ico</link>
     </image>
     <generator>Hugo -- 0.160.0</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 11 Aug 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>docker常用命令</title>
-      <link>http://localhost:1313/posts/docker/docker-command/</link>
+      <link>https://arnocat.github.io/posts/docker/docker-command/</link>
       <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/docker/docker-command/</guid>
+      <guid>https://arnocat.github.io/posts/docker/docker-command/</guid>
       <description>整理 Docker 日常开发和排障里最常用的一组命令，适合作为快速速查表。</description>
     </item>
     <item>
       <title>docker网络异常排查</title>
-      <link>http://localhost:1313/posts/docker/docker-network/</link>
+      <link>https://arnocat.github.io/posts/docker/docker-network/</link>
       <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/docker/docker-network/</guid>
+      <guid>https://arnocat.github.io/posts/docker/docker-network/</guid>
       <description>从 Docker 拉取镜像失败出发，逐步定位代理、DNS 解析和 TLS 握手问题。</description>
     </item>
     <item>
       <title>docker-proto</title>
-      <link>http://localhost:1313/posts/docker/docker-proto-image/</link>
+      <link>https://arnocat.github.io/posts/docker/docker-proto-image/</link>
       <pubDate>Mon, 08 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/docker/docker-proto-image/</guid>
+      <guid>https://arnocat.github.io/posts/docker/docker-proto-image/</guid>
       <description>记录如何结合 Makefile 与 Docker 容器批量生成多语言 proto 文件，减少重复命令操作。</description>
     </item>
     <item>
       <title>docker</title>
-      <link>http://localhost:1313/posts/docker/docker-dockerfile/</link>
+      <link>https://arnocat.github.io/posts/docker/docker-dockerfile/</link>
       <pubDate>Sun, 07 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/docker/docker-dockerfile/</guid>
+      <guid>https://arnocat.github.io/posts/docker/docker-dockerfile/</guid>
       <description>整理 Dockerfile 编写时最基础的认识与参考资料，适合作为镜像构建入门索引。</description>
     </item>
   </channel>

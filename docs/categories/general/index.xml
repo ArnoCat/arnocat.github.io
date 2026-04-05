@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>General on ArnoCat</title>
-    <link>http://localhost:1313/categories/general/</link>
+    <link>https://arnocat.github.io/categories/general/</link>
     <description>Recent content in General on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/favicon.ico</url>
-      <link>http://localhost:1313/favicon.ico</link>
+      <url>https://arnocat.github.io/favicon.ico</url>
+      <link>https://arnocat.github.io/favicon.ico</link>
     </image>
     <generator>Hugo -- 0.160.0</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 07 Jul 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/categories/general/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>default</title>
-      <link>http://localhost:1313/posts/default/</link>
+      <link>https://arnocat.github.io/posts/default/</link>
       <pubDate>Sun, 07 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/default/</guid>
+      <guid>https://arnocat.github.io/posts/default/</guid>
       <description>&lt;h2 id=&#34;docker&#34;&gt;docker&lt;/h2&gt;</description>
     </item>
   </channel>

@@ -2,99 +2,99 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>标签 on ArnoCat</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://arnocat.github.io/tags/</link>
     <description>Recent content in 标签 on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/favicon.ico</url>
-      <link>http://localhost:1313/favicon.ico</link>
+      <url>https://arnocat.github.io/favicon.ico</url>
+      <link>https://arnocat.github.io/favicon.ico</link>
     </image>
     <generator>Hugo -- 0.160.0</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 05 Apr 2026 10:30:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai</title>
-      <link>http://localhost:1313/tags/ai/</link>
+      <link>https://arnocat.github.io/tags/ai/</link>
       <pubDate>Sun, 05 Apr 2026 10:30:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/ai/</guid>
+      <guid>https://arnocat.github.io/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Workflow</title>
-      <link>http://localhost:1313/tags/workflow/</link>
+      <link>https://arnocat.github.io/tags/workflow/</link>
       <pubDate>Sun, 05 Apr 2026 10:30:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/workflow/</guid>
+      <guid>https://arnocat.github.io/tags/workflow/</guid>
       <description></description>
     </item>
     <item>
       <title>Restapi</title>
-      <link>http://localhost:1313/tags/restapi/</link>
+      <link>https://arnocat.github.io/tags/restapi/</link>
       <pubDate>Mon, 02 Sep 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/restapi/</guid>
+      <guid>https://arnocat.github.io/tags/restapi/</guid>
       <description></description>
     </item>
     <item>
       <title>Go</title>
-      <link>http://localhost:1313/tags/go/</link>
+      <link>https://arnocat.github.io/tags/go/</link>
       <pubDate>Mon, 19 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/go/</guid>
+      <guid>https://arnocat.github.io/tags/go/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>http://localhost:1313/tags/docker/</link>
+      <link>https://arnocat.github.io/tags/docker/</link>
       <pubDate>Sun, 11 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/docker/</guid>
+      <guid>https://arnocat.github.io/tags/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Vad</title>
-      <link>http://localhost:1313/tags/vad/</link>
+      <link>https://arnocat.github.io/tags/vad/</link>
       <pubDate>Sat, 10 Aug 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/vad/</guid>
+      <guid>https://arnocat.github.io/tags/vad/</guid>
       <description></description>
     </item>
     <item>
       <title>Zsh</title>
-      <link>http://localhost:1313/tags/zsh/</link>
+      <link>https://arnocat.github.io/tags/zsh/</link>
       <pubDate>Thu, 25 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/zsh/</guid>
+      <guid>https://arnocat.github.io/tags/zsh/</guid>
       <description></description>
     </item>
     <item>
       <title>Github</title>
-      <link>http://localhost:1313/tags/github/</link>
+      <link>https://arnocat.github.io/tags/github/</link>
       <pubDate>Wed, 10 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/github/</guid>
+      <guid>https://arnocat.github.io/tags/github/</guid>
       <description></description>
     </item>
     <item>
       <title>Vscode</title>
-      <link>http://localhost:1313/tags/vscode/</link>
+      <link>https://arnocat.github.io/tags/vscode/</link>
       <pubDate>Wed, 10 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/vscode/</guid>
+      <guid>https://arnocat.github.io/tags/vscode/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>http://localhost:1313/tags/linux/</link>
+      <link>https://arnocat.github.io/tags/linux/</link>
       <pubDate>Mon, 08 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/linux/</guid>
+      <guid>https://arnocat.github.io/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>First</title>
-      <link>http://localhost:1313/tags/first/</link>
+      <link>https://arnocat.github.io/tags/first/</link>
       <pubDate>Sun, 07 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/first/</guid>
+      <guid>https://arnocat.github.io/tags/first/</guid>
       <description></description>
     </item>
     <item>
       <title>Blog</title>
-      <link>http://localhost:1313/tags/blog/</link>
+      <link>https://arnocat.github.io/tags/blog/</link>
       <pubDate>Tue, 05 Jul 2022 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/tags/blog/</guid>
+      <guid>https://arnocat.github.io/tags/blog/</guid>
       <description></description>
     </item>
   </channel>

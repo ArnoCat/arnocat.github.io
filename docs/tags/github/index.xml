@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Github on ArnoCat</title>
-    <link>http://localhost:1313/tags/github/</link>
+    <link>https://arnocat.github.io/tags/github/</link>
     <description>Recent content in Github on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/favicon.ico</url>
-      <link>http://localhost:1313/favicon.ico</link>
+      <url>https://arnocat.github.io/favicon.ico</url>
+      <link>https://arnocat.github.io/favicon.ico</link>
     </image>
     <generator>Hugo -- 0.160.0</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 10 Jul 2024 11:30:03 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>github-action</title>
-      <link>http://localhost:1313/posts/github/github-action/</link>
+      <link>https://arnocat.github.io/posts/github/github-action/</link>
       <pubDate>Wed, 10 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/github/github-action/</guid>
+      <guid>https://arnocat.github.io/posts/github/github-action/</guid>
       <description>围绕 Git 常见分支切换和 stash 使用场景，整理一份高频命令速查。</description>
     </item>
     <item>
       <title>ssh-copy-id</title>
-      <link>http://localhost:1313/posts/github/ssh-copy-id/</link>
+      <link>https://arnocat.github.io/posts/github/ssh-copy-id/</link>
       <pubDate>Wed, 10 Jul 2024 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/github/ssh-copy-id/</guid>
+      <guid>https://arnocat.github.io/posts/github/ssh-copy-id/</guid>
       <description>用 ssh-copy-id 快速完成免密登录配置，并顺手整理一份 SSH config 简化连接的用法。</description>
     </item>
   </channel>

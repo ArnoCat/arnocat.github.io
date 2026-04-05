@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ai on ArnoCat</title>
-    <link>http://localhost:1313/categories/ai/</link>
+    <link>https://arnocat.github.io/categories/ai/</link>
     <description>Recent content in Ai on ArnoCat</description>
     <image>
       <title>ArnoCat</title>
-      <url>http://localhost:1313/favicon.ico</url>
-      <link>http://localhost:1313/favicon.ico</link>
+      <url>https://arnocat.github.io/favicon.ico</url>
+      <link>https://arnocat.github.io/favicon.ico</link>
     </image>
     <generator>Hugo -- 0.160.0</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/ai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://arnocat.github.io/categories/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI 大模型应用开发入门资料</title>
-      <link>http://localhost:1313/posts/ai/ai/</link>
+      <link>https://arnocat.github.io/posts/ai/ai/</link>
       <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
-      <guid>http://localhost:1313/posts/ai/ai/</guid>
+      <guid>https://arnocat.github.io/posts/ai/ai/</guid>
       <description>面向工程师整理的一份 AI 大模型应用开发学习路线，覆盖 LLM、Prompt、RAG 与 Java 生态框架。</description>
     </item>
   </channel>
